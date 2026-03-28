@@ -1,46 +1,91 @@
-import Link from 'next/link';
+import { Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import Link from "next/link";
 
-function PublicFooter() {
-  return (
-    <footer className="border-t bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="font-bold mb-2">PH Doc</h3>
-            <p className="text-sm text-muted-foreground">Your health is our priority. We are here to provide the best medical services.</p>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Home</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">About Us</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Services</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Contact</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Support</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">FAQ</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Help Center</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Terms of Service</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Privacy Policy</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Contact Us</h3>
-            <p className="text-sm text-muted-foreground">
-              123 Medical Lane<br />
-              Health City, HC 12345<br />
-              contact@phdoc.com
-            </p>
-          </div>
-        </div>
-        <div className="mt-8 border-t pt-4 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} PH Doc. All Rights Reserved.
-        </div>
-      </div>
-    </footer>
-  );
+export default function Footer() {
+    return (
+        <footer className="bg-[#0a0a0a] text-white pt-16 pb-10">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12">
+
+                    {/* Logo & Tagline */}
+                    <div className="md:col-span-4">
+                        <div className="flex items-center gap-3 mb-3">
+                            <span className="text-4xl font-bold tracking-wider text-emerald-400">DREMARR</span>
+                        </div>
+                        <p className="text-gray-400 text-lg">Where Skills Become Value.</p>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className="md:col-span-2">
+                        <h3 className="text-white font-semibold text-lg mb-6">Quick Links</h3>
+                        <ul className="space-y-3 text-gray-400">
+                            <li><Link href="/" className="hover:text-white transition">Home</Link></li>
+                            <li><Link href="/marketplace" className="hover:text-white transition">Marketplace</Link></li>
+                            <li><Link href="/membership" className="hover:text-white transition">Membership</Link></li>
+                            <li><Link href="/message" className="hover:text-white transition">Message</Link></li>
+                            <li><Link href="/login" className="hover:text-white transition">Login</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Connect */}
+                    <div className="md:col-span-3">
+                        <h3 className="text-white font-semibold text-lg mb-6">Connect</h3>
+                        <div className="space-y-4">
+                            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition">
+                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
+                                    <Instagram className="w-5 h-5" />
+                                </div>
+                                Instagram
+                            </a>
+                            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition">
+                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
+                                    <Facebook className="w-5 h-5" />
+                                </div>
+                                Facebook
+                            </a>
+                            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition">
+                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
+                                    <Linkedin className="w-5 h-5" />
+                                </div>
+                                LinkedIn
+                            </a>
+                            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition">
+                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
+                                    <span className="text-xl">♫</span>
+                                </div>
+                                Tiktok
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Stay Updated */}
+                    <div className="md:col-span-3">
+                        <h3 className="text-white font-semibold text-lg mb-6">Stay Updated</h3>
+                        <p className="text-gray-400 mb-4">Get the latest news and special offers</p>
+
+                        <div className="relative">
+                            <input
+                                type="email"
+                                placeholder="Your email"
+                                className="w-full bg-[#1a1a1a] border border-gray-700 rounded-full py-4 pl-6 pr-14 text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500"
+                            />
+                            <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-emerald-500 hover:bg-emerald-600 transition w-10 h-10 rounded-full flex items-center justify-center">
+                                →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                    <p>hello@dremmarr.com</p>
+
+                    <div className="flex gap-6">
+                        <Link href="/terms" className="hover:text-white transition">Terms & conditions</Link>
+                        <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
 }
-export default PublicFooter;
