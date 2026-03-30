@@ -24,24 +24,24 @@ const TradingSteps = () => {
     ];
 
     return (
-        <div className=" bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-3">
+                    <h1 className="mb-3 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
                         Start Trading in Three Steps
                     </h1>
-                    <p className="text-gray-500 text-lg">
+                    <p className="text-base text-gray-500 sm:text-lg">
                         No complicated setup. Just creat, connect, and exchange.
                     </p>
                 </div>
 
                 {/* Steps Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                     {steps.map((step, index) => (
                         <div
                             key={index}
-                            className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                            className="rounded-2xl bg-gray-50 p-6 transition-shadow duration-300 hover:shadow-lg sm:p-8"
                         >
                             {/* Number and Icon */}
                             <div className="flex items-center justify-between mb-6">
@@ -50,8 +50,6 @@ const TradingSteps = () => {
                                 </span>
                                 <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-600">
                                     {step.icon}
-                                </div>
-                                    <div className="w-12 h-12  rounded-full flex items-center justify-center text-gray-600">
                                 </div>
                             </div>
 

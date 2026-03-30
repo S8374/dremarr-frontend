@@ -34,10 +34,10 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="bg-white py-16 ">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl">
         {/* Title */}
-        <h2 className="text-4xl font-semibold text-center text-gray-900 mb-12">
+        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900 sm:mb-12 sm:text-4xl">
           Frequently Asked Questions
         </h2>
 
@@ -51,12 +51,12 @@ export default function FAQSection() {
               {/* Question Header */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-8 py-6 flex items-center justify-between text-left group"
+                className="group flex w-full items-center justify-between px-4 py-5 text-left sm:px-8 sm:py-6"
               >
-                <span className="text-lg font-medium text-gray-900 pr-8">
+                <span className="pr-6 text-base font-medium text-gray-900 sm:pr-8 sm:text-lg">
                   {faq.question}
                 </span>
-                <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-emerald-500 transition-colors">
+                <div className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-emerald-500 transition-colors">
                   {openIndex === index ? (
                     <Minus className="w-5 h-5 text-emerald-600" />
                   ) : (
@@ -68,10 +68,10 @@ export default function FAQSection() {
               {/* Answer */}
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-48" : "max-h-0"
+                  openIndex === index ? "max-h-64 sm:max-h-48" : "max-h-0"
                 }`}
               >
-                <div className="px-8 pb-8 text-gray-600 leading-relaxed">
+                <div className="px-4 pb-6 leading-relaxed text-gray-600 sm:px-8 sm:pb-8">
                   {faq.answer}
                 </div>
               </div>

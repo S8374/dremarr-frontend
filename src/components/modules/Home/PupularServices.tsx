@@ -41,22 +41,22 @@ export default function SearchServicesSection() {
   );
 
   return (
-    <section className="bg-white py-10 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
         
         {/* Title */}
-        <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+        <h2 className="mb-6 text-2xl font-semibold text-gray-900 sm:text-3xl">
           Serch Services
         </h2>
 
         {/* Search Bar - Exact Match */}
-        <div className="relative  mb-10">
+        <div className="relative mb-10">
           <input
             type="text"
             placeholder="Search for any service"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-6 pr-14 py-4 bg-white border border-gray-200 rounded-2xl text-base placeholder:text-gray-500 focus:outline-none focus:border-gray-300 shadow-sm"
+            className="w-full rounded-2xl border border-gray-200 bg-white py-3.5 pl-5 pr-14 text-sm placeholder:text-gray-500 shadow-sm focus:border-gray-300 focus:outline-none sm:py-4 sm:pl-6 sm:text-base"
           />
           <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-100 hover:bg-gray-200 transition-colors p-2.5 rounded-xl cursor-pointer">
             <Search size={22} className="text-gray-600" />
@@ -65,16 +65,16 @@ export default function SearchServicesSection() {
 
         {/* Popular Services */}
         <div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">Popular Services</h3>
+          <h3 className="mb-6 text-xl font-semibold text-gray-900 sm:text-2xl">Popular Services</h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {filteredServices.map((service) => (
               <div
                 key={service.id}
                 className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer"
               >
                 {/* Image */}
-                <div className="relative h-52 w-full overflow-hidden bg-gray-100">
+                <div className="relative h-44 w-full overflow-hidden bg-gray-100 sm:h-52">
                   <Image
                     src={service.image}
                     alt={service.title}

@@ -25,31 +25,31 @@ const features = [
 
 export default function TradeWithConfidence() {
   return (
-    <section className="bg-[#0f172a] text-white py-20 px-6">
+    <section className="bg-[#0f172a] px-4 py-14 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
           {/* Left Side - Heading & Description */}
           <div className="space-y-8">
-            <h2 className="text-5xl lg:text-6xl font-semibold leading-tight">
+            <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-6xl">
               Trade with <span className="text-emerald-400">Confidence</span>
             </h2>
 
-            <p className="text-lg text-gray-300 max-w-md">
+            <p className="max-w-md text-base text-gray-300 sm:text-lg">
               Our verification system, review platform, and safety tools ensure every exchange is secure and transparent.
             </p>
 
-            <button className="border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-white transition-all px-8 py-3.5 rounded-full font-medium text-sm flex items-center gap-2">
+            <button className="flex w-full items-center justify-center gap-2 rounded-full border border-emerald-400 px-6 py-3 text-sm font-medium text-emerald-400 transition-all hover:bg-emerald-400 hover:text-white sm:w-auto sm:px-8 sm:py-3.5">
               View safety Guidelines
             </button>
           </div>
 
           {/* Right Side - Feature Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-[#1e2937] hover:bg-[#334155] transition-all p-8 rounded-3xl group"
+                className="group rounded-3xl bg-[#1e2937] p-6 transition-all hover:bg-[#334155] sm:p-8"
               >
                 {/* Icon */}
                 <div className="w-12 h-12 bg-[#334155] group-hover:bg-emerald-500/20 transition-colors rounded-2xl flex items-center justify-center text-emerald-400 mb-6">
