@@ -11,10 +11,10 @@ export default function Home() {
 
       <main>
         <Hero />
-      <SearchServicesSection/>
-      <TradingSteps/>
-            <TradeWithConfidence/>
- <FAQSection></FAQSection>
+        <SearchServicesSection />
+        <TradingSteps />
+        <TradeWithConfidence />
+        <FAQSection/>
       </main>
     </>
   );

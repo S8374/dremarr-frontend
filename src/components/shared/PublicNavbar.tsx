@@ -1,88 +1,94 @@
 'use client';
+
+import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { ChevronDown, Menu, MessageSquare } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
-import { Menu } from "lucide-react";
-import checkAuthStatus from "@/utility/auth";
+import logo from "@/assets/logo/logo.png";
 
-const {user} = await checkAuthStatus();
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "#", label: "Marketplace" },
+  { href: "#", label: "Membership" },
+];
+
 const PublicNavbar = () => {
-  
-  const {role} = user || {role: 'guest'};
-  
-  const navItems = [
-    { href: "#", label: "Consultation" },
-    { href: "#", label: "Health Plans" },
-    { href: "#", label: "Medicine" },
-    { href: "#", label: "Diagnostics" },
-    { href: "#", label: "NGOs" },
-  ];
-
-  if(role === 'ADMIN'){
-    navItems.push({ href: "/dashboard/admin", label: "Admin Dashboard" });
-  }
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur  dark:bg-background/95">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold text-primary">PH Doc</span>
-        </Link>
+    <header className="w-full bg-[#f5f5f6]">
+      <div className="mx-auto flex w-full max-w-full items-center justify-between px-6 py-4 md:px-8 md:py-5 lg:mx-auto lg:max-w-[1380px]">
+        <div className="flex items-center gap-5 md:gap-8">
+          <Link href="/" className="shrink-0">
+            <Image
+              src={logo}
+              alt="Dremarr logo"
+              width={46}
+              height={46}
+              className="h-[42px] w-[42px] rounded-full object-cover"
+            />
+          </Link>
 
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navItems.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-foreground hover:text-primary transition-colors"
+          <nav className="hidden items-center gap-7 text-[14px] font-medium text-[#8b8f97] md:flex">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={index === 0 ? "text-[#6f8f84]" : "transition-colors hover:text-[#111827]"}
+              >
+                {item.label}
+              </Link>
+            ))}
+
+            <button
+              type="button"
+              aria-label="Messages"
+              className="text-[#8b8f97] transition-colors hover:text-[#111827]"
             >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+              <MessageSquare className="h-4 w-4" />
+            </button>
 
-        <div className="hidden md:flex items-center space-x-2">
-          {role !== 'guest' ? (
-            <Button variant="destructive">Logout</Button>
-          ) : (
-            <Link href="/login" className="text-lg font-medium">
-              <Button>Login</Button>
-            </Link>
-          )}
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#cfaa6a] px-3.5 py-1.5 text-[13px] font-medium text-white"
+            >
+              Light Mode
+              <ChevronDown className="h-4 w-4" />
+            </button>
+          </nav>
         </div>
 
-        {/* Mobile Menu */}
+        <Link
+          href="/login"
+          className="hidden rounded-full border border-[#88a39b] bg-[#f3f4f5] px-12 py-2.5 text-[19px] font-semibold text-[#5f7e75] shadow-[0_2px_0_rgba(101,132,123,0.22)] md:inline-flex"
+        >
+          Login
+        </Link>
 
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline">
-                {" "}
-                <Menu />{" "}
-              </Button>
+              <button
+                type="button"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[#ced2d8] text-[#5f7e75]"
+              >
+                <Menu className="h-5 w-5" />
+              </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] p-4">
-              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <nav className="flex flex-col space-y-4 mt-8">
-                {navItems.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="text-lg font-medium"
-                  >
-                    {link.label}
+            <SheetContent side="right" className="w-[300px] p-5">
+              <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+              <div className="mt-8 flex flex-col gap-4">
+                {navItems.map((item) => (
+                  <Link key={item.label} href={item.href} className="text-lg font-medium text-[#111827]">
+                    {item.label}
                   </Link>
                 ))}
-                <div className="border-t pt-4 flex flex-col space-y-4">
-                  <div className="flex justify-center"></div>
-                  {role!== 'guest' ? (
-                    <Button variant="destructive">Logout</Button>
-                  ) : (
-                    <Link href="/login" className="text-lg font-medium">
-                      <Button>Login</Button>
-                    </Link>
-                  )}
-                </div>
-              </nav>
+
+                <Link
+                  href="/login"
+                  className="mt-2 inline-flex w-fit rounded-full border border-[#89a49d] bg-[#f2f4f4] px-8 py-2 text-base font-semibold text-[#5f7e75]"
+                >
+                  Login
+                </Link>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

@@ -51,7 +51,8 @@
   --card-foreground: oklch(0.2 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2 0 0);
-  --primary: oklch(0.55 0.2 250); /* Professional blue */
+  --primary: oklch(0.55 0.2 250);
+  /* Professional blue */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.96 0 0);
   --secondary-foreground: oklch(0.25 0 0);
@@ -85,7 +86,8 @@
   --card-foreground: oklch(0.95 0 0);
   --popover: oklch(0.18 0 0);
   --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.65 0.2 250); /* Brighter blue for dark mode */
+  --primary: oklch(0.65 0.2 250);
+  /* Brighter blue for dark mode */
   --primary-foreground: oklch(0.1 0 0);
   --secondary: oklch(0.25 0 0);
   --secondary-foreground: oklch(0.95 0 0);
@@ -116,6 +118,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -123,22 +126,22 @@
 
 @layer utilities {
   .hero-image-clip {
-    border-radius: 28px;
-    -webkit-clip-path: path("M 41,0 L 245,0 A 41,40 0 0,1 286,40 L 286,48 Q 286,102 340,102 L 596,102 A 24,24 0 0,1 620,126 L 620,751 A 41,40 0 0,1 579,790 L 41,790 A 41,40 0 0,1 0,751 L 0,40 A 41,40 0 0,1 41,0 Z");
-    clip-path: path("M 41,0 L 245,0 A 41,40 0 0,1 286,40 L 286,48 Q 286,102 340,102 L 596,102 A 24,24 0 0,1 620,126 L 620,751 A 41,40 0 0,1 579,790 L 41,790 A 41,40 0 0,1 0,751 L 0,40 A 41,40 0 0,1 41,0 Z");
+    border-radius: 32px;
+    -webkit-clip-path: path("M 34 0 H 348 C 371 0 390 19 390 42 V 60 C 390 86 411 107 437 107 H 582 C 603 107 620 124 620 145 V 660 C 620 682 602 700 580 700 H 34 C 12 700 0 682 0 660 V 40 C 0 18 12 0 34 0 Z");
+    clip-path: path("M 34 0 H 348 C 371 0 390 19 390 42 V 60 C 390 86 411 107 437 107 H 582 C 603 107 620 124 620 145 V 660 C 620 682 602 700 580 700 H 34 C 12 700 0 682 0 660 V 40 C 0 18 12 0 34 0 Z");
   }
 }
 
 @media (max-width: 1024px) {
   .hero-image-clip {
-    -webkit-clip-path: path("M 33,0 L 198,0 A 33,31 0 0,1 231,31 L 231,38 Q 231,80 274,80 L 478,80 A 18,18 0 0,1 500,102 L 500,589 A 33,31 0 0,1 467,620 L 33,620 A 33,31 0 0,1 0,589 L 0,31 A 33,31 0 0,1 33,0 Z");
-    clip-path: path("M 33,0 L 198,0 A 33,31 0 0,1 231,31 L 231,38 Q 231,80 274,80 L 478,80 A 18,18 0 0,1 500,102 L 500,589 A 33,31 0 0,1 467,620 L 33,620 A 33,31 0 0,1 0,589 L 0,31 A 33,31 0 0,1 33,0 Z");
+    border-radius: 28px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   .hero-image-clip {
-    -webkit-clip-path: path("M 24,0 L 142,0 A 24,21 0 0,1 166,21 L 166,25 Q 166,54 197,54 L 344,54 A 12,12 0 0,1 360,70 L 360,399 A 24,21 0 0,1 336,420 L 24,420 A 24,21 0 0,1 0,399 L 0,21 A 24,21 0 0,1 24,0 Z");
-    clip-path: path("M 24,0 L 142,0 A 24,21 0 0,1 166,21 L 166,25 Q 166,54 197,54 L 344,54 A 12,12 0 0,1 360,70 L 360,399 A 24,21 0 0,1 336,420 L 24,420 A 24,21 0 0,1 0,399 L 0,21 A 24,21 0 0,1 24,0 Z");
+    border-radius: 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
-}
+} */
