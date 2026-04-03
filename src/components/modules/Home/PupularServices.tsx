@@ -2,90 +2,132 @@
 
 import Image from "next/image";
 import { Search } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import heroImage from "@/assets/images/hero.jpg";
+import heroDoctorImage from "@/assets/images/hero-doctor.jpg";
+import avatarOne from "@/assets/images/doctor-cardiologist.jpg";
+import avatarTwo from "@/assets/images/doctor-neurologist.jpg";
+import avatarThree from "@/assets/images/doctor-orthopedic.jpg";
 
 // JSON Data
 const popularServices = [
   {
     id: 1,
     title: "Electrical & Technical Services",
-    image: "/services/electrical.jpg",
+    image: heroImage,
   },
   {
     id: 2,
     title: "Home Repair & Maintenance",
-    image: "/services/home-repair.jpg",
+    image: avatarTwo,
   },
   {
     id: 3,
     title: "Automotive Services",
-    image: "/services/automotive.jpg",
+    image: heroDoctorImage,
   },
   {
     id: 4,
     title: "Landscaping & Outdoor Work",
-    image: "/services/landscaping.jpg",
+    image: avatarThree,
   },
   {
     id: 5,
     title: "Personal Care & Beauty Services",
-    image: "/services/beauty.jpg",
+    image: avatarOne,
   },
 ];
 
 export default function SearchServicesSection() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [sliderValue, setSliderValue] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+  const sliderTrackRef = useRef<HTMLDivElement>(null);
 
   const filteredServices = popularServices.filter((service) =>
     service.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  useEffect(() => {
+    const updateScrollBounds = () => {
+      if (!sliderTrackRef.current) return;
+
+      const nextMax = Math.max(
+        sliderTrackRef.current.scrollWidth - sliderTrackRef.current.clientWidth,
+        0
+      );
+
+      setMaxScroll(nextMax);
+      setSliderValue((prev) => Math.min(prev, nextMax));
+    };
+
+    updateScrollBounds();
+    window.addEventListener("resize", updateScrollBounds);
+
+    return () => window.removeEventListener("resize", updateScrollBounds);
+  }, [filteredServices.length]);
+
+  const handleTrackScroll = () => {
+    if (!sliderTrackRef.current) return;
+    setSliderValue(sliderTrackRef.current.scrollLeft);
+  };
+
+  const handleSliderChange = (value: number) => {
+    setSliderValue(value);
+    if (sliderTrackRef.current) {
+      sliderTrackRef.current.scrollTo({ left: value, behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        
-        {/* Title */}
-        <h2 className="mb-6 text-2xl font-semibold text-gray-900 sm:text-3xl">
-          Serch Services
+    <section className=" px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1340px]">
+        <h2 className="mb-4 text-[32px] font-semibold text-[#1a2130] sm:text-[42px]">
+          Search Services Offered
         </h2>
 
-        {/* Search Bar - Exact Match */}
         <div className="relative mb-10">
           <input
             type="text"
-            placeholder="Search for any service"
+            placeholder="Search for any service offered"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-2xl border border-gray-200 bg-white py-3.5 pl-5 pr-14 text-sm placeholder:text-gray-500 shadow-sm focus:border-gray-300 focus:outline-none sm:py-4 sm:pl-6 sm:text-base"
+            className="h-16 w-full rounded-2xl border border-[#cfd3da] bg-[#f7f8f9] px-5 pr-20 text-base text-[#1f2430] placeholder:text-[#7f8590] focus:border-[#a1a7b3] focus:outline-none sm:px-6 sm:text-[24px]"
           />
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-100 hover:bg-gray-200 transition-colors p-2.5 rounded-xl cursor-pointer">
-            <Search size={22} className="text-gray-600" />
-          </div>
+          <button
+            type="button"
+            aria-label="Search services"
+            className="absolute right-3 top-1/2 flex h-12 w-[52px] -translate-y-1/2 items-center justify-center rounded-[10px] bg-[#7f9693] text-white transition-colors hover:bg-[#6f8582]"
+          >
+            <Search size={22} />
+          </button>
         </div>
 
-        {/* Popular Services */}
-        <div>
-          <h3 className="mb-6 text-xl font-semibold text-gray-900 sm:text-2xl">Popular Services</h3>
+        <h3 className="mb-5 text-2xl font-semibold text-[#1a2130] sm:text-3xl">Popular Services</h3>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div
+          ref={sliderTrackRef}
+          onScroll={handleTrackScroll}
+          className="overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          <div className="flex min-w-max snap-x gap-3.5">
             {filteredServices.map((service) => (
               <div
                 key={service.id}
-                className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer"
+                className="w-[236px] snap-start overflow-hidden rounded-2xl border border-[#cfd3da] bg-[#eceef1]"
               >
-                {/* Image */}
-                <div className="relative h-44 w-full overflow-hidden bg-gray-100 sm:h-52">
+                <div className="relative h-[155px] w-full overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="236px"
+                    className="object-cover"
                   />
                 </div>
 
-                {/* Title Card - Exact Style */}
-                <div className="p-4 border-t border-gray-100 bg-white">
-                  <h4 className="text-[15px] font-medium text-gray-900 leading-tight line-clamp-2 min-h-[42px]">
+                <div className="px-4 py-3.5">
+                  <h4 className="line-clamp-2 text-[17px] font-semibold leading-[1.2] text-[#1b2230]">
                     {service.title}
                   </h4>
                 </div>
@@ -93,6 +135,20 @@ export default function SearchServicesSection() {
             ))}
           </div>
         </div>
+
+        {maxScroll > 0 ? (
+          <div className="mt-4">
+            <input
+              type="range"
+              min={0}
+              max={maxScroll}
+              value={sliderValue}
+              onChange={(e) => handleSliderChange(Number(e.target.value))}
+              aria-label="Slide popular services"
+              className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[#d5d9df] accent-[#7f9693]"
+            />
+          </div>
+        ) : null}
       </div>
     </section>
   );

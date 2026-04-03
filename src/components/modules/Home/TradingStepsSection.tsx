@@ -1,72 +1,69 @@
-import React from 'react';
-import { Plus, Mail, CheckCircle } from 'lucide-react';
+import { Plus, Mail, CheckCircle } from "lucide-react";
 
 const TradingSteps = () => {
     const steps = [
         {
-            number: '01',
-            icon: <Plus className="w-6 h-6" />,
-            title: 'Post your skill',
-            description: 'Create a listing showcasing what you offer or what you\'re looking for. Add details, images, and your availability to attract the right matches.'
+            number: "01",
+            icon: Plus,
+            title: "Post your skill",
+            description:
+                "Create a listing showcasing what you offer or what you're looking for. Add details, images, and your availability to attract the right matches.",
         },
         {
-            number: '02',
-            icon: <Mail className="w-6 h-6" />,
-            title: 'Connect & Negotiate',
-            description: 'Browse listings, message members, and discuss the details of your exchange. Our secure messaging keeps all conversations organized.'
+            number: "02",
+            icon: Mail,
+            title: "Connect & Negotiate",
+            description:
+                "Browse listings, message members, and discuss the details of your exchange. Our secure messaging keeps all conversations organized",
         },
         {
-            number: '03',
-            icon: <CheckCircle className="w-6 h-6" />,
-            title: 'Complete the Barter',
-            description: 'Exchange your skills, complete the agreed services, and leave reviews. Build your reputation and unlock more opportunities.'
-        }
+            number: "03",
+            icon: CheckCircle,
+            title: "Complete the Barter",
+            description:
+                "Exchange your skills, complete the agreed services, and leave reviews. Build your reputation and unlock more opportunities.",
+        },
     ];
 
     return (
-        <div className="bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-12">
-                    <h1 className="mb-3 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
-                        Start Trading in Three Steps
-                    </h1>
-                    <p className="text-base text-gray-500 sm:text-lg">
+        <section className=" px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+            <div className="mx-auto max-w-[1340px]">
+                <div className="mb-12 text-center sm:mb-14">
+                    <h2 className="mb-3 text-3xl font-semibold text-[#1a2130] sm:text-4xl md:text-5xl">
+                        Start <span className="text-[#79948d]">Trading</span> in Three Steps
+                    </h2>
+                    <p className="text-base text-[#7b808c] sm:text-lg">
                         No complicated setup. Just creat, connect, and exchange.
                     </p>
                 </div>
 
-                {/* Steps Grid */}
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                     {steps.map((step, index) => (
-                        <div
+                        <article
                             key={index}
-                            className="rounded-2xl bg-gray-50 p-6 transition-shadow duration-300 hover:shadow-lg sm:p-8"
+                            className="rounded-2xl bg-[#eaebee] px-7 py-7 sm:px-8 sm:py-8"
                         >
-                            {/* Number and Icon */}
-                            <div className="flex items-center justify-between mb-6">
-                                <span className="text-5xl font-bold text-gray-200">
+                            <div className="mb-6 flex items-center justify-between">
+                                <span className="text-5xl font-bold leading-none text-[#c4c9d2] sm:text-[58px]">
                                     {step.number}
                                 </span>
-                                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-600">
-                                    {step.icon}
+                                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#cdd4d7] bg-[#e4eaec] text-[#708f88]">
+                                    <step.icon className="h-5 w-5" />
                                 </div>
                             </div>
 
-                            {/* Title */}
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                            <h3 className="mb-3 text-[29px] font-semibold leading-tight text-[#1b2230]">
                                 {step.title}
                             </h3>
 
-                            {/* Description */}
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-[22px] leading-[1.35] text-[#69717f]">
                                 {step.description}
                             </p>
-                        </div>
+                        </article>
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
