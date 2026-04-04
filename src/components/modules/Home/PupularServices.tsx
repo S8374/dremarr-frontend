@@ -8,45 +8,54 @@ import heroDoctorImage from "@/assets/images/hero-doctor.jpg";
 import avatarOne from "@/assets/images/doctor-cardiologist.jpg";
 import avatarTwo from "@/assets/images/doctor-neurologist.jpg";
 import avatarThree from "@/assets/images/doctor-orthopedic.jpg";
+import { useLanguage } from "@/components/shared/language-provider";
 
 // JSON Data
 const popularServices = [
   {
     id: 1,
     title: "Electrical & Technical Services",
+    titleEs: "Servicios eléctricos y técnicos",
     image: heroImage,
   },
   {
     id: 2,
     title: "Home Repair & Maintenance",
+    titleEs: "Reparación y mantenimiento del hogar",
     image: avatarTwo,
   },
   {
     id: 3,
     title: "Automotive Services",
+    titleEs: "Servicios automotrices",
     image: heroDoctorImage,
   },
   {
     id: 4,
     title: "Landscaping & Outdoor Work",
+    titleEs: "Jardinería y trabajos exteriores",
     image: avatarThree,
   },
   {
     id: 5,
     title: "Personal Care & Beauty Services",
+    titleEs: "Cuidado personal y belleza",
     image: avatarOne,
   },
 ];
 
 export default function SearchServicesSection() {
+  const { language } = useLanguage();
+  const isSpanish = language === "es";
   const [searchTerm, setSearchTerm] = useState("");
   const [sliderValue, setSliderValue] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
   const sliderTrackRef = useRef<HTMLDivElement>(null);
 
-  const filteredServices = popularServices.filter((service) =>
-    service.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredServices = popularServices.filter((service) => {
+    const searchableTitle = `${service.title} ${service.titleEs ?? ""}`;
+    return searchableTitle.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   useEffect(() => {
     const updateScrollBounds = () => {
@@ -80,19 +89,19 @@ export default function SearchServicesSection() {
   };
 
   return (
-    <section className=" px-4 py-10 sm:px-6 lg:px-8">
+    <section className="bg-background px-4 py-10 text-foreground sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1340px]">
-        <h2 className="mb-4 text-[32px] font-semibold text-[#1a2130] sm:text-[42px]">
-          Search Services Offered
+        <h2 className={`mb-4 font-semibold text-foreground ${isSpanish ? "text-[28px] sm:text-[36px]" : "text-[32px] sm:text-[42px]"}`}>
+          {language === "es" ? "Buscar servicios ofrecidos" : "Search Services Offered"}
         </h2>
 
         <div className="relative mb-10">
           <input
             type="text"
-            placeholder="Search for any service offered"
+            placeholder={language === "es" ? "Buscar cualquier servicio ofrecido" : "Search for any service offered"}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="h-16 w-full rounded-2xl border border-[#cfd3da] bg-[#f7f8f9] px-5 pr-20 text-base text-[#1f2430] placeholder:text-[#7f8590] focus:border-[#a1a7b3] focus:outline-none sm:px-6 sm:text-[24px]"
+            className={`h-16 w-full rounded-2xl border border-border bg-card px-5 pr-20 text-foreground placeholder:text-muted-foreground focus:border-ring focus:outline-none sm:px-6 ${isSpanish ? "text-[15px] sm:text-[18px]" : "text-base sm:text-[24px]"}`}
           />
           <button
             type="button"
@@ -103,7 +112,9 @@ export default function SearchServicesSection() {
           </button>
         </div>
 
-        <h3 className="mb-5 text-2xl font-semibold text-[#1a2130] sm:text-3xl">Popular Services</h3>
+        <h3 className={`mb-5 font-semibold text-foreground ${isSpanish ? "text-xl sm:text-2xl" : "text-2xl sm:text-3xl"}`}>
+          {language === "es" ? "Servicios populares" : "Popular Services"}
+        </h3>
 
         <div
           ref={sliderTrackRef}
@@ -114,7 +125,7 @@ export default function SearchServicesSection() {
             {filteredServices.map((service) => (
               <div
                 key={service.id}
-                className="w-[236px] snap-start overflow-hidden rounded-2xl border border-[#cfd3da] bg-[#eceef1]"
+                className="w-[236px] snap-start overflow-hidden rounded-2xl border border-border bg-card"
               >
                 <div className="relative h-[155px] w-full overflow-hidden">
                   <Image
@@ -127,8 +138,8 @@ export default function SearchServicesSection() {
                 </div>
 
                 <div className="px-4 py-3.5">
-                  <h4 className="line-clamp-2 text-[17px] font-semibold leading-[1.2] text-[#1b2230]">
-                    {service.title}
+                  <h4 className="line-clamp-2 text-[17px] font-semibold leading-[1.2] text-foreground">
+                    {language === "es" ? service.titleEs : service.title}
                   </h4>
                 </div>
               </div>

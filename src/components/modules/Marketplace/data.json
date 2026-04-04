@@ -1,0 +1,250 @@
+{
+  "categories": [
+    { "id": "all", "label_en": "All Category", "label_es": "Todas las categorias" },
+    { "id": "home", "label_en": "Home Services", "label_es": "Servicios del hogar" },
+    { "id": "tech", "label_en": "Tech Services", "label_es": "Servicios tecnicos" },
+    { "id": "beauty", "label_en": "Beauty", "label_es": "Belleza" },
+    { "id": "fitness", "label_en": "Fitness", "label_es": "Fitness" }
+  ],
+  "badges": [
+    { "id": "all", "label_en": "All Badges", "label_es": "Todas las insignias" },
+    { "id": "verified", "label_en": "Verified", "label_es": "Verificado" },
+    { "id": "pro", "label_en": "Pro", "label_es": "Pro" }
+  ],
+  "locations": [
+    { "id": "all", "label_en": "Location", "label_es": "Ubicacion" },
+    { "id": "Austin, TX", "label_en": "Austin, TX", "label_es": "Austin, TX" },
+    { "id": "Dallas, TX", "label_en": "Dallas, TX", "label_es": "Dallas, TX" },
+    { "id": "Miami, FL", "label_en": "Miami, FL", "label_es": "Miami, FL" }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "category": "tech",
+      "title_en": "I will provide professional electrical installation and repair services",
+      "title_es": "Brindare servicios profesionales de instalacion y reparacion electrica",
+      "need_en": "Massage therapy or web design",
+      "need_es": "Terapia de masaje o diseno web",
+      "duration_en": "2-3 weeks",
+      "duration_es": "2-3 semanas",
+      "image": "/next.svg",
+      "location": "Austin, TX",
+      "user": {
+        "name": "Maria Rodriguez",
+        "avatar": "/globe.svg",
+        "rating": 4.9,
+        "isVerified": true,
+        "isPro": true
+      }
+    },
+    {
+      "id": 2,
+      "category": "home",
+      "title_en": "I will fix plumbing issues and install pipes professionally",
+      "title_es": "Arreglare problemas de plomeria e instalare tuberias profesionalmente",
+      "need_en": "Hair Cut",
+      "need_es": "Corte de cabello",
+      "duration_en": "2-3 weeks",
+      "duration_es": "2-3 semanas",
+      "image": "/file.svg",
+      "location": "Austin, TX",
+      "user": {
+        "name": "James Smith",
+        "avatar": "/window.svg",
+        "rating": 4.9,
+        "isVerified": true,
+        "isPro": true
+      }
+    },
+    {
+      "id": 3,
+      "category": "home",
+      "title_en": "I will build and repair wooden furniture and structures",
+      "title_es": "Construire y reparare muebles y estructuras de madera",
+      "need_en": "Hair Cut",
+      "need_es": "Corte de cabello",
+      "duration_en": "2-3 weeks",
+      "duration_es": "2-3 semanas",
+      "image": "/vercel.svg",
+      "location": "Dallas, TX",
+      "user": {
+        "name": "Michael Johnson",
+        "avatar": "/next.svg",
+        "rating": 4.9,
+        "isVerified": false,
+        "isPro": true
+      }
+    },
+    {
+      "id": 4,
+      "category": "home",
+      "title_en": "I will paint your home interior or exterior professionally",
+      "title_es": "Pintare el interior o exterior de tu hogar profesionalmente",
+      "need_en": "Graphic design",
+      "need_es": "Diseno grafico",
+      "duration_en": "1-2 weeks",
+      "duration_es": "1-2 semanas",
+      "image": "/globe.svg",
+      "location": "Miami, FL",
+      "user": {
+        "name": "Robert Williams",
+        "avatar": "/file.svg",
+        "rating": 4.8,
+        "isVerified": false,
+        "isPro": false
+      }
+    },
+    {
+      "id": 5,
+      "category": "home",
+      "title_en": "I will repair or install strong and durable roofing",
+      "title_es": "Reparare o instalare techos fuertes y duraderos",
+      "need_en": "Video editing",
+      "need_es": "Edicion de video",
+      "duration_en": "2-4 weeks",
+      "duration_es": "2-4 semanas",
+      "image": "/window.svg",
+      "location": "Austin, TX",
+      "user": {
+        "name": "David Brown",
+        "avatar": "/vercel.svg",
+        "rating": 4.7,
+        "isVerified": true,
+        "isPro": false
+      }
+    },
+    {
+      "id": 6,
+      "category": "home",
+      "title_en": "I will design and maintain beautiful outdoor landscapes",
+      "title_es": "Disenare y mantendre hermosos paisajes exteriores",
+      "need_en": "Logo design",
+      "need_es": "Diseno de logo",
+      "duration_en": "2-3 weeks",
+      "duration_es": "2-3 semanas",
+      "image": "/next.svg",
+      "location": "Dallas, TX",
+      "user": {
+        "name": "William Jones",
+        "avatar": "/globe.svg",
+        "rating": 4.9,
+        "isVerified": true,
+        "isPro": true
+      }
+    },
+    {
+      "id": 7,
+      "category": "tech",
+      "title_en": "I will diagnose and repair your car mechanical problems",
+      "title_es": "Diagnosticare y reparare problemas mecanicos de tu auto",
+      "need_en": "UI design",
+      "need_es": "Diseno UI",
+      "duration_en": "1-3 weeks",
+      "duration_es": "1-3 semanas",
+      "image": "/file.svg",
+      "location": "Miami, FL",
+      "user": {
+        "name": "John Miller",
+        "avatar": "/window.svg",
+        "rating": 4.8,
+        "isVerified": true,
+        "isPro": false
+      }
+    },
+    {
+      "id": 8,
+      "category": "home",
+      "title_en": "I will provide professional house and apartment cleaning",
+      "title_es": "Ofrecere limpieza profesional de casas y apartamentos",
+      "need_en": "Social media help",
+      "need_es": "Ayuda con redes sociales",
+      "duration_en": "1-2 weeks",
+      "duration_es": "1-2 semanas",
+      "image": "/vercel.svg",
+      "location": "Austin, TX",
+      "user": {
+        "name": "Sarah Davis",
+        "avatar": "/next.svg",
+        "rating": 4.9,
+        "isVerified": true,
+        "isPro": false
+      }
+    },
+    {
+      "id": 9,
+      "category": "beauty",
+      "title_en": "I will provide professional hair styling and grooming",
+      "title_es": "Ofrecere estilismo y cuidado profesional del cabello",
+      "need_en": "Photography",
+      "need_es": "Fotografia",
+      "duration_en": "1-2 weeks",
+      "duration_es": "1-2 semanas",
+      "image": "/globe.svg",
+      "location": "Dallas, TX",
+      "user": {
+        "name": "Jennifer Wilson",
+        "avatar": "/file.svg",
+        "rating": 4.6,
+        "isVerified": true,
+        "isPro": false
+      }
+    },
+    {
+      "id": 10,
+      "category": "beauty",
+      "title_en": "I will do professional makeup for events and occasions",
+      "title_es": "Hare maquillaje profesional para eventos y ocasiones",
+      "need_en": "Content writing",
+      "need_es": "Redaccion de contenido",
+      "duration_en": "1-2 weeks",
+      "duration_es": "1-2 semanas",
+      "image": "/window.svg",
+      "location": "Miami, FL",
+      "user": {
+        "name": "Michael Smith",
+        "avatar": "/vercel.svg",
+        "rating": 4.9,
+        "isVerified": true,
+        "isPro": false
+      }
+    },
+    {
+      "id": 11,
+      "category": "home",
+      "title_en": "I will cook delicious meals for your events or family",
+      "title_es": "Cocinare deliciosas comidas para tus eventos o familia",
+      "need_en": "Photo editing",
+      "need_es": "Edicion de fotos",
+      "duration_en": "2-3 weeks",
+      "duration_es": "2-3 semanas",
+      "image": "/next.svg",
+      "location": "Austin, TX",
+      "user": {
+        "name": "Robert Smith",
+        "avatar": "/globe.svg",
+        "rating": 4.9,
+        "isVerified": true,
+        "isPro": true
+      }
+    },
+    {
+      "id": 12,
+      "category": "fitness",
+      "title_en": "I will create a personalized fitness training program",
+      "title_es": "Creare un programa personalizado de entrenamiento fisico",
+      "need_en": "Hair Cut",
+      "need_es": "Corte de cabello",
+      "duration_en": "2-3 weeks",
+      "duration_es": "2-3 semanas",
+      "image": "/file.svg",
+      "location": "Dallas, TX",
+      "user": {
+        "name": "Maria Garcia",
+        "avatar": "/window.svg",
+        "rating": 4.9,
+        "isVerified": true,
+        "isPro": true
+      }
+    }
+  ]
+}
