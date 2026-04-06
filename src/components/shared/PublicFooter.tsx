@@ -89,6 +89,7 @@ export default function Footer() {
                     <div className="flex gap-6">
                         <Link href="/terms" className="hover:text-white transition">{language === "es" ? "Términos" : "Terms & conditions"}</Link>
                         <Link href="/privacy" className="hover:text-white transition">{language === "es" ? "Privacidad" : "Privacy Policy"}</Link>
+                        <Link href="/about" className="hover:text-white transition">{language === "es" ? "Acerca de" : "About"}</Link>
                     </div>
                 </div>
             </div>
