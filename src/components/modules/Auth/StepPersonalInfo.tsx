@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { FieldErrors } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
@@ -20,11 +21,12 @@ interface Props {
   updateFormData: (fields: Partial<SignupFormData>) => void;
   onNext: () => void;
   onBack: () => void;
+  errors: FieldErrors<any>;
 }
 
 const LANGUAGES = ["English", "Bengali", "Hindi", "Arabic", "French", "Spanish"];
 
-export function StepPersonalInfo({ formData, updateFormData, onNext, onBack }: Props) {
+export function StepPersonalInfo({ formData, updateFormData, onNext, onBack, errors }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,14 +40,14 @@ export function StepPersonalInfo({ formData, updateFormData, onNext, onBack }: P
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-1">Personal Information</h1>
-      <p className="text-sm text-gray-500 mb-6">
+      <h1 className="text-[38px] leading-[1.04] md:text-2xl font-bold text-gray-900 mb-2 tracking-tight">Personal Information</h1>
+      <p className="text-[17px] md:text-sm text-gray-500 mb-5 md:mb-6 leading-snug max-w-md">
         Build trust by adding a face to your profile
       </p>
 
-      <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+      <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 md:p-6">
         {/* Top row: photo + name + language */}
-        <div className="flex gap-6 mb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-[128px_1fr] md:flex gap-4 md:gap-6 mb-5">
           {/* Profile Photo */}
           <button
             type="button"
@@ -61,7 +63,7 @@ export function StepPersonalInfo({ formData, updateFormData, onNext, onBack }: P
             ) : (
               <>
                 <UploadCloud className="w-6 h-6 text-gray-400 mb-1" />
-                <span className="text-xs text-gray-500 font-medium">Profile Photo</span>
+                <span className="text-[14px] text-gray-500 font-medium">Profile Photo</span>
               </>
             )}
           </button>
@@ -72,11 +74,14 @@ export function StepPersonalInfo({ formData, updateFormData, onNext, onBack }: P
             className="hidden"
             onChange={handlePhotoChange}
           />
+          {errors.profilePhoto?.message ? (
+            <p className="text-xs text-red-500">{String(errors.profilePhoto.message)}</p>
+          ) : null}
 
           {/* Name + Language */}
           <div className="flex-1 space-y-4">
             <div className="space-y-1">
-              <Label htmlFor="displayName" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="displayName" className="text-[16px] font-medium text-gray-700">
                 Display Name
               </Label>
               <Input
@@ -86,10 +91,13 @@ export function StepPersonalInfo({ formData, updateFormData, onNext, onBack }: P
                 onChange={(e) => updateFormData({ displayName: e.target.value })}
                 className="bg-white border-gray-200 rounded-lg h-11 text-sm placeholder:text-gray-400 focus-visible:ring-[#3d6b60]"
               />
+              {errors.displayName?.message ? (
+                <p className="text-xs text-red-500 pt-1">{String(errors.displayName.message)}</p>
+              ) : null}
             </div>
 
             <div className="space-y-1">
-              <Label className="text-sm font-medium text-gray-700">Language</Label>
+              <Label className="text-[16px] font-medium text-gray-700">Language</Label>
               <Select
                 value={formData.language}
                 onValueChange={(val) => updateFormData({ language: val })}
@@ -105,13 +113,16 @@ export function StepPersonalInfo({ formData, updateFormData, onNext, onBack }: P
                   ))}
                 </SelectContent>
               </Select>
+              {errors.language?.message ? (
+                <p className="text-xs text-red-500 pt-1">{String(errors.language.message)}</p>
+              ) : null}
             </div>
           </div>
         </div>
 
         {/* Bio */}
         <div className="space-y-1">
-          <Label htmlFor="bio" className="text-sm font-medium text-gray-700">
+          <Label htmlFor="bio" className="text-[16px] font-medium text-gray-700">
             Professional Bio
           </Label>
           <Textarea
@@ -123,11 +134,14 @@ export function StepPersonalInfo({ formData, updateFormData, onNext, onBack }: P
             onChange={(e) => updateFormData({ bio: e.target.value })}
             className="bg-white border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus-visible:ring-[#3d6b60] resize-none"
           />
+          {errors.bio?.message ? (
+            <p className="text-xs text-red-500 pt-1">{String(errors.bio.message)}</p>
+          ) : null}
           <div className="flex justify-between">
-            <p className="text-xs text-gray-400 italic">
+            <p className="text-[14px] text-gray-400 italic">
               Tip: Mention your key tools and achievements.
             </p>
-            <p className="text-xs text-gray-400">{formData.bio.length}/600</p>
+            <p className="text-[14px] text-gray-400">{formData.bio.length}/600</p>
           </div>
         </div>
       </div>

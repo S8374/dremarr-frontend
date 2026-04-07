@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { FieldErrors } from "react-hook-form";
 import {
   Select,
   SelectContent,
@@ -21,6 +22,7 @@ interface Props {
   updateFormData: (fields: Partial<SignupFormData>) => void;
   onNext: () => void;
   onBack: () => void;
+  errors: FieldErrors<any>;
 }
 
 const OCCUPATIONS = [
@@ -41,7 +43,7 @@ const SKILL_SUGGESTIONS: Record<string, string[]> = {
   default: ["Communication", "Problem Solving", "Time Management", "Team Work"],
 };
 
-export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack }: Props) {
+export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack, errors }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [skillInput, setSkillInput] = useState(formData.occupation || "");
 
@@ -64,15 +66,15 @@ export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack 
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-1">Your Expertise</h1>
-      <p className="text-sm text-gray-500 mb-6">
+      <h1 className="text-[38px] leading-[1.04] md:text-2xl font-bold text-gray-900 mb-2 tracking-tight">Your Expertise</h1>
+      <p className="text-[17px] md:text-sm text-gray-500 mb-5 md:mb-6 leading-snug max-w-md">
         Define the services you provide and your specialized skills.
       </p>
 
-      <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 space-y-5">
+      <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 md:p-6 space-y-5">
         {/* Primary Occupation */}
         <div className="space-y-1">
-          <Label className="text-sm font-medium text-gray-700">Primary Occupation</Label>
+          <Label className="text-[16px] font-medium text-gray-700">Primary Occupation</Label>
           <Select
             value={formData.occupation}
             onValueChange={(val) => {
@@ -91,11 +93,14 @@ export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack 
               ))}
             </SelectContent>
           </Select>
+          {errors.occupation?.message ? (
+            <p className="text-xs text-red-500 pt-1">{String(errors.occupation.message)}</p>
+          ) : null}
         </div>
 
         {/* Skills picker */}
         <div className="space-y-2">
-          <Label className="text-sm font-medium text-gray-700">
+          <Label className="text-[16px] font-medium text-gray-700">
             Pick 2–5 of your top skills
           </Label>
           <Input
@@ -104,7 +109,7 @@ export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack 
             placeholder="Type a skill..."
             className="bg-white border-gray-200 rounded-lg h-11 text-sm placeholder:text-gray-400 focus-visible:ring-[#3d6b60]"
           />
-          <p className="text-xs text-gray-400 italic">
+          <p className="text-[14px] text-gray-400 italic">
             Choose the skills you're confident trading.
           </p>
           {/* Suggestion chips */}
@@ -145,6 +150,9 @@ export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack 
               ))}
             </div>
           )}
+          {errors.skills?.message ? (
+            <p className="text-xs text-red-500">{String(errors.skills.message)}</p>
+          ) : null}
         </div>
 
         {/* Show Your Work */}
@@ -156,8 +164,8 @@ export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack 
             className="w-full border-2 border-dashed border-gray-300 rounded-xl py-7 flex flex-col items-center justify-center hover:border-[#3d6b60] transition-colors bg-white"
           >
             <UploadCloud className="w-7 h-7 text-gray-400 mb-2" />
-            <p className="text-sm font-medium text-gray-600">Upload file</p>
-            <p className="text-xs text-gray-400 text-center max-w-[200px] mt-1">
+            <p className="text-[16px] font-medium text-gray-600">Upload file</p>
+            <p className="text-[14px] text-gray-400 text-center max-w-[200px] mt-1 leading-snug">
               Upload photos or videos of your work to build trust and stand out.
             </p>
           </button>
@@ -169,12 +177,15 @@ export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack 
             className="hidden"
             onChange={handleWorkFiles}
           />
-          <p className="text-xs text-gray-400">we accept JPG, PNG &amp; WebP</p>
+          <p className="text-[14px] text-gray-400">we accept JPG, PNG &amp; WebP</p>
           {formData.workFiles.length > 0 && (
-            <p className="text-xs text-[#3d6b60]">
+            <p className="text-[14px] text-[#3d6b60]">
               {formData.workFiles.length} file(s) uploaded
             </p>
           )}
+          {errors.workFiles?.message ? (
+            <p className="text-xs text-red-500">{String(errors.workFiles.message)}</p>
+          ) : null}
         </div>
       </div>
 
