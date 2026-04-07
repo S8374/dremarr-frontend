@@ -25,11 +25,11 @@ export default function Footer() {
                     <div className="md:col-span-2">
                         <h3 className="text-white font-semibold text-lg mb-6">{language === "es" ? "Enlaces" : "Quick Links"}</h3>
                         <ul className="space-y-3 text-gray-400">
-                            <li><Link href="/" className="hover:text-white transition">{language === "es" ? "Inicio" : "Home"}</Link></li>
+                            {/* <li><Link href="/" className="hover:text-white transition">{language === "es" ? "Inicio" : "Home"}</Link></li> */}
                             <li><Link href="/marketplace" className="hover:text-white transition">{language === "es" ? "Mercado" : "Marketplace"}</Link></li>
                             <li><Link href="/membership" className="hover:text-white transition">{language === "es" ? "Membresía" : "Membership"}</Link></li>
                             <li><Link href="/message" className="hover:text-white transition">{language === "es" ? "Mensajes" : "Message"}</Link></li>
-                            <li><Link href="/login" className="hover:text-white transition">{language === "es" ? "Iniciar sesión" : "Login"}</Link></li>
+                            {/* <li><Link href="/login" className="hover:text-white transition">{language === "es" ? "Iniciar sesión" : "Login"}</Link></li> */}
                         </ul>
                     </div>
 

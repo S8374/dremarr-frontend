@@ -2,8 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
  
 // This function can be marked `async` if using `await` inside
-export function proxy(request: NextRequest) {
-
+export function middleware(request: NextRequest) {
     const token = request.cookies.get('accessToken')?.value;
 
     console.log(token)
@@ -15,7 +14,7 @@ export function proxy(request: NextRequest) {
     const authRoutes = ['/login', '/register', '/forgot-password'];
 
     const isProtectedPath = protectedPaths.some((path) => {
-        pathname.startsWith(path);
+        return pathname.startsWith(path.replace('/*', ''));
     })
 
     // current path auth route or not
@@ -29,10 +28,8 @@ export function proxy(request: NextRequest) {
         return NextResponse.redirect(new URL('/login', request.url))
     }
 
-    if(isAuthRoute && token){
-        console.log('hitting the correct block')
-        return NextResponse.redirect(new URL('/', request.url))
-    }
+    // Allow users to visit auth routes even if they have a token (since it might be expired)
+    // Removed the isAuthRoute && token redirect block to solve the redirect loop issue.
 
     return NextResponse.next()
 }
