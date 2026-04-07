@@ -7,7 +7,7 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
         <LanguageProvider>
             <div className="">
                 <PublicNavbar />
-                <div className="max-w-[1340px] mx-auto">
+                <div className="">
                     {children}
                 </div>
                 <PublicFooter />

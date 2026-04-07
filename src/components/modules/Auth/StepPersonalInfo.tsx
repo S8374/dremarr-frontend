@@ -94,7 +94,7 @@ export function StepPersonalInfo({ formData, updateFormData, onNext, onBack }: P
                 value={formData.language}
                 onValueChange={(val) => updateFormData({ language: val })}
               >
-                <SelectTrigger className="bg-white border-gray-200 rounded-lg h-11 text-sm focus:ring-[#3d6b60]">
+                <SelectTrigger className="bg-white border-gray-200 rounded-lg h-11 w-full text-sm focus:ring-[#3d6b60]">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

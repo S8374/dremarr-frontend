@@ -80,7 +80,7 @@ export function StepProfessionalInfo({ formData, updateFormData, onNext, onBack 
               setSkillInput(val);
             }}
           >
-            <SelectTrigger className="bg-white border-gray-200 rounded-lg h-11 text-sm focus:ring-[#3d6b60]">
+            <SelectTrigger className="bg-white border-gray-200 rounded-lg h-11 w-full text-sm focus:ring-[#3d6b60]">
               <SelectValue placeholder="Select occupation" />
             </SelectTrigger>
             <SelectContent>
