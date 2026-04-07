@@ -24,7 +24,7 @@ const PublicNavbar = () => {
   const navItems = [
     { href: "/", label: isSpanish ? "Inicio" : "Home" },
     { href: "/marketplace", label: isSpanish ? "Mercado" : "Marketplace" },
-    { href: "#", label: isSpanish ? "Membresía" : "Membership" },
+    { href: "/membership", label: isSpanish ? "Membresía" : "Membership" },
   ];
 
   return (
@@ -52,9 +52,9 @@ const PublicNavbar = () => {
               </Link>
             ))}
 
-            <Link 
-              href="/messages" 
-              aria-label="Messages" 
+            <Link
+              href="/messages"
+              aria-label="Messages"
               className="relative text-muted-foreground transition-all hover:text-[#6f8f84] hover:scale-110 active:scale-95"
             >
               <MessageSquare className="h-5 w-5" />

@@ -13,6 +13,7 @@ import { StepPersonalInfo } from "./StepPersonalInfo";
 import { StepProfessionalInfo } from "./StepProfessionalInfo";
 import { StepAccountSecurity } from "./StepAccountSecurity";
 import { StepFirstTrade } from "./StepFirstTrade";
+import { useRouter } from "next/navigation";
 
 const MOBILE_STEP_LABELS = ["Ac. setup", "Personal info", "Prof. info", "Ac. Security", "Create trade"];
 
@@ -84,6 +85,7 @@ const initialFormData: SignupFormData = {
 };
 
 export default function Signup() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const router = useRouter();
   const {
@@ -144,7 +146,11 @@ export default function Signup() {
   };
 
   const handleBack = () => {
-    if (currentStep > 1) setCurrentStep((s) => s - 1);
+    if (currentStep > 1) {
+      setCurrentStep((s) => s - 1);
+    } else {
+      router.push("/");
+    }
   };
 
   const handleTopBack = () => {
@@ -166,61 +172,18 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f5f7] md:bg-white">
-      <div className="mx-auto min-h-screen w-full max-w-[620px] md:max-w-none">
-        <div className="hidden md:block px-6 pt-6">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full border border-gray-200 w-9 h-9"
-            onClick={handleTopBack}
-          >
-            <ChevronLeft className="w-4 h-4 text-gray-600" />
-          </Button>
-        </div>
-
-        <div className="md:hidden px-3 pt-2 pb-5">
-          <div className="flex items-start gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="mt-0.5 h-8 w-8 rounded-full bg-[#e6eaee] hover:bg-[#dde2e8]"
-              onClick={handleTopBack}
-            >
-              <ChevronLeft className="w-4 h-4 text-gray-600" />
-            </Button>
-
-            <div className="flex-1">
-              <div className="grid grid-cols-5 gap-1.5">
-                {MOBILE_STEP_LABELS.map((label, index) => {
-                  const stepNumber = index + 1;
-                  const isActiveOrDone = currentStep >= stepNumber;
-
-                  return (
-                    <div key={label} className="text-center">
-                      <div className="relative h-6 flex items-center justify-center">
-                        {index > 0 && (
-                          <span
-                            className={`absolute left-[-52%] top-1/2 h-0.5 w-full -translate-y-1/2 ${currentStep > index ? "bg-[#7a9a93]" : "bg-[#d0d6de]"}`}
-                          />
-                        )}
-                        <span
-                          className={`relative z-10 inline-flex h-6 w-6 items-center justify-center rounded-full border text-[11px] font-medium ${isActiveOrDone ? "border-[#7a9a93] bg-[#7a9a93] text-white" : "border-[#c7ced8] bg-[#eef1f5] text-[#7c8591]"}`}
-                        >
-                          {stepNumber}
-                        </span>
-                      </div>
-                      <p className="mt-1 text-[11px] leading-tight text-[#7f8791]">{label}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-1">
-          <OnboardingSidebar currentStep={currentStep} />
+    <div className="min-h-screen bg-white flex flex-col">
+      {/* Top back arrow */}
+      <div className="px-6 pt-6">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full border border-gray-200 w-9 h-9 hover:bg-gray-100"
+          onClick={handleBack}
+        >
+          <ChevronLeft className="w-4 h-4 text-gray-600" />
+        </Button>
+      </div>
 
           <main className="flex-1 px-4 pb-5 md:px-10 md:py-8">
             {currentStep === 1 && <StepAccountSetup {...stepProps} />}
