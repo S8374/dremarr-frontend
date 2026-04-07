@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { Label } from "@/components/ui/label";
+import { FieldErrors } from "react-hook-form";
 import {
   Select,
   SelectContent,
@@ -18,6 +19,7 @@ interface Props {
   updateFormData: (fields: Partial<SignupFormData>) => void;
   onNext: () => void;
   onBack: () => void;
+  errors: FieldErrors<any>;
 }
 
 const ID_TYPES = [
@@ -69,20 +71,20 @@ function UploadBox({ label, helperText, file, onChange, accept = "*" }: UploadBo
   );
 }
 
-export function StepAccountSecurity({ formData, updateFormData, onNext, onBack }: Props) {
+export function StepAccountSecurity({ formData, updateFormData, onNext, onBack, errors }: Props) {
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-1">Verify Your Identity</h1>
-      <p className="text-sm text-gray-500 mb-6">
+      <h1 className="text-[38px] leading-[1.04] md:text-2xl font-bold text-gray-900 mb-2 tracking-tight">Verify Your Identity</h1>
+      <p className="text-[17px] md:text-sm text-gray-500 mb-5 md:mb-6 leading-snug max-w-md">
         Verify your identity to build trust and get a verified badge. Verified users are
         more likely to get matched and complete trades.
       </p>
 
-      <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 space-y-5">
+      <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 md:p-6 space-y-5">
         {/* Selects Row */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-1">
-            <Label className="text-sm font-medium text-gray-700">Select ID Type</Label>
+            <Label className="text-[16px] font-medium text-gray-700">Select ID Type</Label>
             <Select
               value={formData.idType}
               onValueChange={(val) => updateFormData({ idType: val })}
@@ -98,10 +100,13 @@ export function StepAccountSecurity({ formData, updateFormData, onNext, onBack }
                 ))}
               </SelectContent>
             </Select>
+            {errors.idType?.message ? (
+              <p className="text-xs text-red-500 pt-1">{String(errors.idType.message)}</p>
+            ) : null}
           </div>
 
           <div className="space-y-1">
-            <Label className="text-sm font-medium text-gray-700">
+            <Label className="text-[16px] font-medium text-gray-700">
               Certification{" "}
               <span className="text-gray-400 font-normal">(optional)</span>
             </Label>
@@ -121,7 +126,7 @@ export function StepAccountSecurity({ formData, updateFormData, onNext, onBack }
         </div>
 
         {/* Upload Row */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <UploadBox
             label="ID Document"
             helperText="Upload your ID Helper Text: Government-issued ID (driver's license, passport, etc.)"
@@ -135,8 +140,11 @@ export function StepAccountSecurity({ formData, updateFormData, onNext, onBack }
             onChange={(f) => updateFormData({ certFile: f })}
           />
         </div>
+        {errors.idFile?.message ? (
+          <p className="text-xs text-red-500">{String(errors.idFile.message)}</p>
+        ) : null}
 
-        <p className="text-xs text-gray-400 italic">
+        <p className="text-[14px] text-gray-400 italic">
           Upload document according to your occupation.
         </p>
       </div>

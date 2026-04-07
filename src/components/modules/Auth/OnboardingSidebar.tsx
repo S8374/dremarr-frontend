@@ -16,7 +16,7 @@ interface OnboardingSidebarProps {
 
 export function OnboardingSidebar({ currentStep }: OnboardingSidebarProps) {
   return (
-    <aside className="w-80 shrink-0 px-6 py-8">
+    <aside className="hidden md:block w-80 shrink-0 px-6 py-8">
       <p className="text-sm font-semibold text-gray-700 mb-6">Onboarding Flow</p>
 
       <ul className="space-y-6">
