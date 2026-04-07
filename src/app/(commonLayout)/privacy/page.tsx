@@ -2,17 +2,17 @@
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#f5f5f3] font-sans">
-      <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="min-h-screen font-sans bg-white dark:bg-zinc-950">
+      <div className="max-w-[1340px] mx-auto px-6 py-16">
 
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-light text-[#6f8f84] tracking-tight">
-            Privacy <span className="font-bold text-gray-900">&amp; Policy</span>
+          <h1 className="text-4xl font-light text-[#6f8f84] dark:text-[#9cc3b6] tracking-tight">
+            Privacy <span className="font-bold text-gray-900 dark:text-gray-100">&amp; Policy</span>
           </h1>
         </div>
 
-        <div className="space-y-8 text-sm text-gray-800 leading-relaxed">
+        <div className="space-y-8 text-sm text-gray-800 dark:text-gray-300 leading-relaxed [&_h2]:text-gray-700 dark:[&_h2]:text-gray-200 [&_p]:text-gray-600 dark:[&_p]:text-gray-300 [&_ul]:text-gray-600 dark:[&_ul]:text-gray-300">
 
           {/* 1 */}
           <section>

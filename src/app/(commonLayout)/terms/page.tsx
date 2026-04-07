@@ -1,19 +1,17 @@
 "use client";
 
-import { Separator } from "@/components/ui/separator";
-
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto px-6 py-12">
+    <div className="min-h-screen bg-white dark:bg-zinc-950">
+      <div className="max-w-[1340px] mx-auto px-6 py-12">
     {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-gray-900 leading-tight">
-            <span className="text-[#6f8f84]">DreMarr</span> Terms of Service &<br />User Agreement
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
+            <span className="text-[#6f8f84] dark:text-[#9cc3b6]">DreMarr</span> Terms of Service &<br />User Agreement
           </h1>
         </div>
 
-        <div className="space-y-7 text-sm text-gray-800 leading-relaxed">
+        <div className="space-y-7 text-sm text-gray-800 dark:text-gray-300 leading-relaxed [&_h2]:text-gray-700 dark:[&_h2]:text-gray-200 [&_p]:text-gray-600 dark:[&_p]:text-gray-300 [&_ul]:text-gray-600 dark:[&_ul]:text-gray-300 [&_.font-semibold]:text-gray-800 dark:[&_.font-semibold]:text-gray-100">
 
           {/* 1 */}
           <section>
