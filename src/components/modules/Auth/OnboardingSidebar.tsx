@@ -39,8 +39,8 @@ export function OnboardingSidebar({ currentStep }: OnboardingSidebarProps) {
                     isActive
                       ? "bg-[#3d6b60] text-white border-[#3d6b60] shadow-sm"
                       : isCompleted
-                      ? "bg-white border-[#3d6b60] text-[#3d6b60]"
-                      : "bg-white border-gray-300 text-gray-400"
+                        ? "bg-white border-[#3d6b60] text-[#3d6b60]"
+                        : "bg-white border-gray-300 text-gray-400"
                   )}
                 >
                   {isCompleted ? (
@@ -70,8 +70,8 @@ export function OnboardingSidebar({ currentStep }: OnboardingSidebarProps) {
                     isActive
                       ? "font-semibold text-gray-900"
                       : isCompleted
-                      ? "font-medium text-[#3d6b60]"
-                      : "text-gray-500"
+                        ? "font-medium text-[#3d6b60]"
+                        : "text-gray-500"
                   )}
                 >
                   {step.label}

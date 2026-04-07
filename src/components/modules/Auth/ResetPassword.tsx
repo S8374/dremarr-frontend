@@ -3,38 +3,44 @@
 import { useState } from "react";
 import { ChevronLeft, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-const loginSchema = z.object({
-  email: z.string().email({ message: "Invalid email address" }),
+const resetPasswordSchema = z.object({
   password: z.string().min(6, { message: "Password must be at least 6 characters" }),
+  confirmPassword: z.string().min(6, { message: "Please confirm your password" }),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
 });
 
-type LoginFormData = z.infer<typeof loginSchema>;
+type ResetPasswordFormData = z.infer<typeof resetPasswordSchema>;
 
-export default function Login() {
+export default function ResetPassword() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormData>({
-    resolver: zodResolver(loginSchema),
+  } = useForm<ResetPasswordFormData>({
+    resolver: zodResolver(resetPasswordSchema),
     defaultValues: {
-      email: "",
       password: "",
+      confirmPassword: "",
     },
   });
 
-  const onSubmit = (data: LoginFormData) => {
-    // Show data in console as requested
-    console.log("Login submitted:", data);
+  const onSubmit = (data: ResetPasswordFormData) => {
+    console.log("Reset Password submitted:", data);
+    // Simulate API call and redirect to login
+    setTimeout(() => {
+      router.push("/login");
+    }, 500);
   };
 
   return (
@@ -57,32 +63,20 @@ export default function Login() {
         <div className="w-full max-w-[440px] mx-auto flex flex-col items-center mt-[-60px]">
           {/* Header */}
           <h1 className="text-[34px] font-extrabold text-[#1a1c21] mb-2 heading text-center tracking-tight">
-            Log In to DreMarr
+            Reset Password
           </h1>
           <p className="text-[#6b7280] text-center mb-10 text-[15px] leading-relaxed max-w-[340px]">
-            Access your account to connect, trade, and grow your network.
+            Please enter your new password to complete the reset process.
           </p>
 
           {/* Form */}
           <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col space-y-4">
-            {/* Email Field */}
+            
+            {/* New Password Field */}
             <div className="w-full relative mb-2">
               <input
-                type="email"
-                placeholder="Email"
-                {...register("email")}
-                className={`w-full h-[54px] bg-[#e6e8eb] rounded-full px-6 text-[15px] font-medium text-gray-800 placeholder:text-[#8f96a3] outline-none focus:ring-2 focus:ring-[#768e86] focus:bg-white transition-all border ${errors.email ? 'border-red-500 focus:border-red-500' : 'border-transparent focus:border-[#768e86]'}`}
-              />
-              {errors.email && (
-                <p className="text-red-500 text-xs mt-1 ml-6 absolute -bottom-5">{errors.email.message}</p>
-              )}
-            </div>
-
-            {/* Password Field */}
-            <div className="w-full relative mt-2">
-              <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Password"
+                placeholder="New Password"
                 {...register("password")}
                 className={`w-full h-[54px] bg-[#e6e8eb] rounded-full pl-6 pr-14 text-[15px] font-medium text-gray-800 placeholder:text-[#8f96a3] outline-none focus:ring-2 focus:ring-[#768e86] focus:bg-white transition-all border ${errors.password ? 'border-red-500 focus:border-red-500' : 'border-transparent focus:border-[#768e86]'}`}
               />
@@ -103,36 +97,39 @@ export default function Login() {
               )}
             </div>
 
-            {/* Forgot Password Link */}
-            <div className="w-full flex justify-end pt-3 pb-3">
-              <Link 
-                href="/forgot-password" 
-                className="text-[13px] font-semibold text-[#db6c5e] hover:text-[#c75e52] transition-colors"
-                tabIndex={-1}
+            {/* Confirm Password Field */}
+            <div className="w-full relative mt-2">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirm Password"
+                {...register("confirmPassword")}
+                className={`w-full h-[54px] bg-[#e6e8eb] rounded-full pl-6 pr-14 text-[15px] font-medium text-gray-800 placeholder:text-[#8f96a3] outline-none focus:ring-2 focus:ring-[#768e86] focus:bg-white transition-all border ${errors.confirmPassword ? 'border-red-500 focus:border-red-500' : 'border-transparent focus:border-[#768e86]'}`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                className="absolute right-5 top-1/2 -translate-y-1/2 text-[#8f96a3] hover:text-gray-700 focus:outline-none"
+                aria-label={showConfirmPassword ? "Hide password" : "Show password"}
               >
-                Forgot Your Password
-              </Link>
+                {showConfirmPassword ? (
+                  <Eye className="w-[18px] h-[18px]" strokeWidth={2.5} />
+                ) : (
+                  <EyeOff className="w-[18px] h-[18px]" strokeWidth={2.5} />
+                )}
+              </button>
+              {errors.confirmPassword && (
+                <p className="text-red-500 text-xs mt-1 ml-6 absolute -bottom-5">{errors.confirmPassword.message}</p>
+              )}
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full h-[54px] flex items-center justify-center bg-[#768e86] hover:bg-[#667d76] active:bg-[#596e67] text-white rounded-full font-bold text-[16px] transition-colors duration-200 mt-2"
+              className="w-full h-[54px] flex items-center justify-center bg-[#768e86] hover:bg-[#667d76] active:bg-[#596e67] text-white rounded-full font-bold text-[16px] transition-colors duration-200 mt-6"
             >
-              Log In
+              Reset Password
             </button>
           </form>
-
-          {/* Footer */}
-          <p className="mt-10 text-[14px] text-[#4b5563] font-medium">
-            Dont have an account?{" "}
-            <Link 
-              href="/register" 
-              className="text-[#768e86] hover:text-[#667d76] font-bold transition-colors"
-            >
-              Create an account
-            </Link>
-          </p>
         </div>
       </main>
     </div>

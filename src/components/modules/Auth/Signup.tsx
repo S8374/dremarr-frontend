@@ -9,6 +9,7 @@ import { StepPersonalInfo } from "./StepPersonalInfo";
 import { StepProfessionalInfo } from "./StepProfessionalInfo";
 import { StepAccountSecurity } from "./StepAccountSecurity";
 import { StepFirstTrade } from "./StepFirstTrade";
+import { useRouter } from "next/navigation";
 
 export type SignupFormData = {
   // Step 1
@@ -51,6 +52,7 @@ const initialFormData: SignupFormData = {
 };
 
 export default function Signup() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<SignupFormData>(initialFormData);
 
@@ -63,7 +65,11 @@ export default function Signup() {
   };
 
   const handleBack = () => {
-    if (currentStep > 1) setCurrentStep((s) => s - 1);
+    if (currentStep > 1) {
+      setCurrentStep((s) => s - 1);
+    } else {
+      router.push("/");
+    }
   };
 
   const stepProps = { formData, updateFormData, onNext: handleNext, onBack: handleBack };
@@ -75,9 +81,8 @@ export default function Signup() {
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full border border-gray-200 w-9 h-9"
+          className="rounded-full border border-gray-200 w-9 h-9 hover:bg-gray-100"
           onClick={handleBack}
-          disabled={currentStep === 1}
         >
           <ChevronLeft className="w-4 h-4 text-gray-600" />
         </Button>
