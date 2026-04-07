@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { MessagesSidebar } from "./MessagesSidebar";
 import { ProfileSidebar } from "./ProfileSidebar";
+import Link from "next/link";
 
 const messages = [
   {
@@ -35,6 +36,14 @@ const messages = [
     text: "Sounds great! I'd be happy to hear more about the offer.",
     type: "sent",
     time: "4:33 PM",
+  },
+  {
+    id: 5,
+    text: "",
+    type: "offer",
+    time: "4:35 PM",
+    need: "I need web development services to boost my online presence and I'm looking for help with five pages.",
+    offer: "I can offer you 5 hours of electrical work from a licensed electrician. We can negotiate what type of electrical work you would want.",
   },
 ];
 
@@ -131,32 +140,76 @@ export function ChatArea() {
 
         {/* Current Dialog */}
         <div className="space-y-6">
-          {messages.map((msg) => (
-            <div key={msg.id} className={cn(
-              "flex flex-col",
-              msg.type === "sent" ? "items-end" : "items-start"
-            )}>
-              <div className={cn(
-                "flex items-end gap-3",
-                msg.type === "sent" ? "flex-row-reverse" : "flex-row"
+          {messages.map((msg) => {
+            if (msg.type === "offer") {
+              return (
+                <div key={msg.id} className="flex flex-col items-start pt-4 pb-2">
+                  <div className="flex items-start gap-3 w-full max-w-[550px]">
+                    <Avatar className="h-[42px] w-[42px] shrink-0 shadow-sm border border-slate-100 mt-2">
+                      <AvatarImage src="https://i.pravatar.cc/150?u=killan" alt="Killan" />
+                      <AvatarFallback className="font-bold text-xs">KJ</AvatarFallback>
+                    </Avatar>
+                    
+                    <div className="w-full flex flex-col gap-4">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex-1 bg-white dark:bg-muted/10 border border-slate-100 dark:border-border/20 p-5 rounded-3xl rounded-tl-none shadow-sm flex flex-col gap-3">
+                           <div className="text-[13px] font-bold text-slate-800 dark:text-slate-200">Need</div>
+                           <p className="text-[13px] leading-relaxed text-slate-500 dark:text-slate-400 font-medium">
+                              {msg.need}
+                           </p>
+                        </div>
+                        <div className="flex-1 bg-white dark:bg-muted/10 border border-slate-100 dark:border-border/20 p-5 rounded-3xl shadow-sm flex flex-col gap-3">
+                           <div className="text-[13px] font-bold text-slate-800 dark:text-slate-200">Offer</div>
+                           <p className="text-[13px] leading-relaxed text-slate-500 dark:text-slate-400 font-medium">
+                              {msg.offer}
+                           </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-col sm:flex-row items-center justify-end gap-3 w-full pr-2">
+                         <span className="text-[11px] font-bold tracking-widest uppercase text-slate-400 shrink-0">within 7 days / Miami, FI</span>
+                         <div className="flex items-center gap-3">
+                            <Button variant="outline" className="rounded-full px-5 h-9 text-[12px] font-bold text-rose-500 border-rose-100 bg-rose-50 hover:bg-rose-100 hover:text-rose-600 dark:border-rose-900/50 dark:bg-rose-900/20">
+                               Decline
+                            </Button>
+                            <Button className="rounded-full px-6 h-9 text-[12px] font-bold bg-[#6b8b7e] hover:bg-[#5b786c] text-white transition-transform active:scale-95">
+                               Accept
+                            </Button>
+                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <div key={msg.id} className={cn(
+                "flex flex-col",
+                msg.type === "sent" ? "items-end" : "items-start"
               )}>
-                {msg.type === "received" && (
-                  <Avatar className="h-[42px] w-[42px] shrink-0 shadow-sm border border-slate-100">
-                    <AvatarImage src="https://i.pravatar.cc/150?u=killan" alt="Killan" />
-                    <AvatarFallback className="font-bold text-xs">KJ</AvatarFallback>
-                  </Avatar>
-                )}
                 <div className={cn(
-                  "px-7 py-4 text-[14px]  leading-relaxed shadow-sm transition-all duration-300",
-                  msg.type === "sent"
-                    ? "bg-[#e2e8f0] text-slate-700 dark:bg-muted/30 dark:text-slate-200 rounded-4xl rounded-tr-none"
-                    : "bg-[#f1f3f5] text-slate-800 dark:text-white dark:bg-muted/10 rounded-4xl rounded-tl-none"
+                  "flex items-end gap-3",
+                  msg.type === "sent" ? "flex-row-reverse" : "flex-row"
                 )}>
-                  {msg.text}
+                  {msg.type === "received" && (
+                    <Avatar className="h-[42px] w-[42px] shrink-0 shadow-sm border border-slate-100">
+                      <AvatarImage src="https://i.pravatar.cc/150?u=killan" alt="Killan" />
+                      <AvatarFallback className="font-bold text-xs">KJ</AvatarFallback>
+                    </Avatar>
+                  )}
+                  <div className={cn(
+                    "px-7 py-4 text-[14px]  leading-relaxed shadow-sm transition-all duration-300",
+                    msg.type === "sent"
+                      ? "bg-[#e2e8f0] text-slate-700 dark:bg-muted/30 dark:text-slate-200 rounded-4xl rounded-tr-none"
+                      : "bg-[#f1f3f5] text-slate-800 dark:text-white dark:bg-muted/10 rounded-4xl rounded-tl-none"
+                  )}>
+                    {msg.text}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -177,8 +230,8 @@ export function ChatArea() {
               </button>
             </div>
           </div>
-          <Button className="h-14 w-full rounded-4xl border-4 border-slate-100 bg-white px-6 text-[16px] font-bold text-slate-400 transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 active:scale-95 dark:border-border/40 dark:bg-card dark:hover:bg-muted/20 sm:w-auto sm:min-w-[220px] sm:px-10 sm:text-[18px] lg:min-w-60 lg:px-12">
-            Create an offer
+          <Button asChild className="h-14 w-full rounded-4xl border-4 border-slate-100 bg-white px-6 text-[16px] font-bold text-slate-400 transition-all duration-300 hover:scale-[1.02] hover:bg-slate-50 active:scale-95 dark:border-border/40 dark:bg-card dark:hover:bg-muted/20 sm:w-auto sm:min-w-[220px] sm:px-10 sm:text-[18px] lg:min-w-60 lg:px-12">
+            <Link href="/create-offer">Create an offer</Link>
           </Button>
         </div>
       </div>
