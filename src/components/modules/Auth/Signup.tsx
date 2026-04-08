@@ -13,7 +13,6 @@ import { StepPersonalInfo } from "./StepPersonalInfo";
 import { StepProfessionalInfo } from "./StepProfessionalInfo";
 import { StepAccountSecurity } from "./StepAccountSecurity";
 import { StepFirstTrade } from "./StepFirstTrade";
-import { useRouter } from "next/navigation";
 
 const MOBILE_STEP_LABELS = ["Ac. setup", "Personal info", "Prof. info", "Ac. Security", "Create trade"];
 
@@ -87,7 +86,6 @@ const initialFormData: SignupFormData = {
 export default function Signup() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
-  const router = useRouter();
   const {
     register,
     watch,
@@ -172,18 +170,21 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      {/* Top back arrow */}
-      <div className="px-6 pt-6">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="rounded-full border border-gray-200 w-9 h-9 hover:bg-gray-100"
-          onClick={handleBack}
-        >
-          <ChevronLeft className="w-4 h-4 text-gray-600" />
-        </Button>
-      </div>
+    <div className="min-h-screen bg-[#f4f5f7] md:bg-white">
+      <div className="mx-auto min-h-screen w-full max-w-[620px] md:max-w-none">
+        <div className="px-6 pt-6">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="rounded-full border border-gray-200 w-9 h-9 hover:bg-gray-100"
+            onClick={handleTopBack}
+          >
+            <ChevronLeft className="w-4 h-4 text-gray-600" />
+          </Button>
+        </div>
+
+        <div className="flex flex-1">
+          <OnboardingSidebar currentStep={currentStep} />
 
           <main className="flex-1 px-4 pb-5 md:px-10 md:py-8">
             {currentStep === 1 && <StepAccountSetup {...stepProps} />}
