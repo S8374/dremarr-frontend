@@ -40,41 +40,41 @@ const TradingSteps = () => {
     ];
 
     return (
-                <section className="bg-background px-4 py-14 text-foreground sm:px-6 sm:py-16 lg:px-8">
+        <section className="bg-background px-4 py-16 text-foreground sm:px-6 lg:px-8">
             <div className="mx-auto max-w-[1340px]">
-                <div className="mb-12 text-center sm:mb-14">
-                                        <h2 className={`mb-3 font-semibold text-foreground ${isSpanish ? "text-[28px] sm:text-[36px] md:text-[44px]" : "text-3xl sm:text-4xl md:text-5xl"}`}>
+                <div className="mb-12 text-center">
+                    <h2 className={`mb-2 font-semibold text-foreground ${isSpanish ? "text-[30px] md:text-[44px]" : "text-[44px]"}`}>
                         {language === "es" ? (
-                          <>Empieza a <span className="text-[#79948d]">intercambiar</span> en 3 pasos</>
+                            <>Empieza a <span className="text-[#79948d]">intercambiar</span> en 3 pasos</>
                         ) : (
-                          <>Start <span className="text-[#79948d]">Trading</span> in Three Steps</>
+                            <>Start <span className="text-[#79948d]">Trading</span> in Three Steps</>
                         )}
                     </h2>
-                                        <p className={`text-muted-foreground ${isSpanish ? "text-sm sm:text-base" : "text-base sm:text-lg"}`}>
+                    <p className="text-[24px] text-muted-foreground">
                         {language === "es" ? "Sin configuración complicada. Solo crea, conecta e intercambia." : "No complicated setup. Just creat, connect, and exchange."}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-3 text-center">
                     {steps.map((step, index) => (
                         <article
                             key={index}
-                            className="rounded-2xl border border-border bg-card px-7 py-7 sm:px-8 sm:py-8"
+                            className="rounded-2xl bg-[#f3f4f6] px-7 py-7"
                         >
-                            <div className="mb-6 flex items-center justify-between">
-                                <span className="text-5xl font-bold leading-none text-muted-foreground/40 sm:text-[58px]">
+                            <div className="relative mb-5 flex h-14 items-start justify-center">
+                                <span className="absolute left-0 top-0 text-[58px] font-bold leading-none text-[#c9cdd5]">
                                     {step.number}
                                 </span>
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-muted text-primary">
-                                    <step.icon className="h-5 w-5" />
+                                <div className="mt-1 flex h-12 w-12 items-center justify-center rounded-full border border-[#c4ccd4] bg-[#e3e7eb]">
+                                    <step.icon className="h-5 w-5 text-[#6d8b84]" />
                                 </div>
                             </div>
 
-                            <h3 className={`mb-3 font-semibold leading-tight text-foreground ${isSpanish ? "text-[24px] sm:text-[28px]" : "text-[29px]"}`}>
+                            <h3 className="mb-3 text-[37px] font-semibold leading-tight text-foreground">
                                 {isSpanish ? step.titleEs : step.title}
                             </h3>
 
-                            <p className={`leading-[1.35] text-muted-foreground ${isSpanish ? "text-[16px] sm:text-[18px]" : "text-[22px]"}`}>
+                            <p className="text-[22px] leading-[1.35] text-muted-foreground">
                                 {step.description}
                             </p>
                         </article>

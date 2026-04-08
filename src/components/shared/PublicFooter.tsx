@@ -1,6 +1,6 @@
 "use client";
 
-import { Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "./language-provider";
 
@@ -8,88 +8,110 @@ export default function Footer() {
     const { language } = useLanguage();
     const isSpanish = language === "es";
 
-    return (
-        <footer className="bg-[#0a0a0a] text-white pt-16 pb-10">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12">
+    const quickLinks = [
+        { href: "/", label: isSpanish ? "Inicio" : "Home" },
+        { href: "/marketplace", label: isSpanish ? "Mercado" : "Marketplace" },
+        { href: "/membership", label: isSpanish ? "Membresia" : "Membership" },
+        { href: "/messages", label: isSpanish ? "Mensajes" : "Message" },
+        { href: "/about", label: isSpanish ? "Nuestra historia" : "Our story" },
+        { href: "/support", label: isSpanish ? "Soporte" : "Support" },
+        { href: "/login", label: isSpanish ? "Iniciar sesion" : "Login" },
+    ];
 
-                    {/* Logo & Tagline */}
-                    <div className="md:col-span-4">
-                        <div className="flex items-center gap-3 mb-3">
-                            <span className="text-4xl font-bold tracking-wider text-emerald-400">DREMARR</span>
-                        </div>
-                        <p className={`text-gray-400 ${isSpanish ? "text-base" : "text-lg"}`}>{language === "es" ? "Donde las habilidades se convierten en valor." : "Where Skills Become Value."}</p>
+    return (
+        <footer className="bg-[#040607] text-white pt-16 pb-6">
+            <div className="mx-auto max-w-[1380px]">
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.2fr_1fr_1fr_1.15fr] md:gap-10">
+                    <div>
+                        <h2 className="text-[36px] font-semibold leading-none tracking-wide text-[#8ca7a1]">DREMARR</h2>
+                        <p className="mt-2 text-[16px] text-[#cad2d7]">
+                            {isSpanish ? "Donde la habilidad es moneda" : "Where Skill is Currency"}
+                        </p>
                     </div>
 
-                    {/* Quick Links */}
-                    <div className="md:col-span-2">
-                        <h3 className="text-white font-semibold text-lg mb-6">{language === "es" ? "Enlaces" : "Quick Links"}</h3>
-                        <ul className="space-y-3 text-gray-400">
-                            {/* <li><Link href="/" className="hover:text-white transition">{language === "es" ? "Inicio" : "Home"}</Link></li> */}
-                            <li><Link href="/marketplace" className="hover:text-white transition">{language === "es" ? "Mercado" : "Marketplace"}</Link></li>
-                            <li><Link href="/membership" className="hover:text-white transition">{language === "es" ? "Membresía" : "Membership"}</Link></li>
-                            <li><Link href="/message" className="hover:text-white transition">{language === "es" ? "Mensajes" : "Message"}</Link></li>
-                            {/* <li><Link href="/login" className="hover:text-white transition">{language === "es" ? "Iniciar sesión" : "Login"}</Link></li> */}
+                    <div>
+                        <h3 className="text-lg font-semibold text-white">{isSpanish ? "Enlaces" : "Quick Links"}</h3>
+                        <ul className="mt-5 space-y-3 text-[#c8d0d5]">
+                            {quickLinks.map((item) => (
+                                <li key={item.href}>
+                                    <Link href={item.href} className="transition-colors hover:text-white">
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Connect */}
-                    <div className="md:col-span-3">
-                        <h3 className="text-white font-semibold text-lg mb-6">{language === "es" ? "Conectar" : "Connect"}</h3>
-                        <div className="space-y-4">
-                            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition">
-                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
-                                    <Instagram className="w-5 h-5" />
-                                </div>
+                    <div>
+                        <h3 className="text-lg font-semibold text-white">{isSpanish ? "Conectar" : "Connect"}</h3>
+                        <div className="mt-5 space-y-4 text-[#c8d0d5]">
+                            <a href="#" className="flex items-center gap-3 transition-colors hover:text-white">
+                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7f9b95] text-[#f2f5f6]">
+                                    <Instagram className="h-5 w-5" />
+                                </span>
                                 Instagram
                             </a>
-                            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition">
-                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
-                                    <Facebook className="w-5 h-5" />
-                                </div>
+                            <a href="#" className="flex items-center gap-3 transition-colors hover:text-white">
+                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7f9b95] text-[#f2f5f6]">
+                                    <Facebook className="h-5 w-5" />
+                                </span>
                                 Facebook
                             </a>
-                            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition">
-                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
-                                    <Linkedin className="w-5 h-5" />
-                                </div>
-                                LinkedIn
+                            <a href="#" className="flex items-center gap-3 transition-colors hover:text-white">
+                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7f9b95] text-[#f2f5f6]">
+                                    <Linkedin className="h-5 w-5" />
+                                </span>
+                                Linkedin
                             </a>
-                            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition">
-                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
-                                    <span className="text-xl">♫</span>
-                                </div>
+                            <a href="#" className="flex items-center gap-3 transition-colors hover:text-white">
+                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7f9b95] text-[20px] text-[#f2f5f6]">
+                                    ♪
+                                </span>
                                 Tiktok
                             </a>
                         </div>
                     </div>
 
-                    {/* Stay Updated */}
-                    <div className="md:col-span-3">
-                        <h3 className="text-white font-semibold text-lg mb-6">{language === "es" ? "Mantente al día" : "Stay Updated"}</h3>
-                        <p className={`text-gray-400 mb-4 ${isSpanish ? "text-sm" : ""}`}>{language === "es" ? "Recibe las últimas noticias y ofertas especiales" : "Get the latest news and special offers"}</p>
+                    <div>
+                        <h3 className="text-lg font-semibold text-white">{isSpanish ? "Mantente al dia" : "Stay Updated"}</h3>
+                        <p className="mt-4 text-[17px] text-[#c8d0d5]">
+                            {isSpanish ? "Recibe las ultimas noticias y ofertas especiales" : "Get the latest news and special offers"}
+                        </p>
 
-                        <div className="relative">
+                        <div className="mt-5 flex h-11 w-full max-w-[370px] items-center overflow-hidden rounded-full bg-[#1d282b]">
                             <input
                                 type="email"
-                                placeholder={language === "es" ? "Tu correo" : "Your email"}
-                                className="w-full bg-[#1a1a1a] border border-gray-700 rounded-full py-4 pl-6 pr-14 text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500"
+                                placeholder={isSpanish ? "Tu correo" : "Your email"}
+                                className="h-full flex-1 bg-transparent px-5 text-[14px] text-white placeholder:text-[#c4cbd0] focus:outline-none"
                             />
-                            <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-emerald-500 hover:bg-emerald-600 transition w-10 h-10 rounded-full flex items-center justify-center">
+                            <button
+                                type="button"
+                                className="mr-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#8aa39d] text-white"
+                            >
                                 →
                             </button>
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                    <p>hello@dremmarr.com</p>
-
-                    <div className="flex gap-6">
-                        <Link href="/terms" className="hover:text-white transition">{language === "es" ? "Términos" : "Terms & conditions"}</Link>
-                        <Link href="/privacy" className="hover:text-white transition">{language === "es" ? "Privacidad" : "Privacy Policy"}</Link>
-                        <Link href="/about" className="hover:text-white transition">{language === "es" ? "Acerca de" : "About"}</Link>
+                <div className="mt-10 border-t border-[#2d363c] pt-4 text-[15px] text-[#c8d0d5]">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                        <div className="flex flex-wrap items-center gap-3 md:gap-4">
+                            <span>© 2026 DreMarr LLC. All rights reserved</span>
+                            <span className="hidden md:inline">|</span>
+                            <span>hello@dremmarr.com</span>
+                        </div>
+                        <div className="flex items-center gap-6">
+                            <Link href="/terms" className="transition-colors hover:text-white">
+                                {isSpanish ? "Terminos y condiciones" : "Terms & conditions"}
+                            </Link>
+                            <Link href="/privacy" className="transition-colors hover:text-white">
+                                {isSpanish ? "Politica de privacidad" : "Privacy Policy"}
+                            </Link>
+                            <Link href="/about" className="transition-colors hover:text-white">
+                                {isSpanish ? "Sobre nosotros" : "About Us"}
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -20,6 +20,7 @@ const PublicNavbar = () => {
   const { language, setLanguage } = useLanguage();
   const isSpanish = language === "es";
   const modeLabel = theme ? theme.charAt(0).toUpperCase() + theme.slice(1) : "Theme";
+  const languageLabel = isSpanish ? "Español" : "English";
 
   const navItems = [
     { href: "/", label: isSpanish ? "Inicio" : "Home" },
@@ -91,32 +92,27 @@ const PublicNavbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <div className="relative ml-1 inline-flex items-center rounded-full border border-border/70 bg-background dark:bg-muted/20 text-[11px] font-semibold shadow-[0_10px_30px_-24px_rgba(15,23,42,0.55)] lg:text-[12px]">
-              <div
-                className={`absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full bg-[#6f8f84] shadow-[0_8px_20px_-14px_rgba(111,143,132,0.9)] transition-transform duration-300 ease-out ${language === "es" ? "translate-x-full" : "translate-x-0"
-                  }`}
-              />
-              <button
-                type="button"
-                onClick={() => setLanguage("en")}
-                aria-pressed={language === "en"}
-                className={`relative z-10 inline-flex h-9 min-w-11 items-center justify-center rounded-full px-3.5 transition-colors duration-200 ${language === "en" ? "text-white" : "text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white"
-                  }`}
-              >
-                <span className="sr-only">English</span>
-                EN
-              </button>
-              <button
-                type="button"
-                onClick={() => setLanguage("es")}
-                aria-pressed={language === "es"}
-                className={`relative z-10 inline-flex h-9 min-w-11 items-center justify-center rounded-full px-3.5 transition-colors duration-200 ${language === "es" ? "text-white" : "text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white"
-                  }`}
-              >
-                <span className="sr-only">Spanish</span>
-                ES
-              </button>
-            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  className="ml-1 inline-flex items-center gap-1.5 rounded-full border-border/70 bg-background px-3 py-1.5 text-[12px] font-semibold text-foreground shadow-[0_10px_30px_-24px_rgba(15,23,42,0.55)] transition-transform hover:-translate-y-0.5 dark:bg-muted/20 lg:gap-2 lg:px-4 lg:py-2"
+                >
+                  <span className={`max-w-[78px] truncate ${isSpanish ? "text-[11px]" : ""}`}>{languageLabel}</span>
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-40 rounded-2xl border-border/60 p-1 shadow-lg">
+                <DropdownMenuItem onClick={() => setLanguage("en")}>
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage("es")}>
+                  Español
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         </div>
 
@@ -152,24 +148,18 @@ const PublicNavbar = () => {
                   <Button type="button" variant="outline" size="sm" onClick={() => setTheme("system")}>System</Button>
                 </div>
 
-                <div className="mt-1 inline-flex items-center gap-2 rounded-2xl border border-border bg-muted text-sm font-medium text-muted-foreground">
-                  <button
-                    type="button"
-                    onClick={() => setLanguage("en")}
-                    className={`rounded-full px-3 py-1.5 transition-colors ${language === "en" ? "bg-[#6f8f84] text-white" : "hover:text-foreground"
-                      }`}
-                  >
-                    English
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setLanguage("es")}
-                    className={`rounded-full px-3 py-1.5 transition-colors ${language === "es" ? "bg-[#6f8f84] text-white" : "hover:text-foreground"
-                      }`}
-                  >
-                    Spanish
-                  </button>
-                </div>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button type="button" variant="outline" className="mt-1 w-fit rounded-xl">
+                      {languageLabel}
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-40 rounded-2xl border-border/60 p-1 shadow-lg">
+                    <DropdownMenuItem onClick={() => setLanguage("en")}>English</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setLanguage("es")}>Español</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
 
                 <Link
                   href="/login"

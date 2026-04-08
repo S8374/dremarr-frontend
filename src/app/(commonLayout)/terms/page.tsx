@@ -11,16 +11,16 @@ export default function TermsPage() {
       <div className="max-w-[1340px] mx-auto px-6 py-12">
     {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
             <span className="text-[#6f8f84] dark:text-[#9cc3b6]">DreMarr</span> {isSpanish ? "Terminos de servicio y" : "Terms of Service &"}<br />{isSpanish ? "acuerdo de usuario" : "User Agreement"}
           </h1>
         </div>
 
-        <div className="space-y-7 text-sm text-gray-800 dark:text-gray-300 leading-relaxed [&_h2]:text-gray-700 dark:[&_h2]:text-gray-200 [&_p]:text-gray-600 dark:[&_p]:text-gray-300 [&_ul]:text-gray-600 dark:[&_ul]:text-gray-300 [&_.font-semibold]:text-gray-800 dark:[&_.font-semibold]:text-gray-100">
+        <div className="space-y-7 text-base text-gray-800 dark:text-gray-300 leading-relaxed [&_h2]:text-lg [&_h2]:text-gray-700 dark:[&_h2]:text-gray-200 [&_p]:text-gray-600 dark:[&_p]:text-gray-300 [&_ul]:text-gray-600 dark:[&_ul]:text-gray-300 [&_.font-semibold]:text-gray-800 dark:[&_.font-semibold]:text-gray-100">
 
           {/* 1 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "1. Proposito de la plataforma" : "I. Platform Purpose"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "1. Proposito de la plataforma" : "I. Platform Purpose"}</h2>
             <p className="text-gray-500">
               DreMarr is an online platform designed to connect individuals who wish to exchange services or skills through barter or other mutually agreed arrangements.
             </p>
@@ -34,7 +34,7 @@ export default function TermsPage() {
 
           {/* 2 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "2. Elegibilidad del usuario" : "2. User Eligibility"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "2. Elegibilidad del usuario" : "2. User Eligibility"}</h2>
             <p className="text-gray-500">
               By creating an account and using DreMarr, you represent that:
             </p>
@@ -50,7 +50,7 @@ export default function TermsPage() {
 
           {/* 3 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "3. Acuerdos independientes entre usuarios" : "3. Independent Agreements Between Users"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "3. Acuerdos independientes entre usuarios" : "3. Independent Agreements Between Users"}</h2>
             <p className="text-gray-500">
               All service exchanges, barter arrangements, and agreements occur solely between the participating users.
             </p>
@@ -64,7 +64,7 @@ export default function TermsPage() {
 
           {/* 4 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "4. Verificacion e insignias" : "4. Verification and Badging"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "4. Verificacion e insignias" : "4. Verification and Badging"}</h2>
             <p className="text-gray-500">
               Users may have the option to upload licenses, certifications, or other documentation in order to receive certain badges or verification indicators on their profiles.
             </p>
@@ -81,7 +81,7 @@ export default function TermsPage() {
 
           {/* 5 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "5. Descargo de responsabilidad de la plataforma" : "5. Platform Disclaimer"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "5. Descargo de responsabilidad de la plataforma" : "5. Platform Disclaimer"}</h2>
             <p className="text-gray-500">
               DreMarr is not responsible for the actions, conduct, qualifications, services, or representations of any users on the Platform.
             </p>
@@ -98,7 +98,7 @@ export default function TermsPage() {
 
           {/* 6 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "6. Limitacion de responsabilidad" : "6. Limitation of Liability"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "6. Limitacion de responsabilidad" : "6. Limitation of Liability"}</h2>
             <p className="text-gray-500">
               To the fullest extent permitted by law, DreMarr, its owners, employees, affiliates, and partners shall not be liable for any damages, losses, injuries, theft, fraud, property damage, or other claims arising from:
             </p>
@@ -119,7 +119,7 @@ export default function TermsPage() {
 
           {/* 7 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "7. Indemnizacion" : "7. Indemnification"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "7. Indemnizacion" : "7. Indemnification"}</h2>
             <p className="text-gray-500">
               Users agree to indemnify, defend, and hold harmless DreMarr, its owners, employees, affiliates, and partners from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorney's fees) arising out of or related to:
             </p>
@@ -134,7 +134,7 @@ export default function TermsPage() {
 
           {/* 8 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "8. Responsabilidades del usuario" : "8. User Responsibilities"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "8. Responsabilidades del usuario" : "8. User Responsibilities"}</h2>
             <p className="text-gray-500">Users are responsible for:</p>
             <ul className="list-disc list-inside mt-2 space-y-1 pl-2 text-gray-500">
               <li>Verifying the identity of other users</li>
@@ -150,7 +150,7 @@ export default function TermsPage() {
 
           {/* 9 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "9. Impuestos y transacciones de trueque" : "9. Taxes and Barter Transactions"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "9. Impuestos y transacciones de trueque" : "9. Taxes and Barter Transactions"}</h2>
             <p className="text-gray-500">
               Barter transactions may be considered taxable income under federal, state, or local tax laws.
             </p>
@@ -164,7 +164,7 @@ export default function TermsPage() {
 
           {/* 10 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "10. Actividades prohibidas" : "10. Prohibited Activities"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "10. Actividades prohibidas" : "10. Prohibited Activities"}</h2>
             <p className="text-gray-500">Users may not use the DreMarr platform for:</p>
             <ul className="list-disc list-inside mt-2 space-y-1 pl-2 text-gray-500">
               <li>Illegal services</li>
@@ -180,7 +180,7 @@ export default function TermsPage() {
 
           {/* 11 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "11. Suspension o cancelacion de cuenta" : "11. Account Suspension or Termination"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "11. Suspension o cancelacion de cuenta" : "11. Account Suspension or Termination"}</h2>
             <p className="text-gray-500">
               DreMarr reserves the right to suspend or terminate user accounts at its discretion if users violate these Terms of Service or engage in conduct that harms the platform or other members.
             </p>
@@ -188,7 +188,7 @@ export default function TermsPage() {
 
           {/* 12 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "12. Disputas entre usuarios" : "12. Disputes Between Users"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "12. Disputas entre usuarios" : "12. Disputes Between Users"}</h2>
             <p className="text-gray-500">
               Any disputes arising from service exchanges or barter agreements must be reached directly between the involved users.
             </p>
@@ -199,7 +199,7 @@ export default function TermsPage() {
 
           {/* 13 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "13. Aceptacion de terminos" : "13. Acceptance of Terms"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "13. Aceptacion de terminos" : "13. Acceptance of Terms"}</h2>
             <p className="text-gray-500">
               By creating an account or using the DreMarr platform, you acknowledge that you have read, understood, and agree to these Terms of Service, User Agreement, and Platform Disclaimer.
             </p>
@@ -207,7 +207,7 @@ export default function TermsPage() {
 
           {/* 14 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "14. Membresia y politica de reembolso" : "14. Membership Fees and Refund Policy"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "14. Membresia y politica de reembolso" : "14. Membership Fees and Refund Policy"}</h2>
             <p className="text-gray-500">
               DreMarr platform requires a paid membership subscription. By subscribing, you authorize DreMarr to charge your payment method on a recurring basis. Subscriptions automatically renew unless canceled prior to the next billing cycle.
             </p>
@@ -224,7 +224,7 @@ export default function TermsPage() {
 
           {/* 15 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "15. Politica de seguridad y antifraude" : "15. Safety and Anti-Fraud Policy"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "15. Politica de seguridad y antifraude" : "15. Safety and Anti-Fraud Policy"}</h2>
             <p className="text-gray-500">
               DreMarr is committed to creating a safe and trustworthy platform for individuals exchanging services. However, DreMarr cannot guarantee the behavior, honesty, or reliability of its users.
             </p>
@@ -261,7 +261,7 @@ export default function TermsPage() {
 
           {/* 16 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "16. Sin relacion laboral" : "16. No Employment Relationship"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "16. Sin relacion laboral" : "16. No Employment Relationship"}</h2>
             <p className="text-gray-500">
               Users are not employees, agents, or representatives of DreMarr. DreMarr does not employ or contract any service providers listed on the platform.
             </p>
@@ -269,7 +269,7 @@ export default function TermsPage() {
 
           {/* 17 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "17. Propiedad intelectual" : "17. Intellectual Property"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "17. Propiedad intelectual" : "17. Intellectual Property"}</h2>
             <p className="text-gray-500">
               DreMarr owns all rights to the platform, including branding, content, and design. Users grant DreMarr a non-exclusive, royalty-free license to use content uploaded to the platform for the purpose of operating and promoting the service.
             </p>
@@ -277,7 +277,7 @@ export default function TermsPage() {
 
           {/* 18 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "18. Privacidad" : "18. Privacy"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "18. Privacidad" : "18. Privacy"}</h2>
             <p className="text-gray-500">
               Use of the platform is also governed by DreMarr's Privacy Policy.
             </p>
@@ -285,7 +285,7 @@ export default function TermsPage() {
 
           {/* 19 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "19. Ley aplicable" : "19. Governing Law"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "19. Ley aplicable" : "19. Governing Law"}</h2>
             <p className="text-gray-500">
               These Terms shall be governed by and interpreted in accordance with the laws of the Commonwealth of Virginia.
             </p>
@@ -293,7 +293,7 @@ export default function TermsPage() {
 
           {/* 20 */}
           <section>
-            <h2 className="text-base font-bold text-gray-600 mb-2">{isSpanish ? "20. Modificaciones de terminos" : "20. Modifications to Terms"}</h2>
+            <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "20. Modificaciones de terminos" : "20. Modifications to Terms"}</h2>
             <p className="text-gray-500">
               DreMarr reserves the right to update or modify these terms at any time. Continued use of the platform constitutes acceptance of any changes.
             </p>

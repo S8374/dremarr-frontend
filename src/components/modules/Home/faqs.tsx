@@ -51,7 +51,7 @@ export default function FAQSection() {
   return (
     <section className="bg-background px-4 py-14 text-foreground sm:px-6 sm:py-16 lg:px-8">
       <div className="mx-auto max-w-[1340px]">
-        <h2 className={`mb-10 text-center font-semibold text-foreground sm:mb-12 ${isSpanish ? "text-[28px] sm:text-[44px]" : "text-3xl sm:text-5xl"}`}>
+        <h2 className={`mb-10 text-center font-semibold text-foreground sm:mb-12 ${isSpanish ? "text-[24px] sm:text-[36px]" : "text-2xl sm:text-4xl"}`}>
           <span className="text-[#738C88]">{language === "es" ? "Preguntas" : "Frequently"}</span> {language === "es" ? "frecuentes" : "Asked Questions"}
         </h2>
 
@@ -65,7 +65,7 @@ export default function FAQSection() {
                 onClick={() => toggleFAQ(index)}
                 className="group flex w-full items-center justify-between px-5 py-5 text-left sm:px-7 sm:py-6"
               >
-                <span className={`pr-6 font-medium leading-tight text-foreground sm:pr-8 ${isSpanish ? "text-[17px] sm:text-[28px]" : "text-[19px] sm:text-[35px]"}`}>
+                <span className={`pr-6 font-medium leading-tight text-foreground sm:pr-8 ${isSpanish ? "text-[15px] sm:text-[22px]" : "text-[17px] sm:text-[28px]"}`}>
                   {isSpanish ? faq.questionEs : faq.question}
                 </span>
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground">
@@ -82,7 +82,7 @@ export default function FAQSection() {
                   openIndex === index ? "max-h-64 sm:max-h-56" : "max-h-0"
                 }`}
               >
-                <div className={`px-5 pb-6 leading-relaxed text-muted-foreground sm:px-7 sm:pb-8 ${isSpanish ? "text-[15px] sm:text-[18px]" : "text-[17px] sm:text-[28px]"}`}>
+                <div className={`px-5 pb-6 leading-relaxed text-muted-foreground sm:px-7 sm:pb-8 ${isSpanish ? "text-[14px] sm:text-[16px]" : "text-[15px] sm:text-[20px]"}`}>
                   {isSpanish ? faq.answerEs : faq.answer}
                 </div>
               </div>
