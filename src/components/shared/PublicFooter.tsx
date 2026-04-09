@@ -9,13 +9,11 @@ export default function Footer() {
     const isSpanish = language === "es";
 
     const quickLinks = [
-        { href: "/", label: isSpanish ? "Inicio" : "Home" },
         { href: "/marketplace", label: isSpanish ? "Mercado" : "Marketplace" },
         { href: "/membership", label: isSpanish ? "Membresia" : "Membership" },
         { href: "/messages", label: isSpanish ? "Mensajes" : "Message" },
         { href: "/about", label: isSpanish ? "Nuestra historia" : "Our story" },
         { href: "/support", label: isSpanish ? "Soporte" : "Support" },
-        { href: "/login", label: isSpanish ? "Iniciar sesion" : "Login" },
     ];
 
     return (

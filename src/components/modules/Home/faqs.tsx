@@ -7,7 +7,7 @@ import { useLanguage } from "@/components/shared/language-provider";
 const faqs = [
   {
     question: "What is this platform about?",
-    questionEs: "¿De qué trata esta plataforma?",
+    questionEs: "De qué trata esta plataforma?",
     answer:
       "This platform is a skill-exchange marketplace where users can offer their services and receive other services in return without using money. It simply connects people who agree on the value of their work and want to trade fairly.",
     answerEs:
@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "Do I need to pay to exchange services?",
-    questionEs: "¿Tengo que pagar para intercambiar servicios?",
+    questionEs: "Tengo que pagar para intercambiar servicios?",
     answer:
       "No, you don't need to pay any money. This is a pure skill-barter platform. You exchange your skills/services directly with other members.",
     answerEs:
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Who can join the platform?",
-    questionEs: "¿Quién puede unirse a la plataforma?",
+    questionEs: "Quién puede unirse a la plataforma?",
     answer:
       "Anyone who has a skill to offer or is willing to exchange services can join. Whether you're a professional, freelancer, student, or hobbyist — as long as you're ready to trade skills fairly, you're welcome.",
     answerEs:
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "Is the platform responsible for service quality or disputes?",
-    questionEs: "¿La plataforma es responsable de la calidad del servicio o de las disputas?",
+    questionEs: "La plataforma es responsable de la calidad del servicio o de las disputas?",
     answer:
       "While we provide tools for verification, reviews, and secure messaging, the final responsibility lies with the users. We strongly encourage thorough communication and mutual agreement before any exchange.",
     answerEs:

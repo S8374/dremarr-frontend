@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 type Language = "en" | "es";
 
@@ -31,6 +32,27 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     <LanguageContext.Provider value={{ language, setLanguage }}>
       {children}
     </LanguageContext.Provider>
+  );
+}
+
+export function LanguageTransition({ children }: { children: React.ReactNode }) {
+  const { language } = useLanguage();
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={language}
+        initial={{ opacity: 0, filter: "blur(12px)", scale: 0.97 }}
+        animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+        exit={{ opacity: 0, filter: "blur(12px)", scale: 1.03 }}
+        transition={{
+          duration: 0.35,
+          ease: [0.23, 1, 0.32, 1] // Custom cubic-bezier for a crisp snap
+        }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

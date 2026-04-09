@@ -38,52 +38,55 @@ const messages = [
 
 export function MessagesSidebar() {
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-card border-r border-border/10 overflow-hidden scrollbar-hide">
+    <div className="flex flex-col h-full bg-background dark:bg-card border-r border-border/10 overflow-hidden scrollbar-hide">
       <div className="p-10 pb-6">
         <div className="flex items-center gap-6 mb-10">
-          <button className="h-12 w-12 flex items-center justify-center rounded-full bg-slate-50 transition-all hover:bg-slate-100 active:scale-95">
+          <button className="h-12 w-12 flex items-center justify-center rounded-full bg-muted/50 transition-all hover:bg-muted active:scale-95">
             <ChevronLeft className="h-6 w-6 stroke-[2]" />
           </button>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Messages</h1>
+          <h1 className="text-3xl font-bold text-foreground tracking-tight">Messages</h1>
         </div>
 
         <div className="relative group">
-          <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-300" />
+          <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground/50" />
           <Input 
             placeholder="Search..." 
-            className="pl-14 h-14 bg-slate-50 dark:bg-muted/10 border-none rounded-2xl text-[16px]  placeholder:text-slate-300 focus-visible:ring-0 focus-visible:bg-slate-100 transition-all"
+            className="pl-14 h-14 bg-muted/30 dark:bg-background/20 border-none rounded-2xl text-[16px] placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:bg-muted/50 transition-all"
           />
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto mt-2 px-4 space-y-2 scrollbar-hide">
+      <div 
+        data-lenis-prevent
+        className="flex-1 overflow-y-auto mt-2 px-4 space-y-2 scrollbar-hide"
+      >
         {messages.map((msg) => (
           <div
             key={msg.id}
             className={cn(
               "group relative flex items-center gap-4 p-2 cursor-pointer transition-all duration-300 rounded-xl",
-              msg.id === 1 ? "bg-slate-50 dark:bg-muted/10 font-bold" : "hover:bg-slate-50/50 dark:hover:bg-muted/10"
+              msg.id === 1 ? "bg-muted/50 dark:bg-muted/20 font-bold" : "hover:bg-muted/30 dark:hover:bg-muted/10"
             )}
           >
             <div className="relative shrink-0">
-              <Avatar className="h-[64px] w-[64px] shadow-sm">
+              <Avatar className="h-[64px] w-[64px] shadow-sm border border-background">
                 <AvatarImage src={msg.avatar} alt={msg.name} />
                 <AvatarFallback>{msg.name[0]}</AvatarFallback>
               </Avatar>
               {msg.online && (
-                <span className="absolute bottom-1 right-1 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500 shadow-sm" />
+                <span className="absolute bottom-1 right-1 h-3.5 w-3.5 rounded-full border-2 border-background bg-emerald-500 shadow-sm" />
               )}
             </div>
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-1.5">
-                <h3 className="font-bold text-[17px] text-slate-800 dark:text-white truncate tracking-tight">{msg.name}</h3>
-                <span className="text-[12px] font-bold text-slate-400">{msg.time}</span>
+                <h3 className="font-bold text-[17px] text-foreground truncate tracking-tight">{msg.name}</h3>
+                <span className="text-[12px] font-bold text-muted-foreground/60">{msg.time}</span>
               </div>
               <div className="flex items-center justify-between">
                 <p className={cn(
                   "text-[14px] truncate",
-                  msg.isTyping ? "text-emerald-500 font-bold" : "text-slate-400 font-medium"
+                  msg.isTyping ? "text-emerald-500 font-bold" : "text-muted-foreground font-medium"
                 )}>
                   {msg.message}
                 </p>

@@ -2,6 +2,7 @@
 
 import { Plus, Mail, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/components/shared/language-provider";
+import { motion, Variants } from "framer-motion";
 
 const TradingSteps = () => {
     const { language } = useLanguage();
@@ -39,11 +40,20 @@ const TradingSteps = () => {
         },
     ];
 
+    const cardVariants: Variants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
     return (
         <section className="bg-background px-4 py-16 text-foreground sm:px-6 lg:px-8">
             <div className="mx-auto max-w-[1340px]">
                 <div className="mb-12 text-center">
-                    <h2 className={`mb-2 font-semibold text-foreground ${isSpanish ? "text-[30px] md:text-[44px]" : "text-[44px]"}`}>
+                    <h2 className="mb-2 font-semibold text-foreground text-[30px] md:text-[44px]">
                         {language === "es" ? (
                             <>Empieza a <span className="text-[#79948d]">intercambiar</span> en 3 pasos</>
                         ) : (
@@ -55,17 +65,24 @@ const TradingSteps = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-3 text-center">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ staggerChildren: 0.1 }}
+                    className="grid grid-cols-1 gap-6 md:grid-cols-3 text-center"
+                >
                     {steps.map((step, index) => (
-                        <article
+                        <motion.article
+                            variants={cardVariants}
                             key={index}
-                            className="rounded-2xl bg-[#f3f4f6] px-7 py-7"
+                            className="rounded-2xl bg-muted/40 dark:bg-card px-7 py-7 border border-border/50"
                         >
                             <div className="relative mb-5 flex h-14 items-start justify-center">
-                                <span className="absolute left-0 top-0 text-[58px] font-bold leading-none text-[#c9cdd5]">
+                                <span className="absolute left-0 top-0 text-[58px] font-extrabold leading-none text-foreground/20 dark:text-foreground/25">
                                     {step.number}
                                 </span>
-                                <div className="mt-1 flex h-12 w-12 items-center justify-center rounded-full border border-[#c4ccd4] bg-[#e3e7eb]">
+                                <div className="mt-1 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-muted/60 dark:bg-muted/20">
                                     <step.icon className="h-5 w-5 text-[#6d8b84]" />
                                 </div>
                             </div>
@@ -77,9 +94,9 @@ const TradingSteps = () => {
                             <p className="text-[22px] leading-[1.35] text-muted-foreground">
                                 {step.description}
                             </p>
-                        </article>
+                        </motion.article>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

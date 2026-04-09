@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
 
     const { pathname } = request.nextUrl;
 
-    const protectedPaths = ['/dashboard/*', '/profile', '/settings', '/appointments'];
+    const protectedPaths = [ '/profile', '/settings', '/appointments'];
 
     const authRoutes = ['/login', '/register', '/forgot-password'];
 
@@ -36,5 +36,5 @@ export function middleware(request: NextRequest) {
  
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/dashboard/:path*', '/login', '/register', '/forgot-password'],
+  matcher: ['/login', '/register', '/forgot-password'],
 }

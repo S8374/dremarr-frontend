@@ -64,6 +64,8 @@ export type SignupFormData = {
 
 type SignupSchemaData = z.infer<typeof signupSchema>;
 
+import { AnimatePresence, motion } from "framer-motion";
+
 const TOTAL_STEPS = 5;
 
 const initialFormData: SignupFormData = {
@@ -170,7 +172,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f5f7] md:bg-white">
+    <div className="min-h-screen bg-[#f4f5f7] md:bg-white overflow-hidden">
       <div className="mx-auto min-h-screen w-full max-w-[620px] md:max-w-none">
         <div className="px-6 pt-6">
           <Button
@@ -186,12 +188,22 @@ export default function Signup() {
         <div className="flex flex-1">
           <OnboardingSidebar currentStep={currentStep} />
 
-          <main className="flex-1 px-4 pb-5 md:px-10 md:py-8">
-            {currentStep === 1 && <StepAccountSetup {...stepProps} />}
-            {currentStep === 2 && <StepPersonalInfo {...stepProps} />}
-            {currentStep === 3 && <StepProfessionalInfo {...stepProps} />}
-            {currentStep === 4 && <StepAccountSecurity {...stepProps} />}
-            {currentStep === 5 && <StepFirstTrade {...stepProps} />}
+          <main className="flex-1 px-4 pb-5 md:px-10 md:py-8 overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStep}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                {currentStep === 1 && <StepAccountSetup {...stepProps} />}
+                {currentStep === 2 && <StepPersonalInfo {...stepProps} />}
+                {currentStep === 3 && <StepProfessionalInfo {...stepProps} />}
+                {currentStep === 4 && <StepAccountSecurity {...stepProps} />}
+                {currentStep === 5 && <StepFirstTrade {...stepProps} />}
+              </motion.div>
+            </AnimatePresence>
           </main>
         </div>
       </div>

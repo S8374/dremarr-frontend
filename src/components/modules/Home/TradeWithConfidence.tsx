@@ -43,7 +43,7 @@ export default function TradeWithConfidence() {
       <div className="mx-auto max-w-[1340px] rounded-none  px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
         <div className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.2fr] lg:gap-14">
           <div className="space-y-7">
-            <h2 className={`max-w-[360px] font-semibold leading-[1.07] tracking-[-0.02em] text-white ${isSpanish ? "text-[34px] sm:text-[44px] lg:text-[54px]" : "text-4xl sm:text-5xl lg:text-[58px]"}`}>
+            <h2 className="max-w-[360px] font-semibold leading-[1.07] tracking-[-0.02em] text-white text-4xl sm:text-5xl lg:text-[58px]">
               {language === "es" ? (
                 <>
                   Intercambia con
@@ -59,7 +59,7 @@ export default function TradeWithConfidence() {
               )}
             </h2>
 
-            <p className={`max-w-[420px] leading-relaxed text-[#c4cbce] ${isSpanish ? "text-sm sm:text-[18px]" : "text-base sm:text-[30px]"}`}>
+            <p className="max-w-[420px] leading-relaxed text-[#c4cbce] text-base sm:text-[20px]">
               {language === "es"
                 ? "Nuestro sistema de verificación, plataforma de reseñas y herramientas de seguridad garantizan intercambios seguros y transparentes."
                 : "Our verification system, review platform, and safety tools ensure every exchange is secure and transparent."}
@@ -83,8 +83,8 @@ export default function TradeWithConfidence() {
                   <feature.icon className="h-6 w-6 stroke-[1.8]" />
                 </div>
 
-                <h3 className={`mb-3 font-semibold text-white ${isSpanish ? "text-[24px]" : "text-[30px]"}`}>{isSpanish ? feature.titleEs : feature.title}</h3>
-                <p className={`leading-[1.35] text-[#d0d5d7] ${isSpanish ? "text-[16px] sm:text-[18px]" : "text-[22px]"}`}>
+                <h3 className="mb-3 text-[24px] font-semibold text-white sm:text-[30px]">{isSpanish ? feature.titleEs : feature.title}</h3>
+                <p className="text-[16px] leading-[1.35] text-[#d0d5d7] sm:text-[20px]">
                   {isSpanish ? feature.descriptionEs : feature.description}
                 </p>
               </div>

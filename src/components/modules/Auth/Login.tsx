@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { motion, Variants } from "framer-motion";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -15,6 +16,28 @@ const loginSchema = z.object({
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.1,
+      ease: "easeOut",
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 export default function Login() {
   const router = useRouter();
@@ -38,9 +61,14 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fefefe] flex flex-col relative w-full">
+    <div className="min-h-screen bg-[#fefefe] flex flex-col relative w-full overflow-hidden">
       {/* Top back arrow */}
-      <div className="absolute top-8 left-8">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="absolute top-8 left-8"
+      >
         <Button
           variant="ghost"
           size="icon"
@@ -50,23 +78,34 @@ export default function Login() {
         >
           <ChevronLeft className="w-[18px] h-[18px]" strokeWidth={2.5} />
         </Button>
-      </div>
+      </motion.div>
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 w-full">
-        <div className="w-full max-w-[440px] mx-auto flex flex-col items-center mt-[-60px]">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-[440px] mx-auto flex flex-col items-center mt-[-60px]"
+        >
           {/* Header */}
-          <h1 className="text-[34px] font-extrabold text-[#1a1c21] mb-2 heading text-center tracking-tight">
+          <motion.h1 
+            variants={itemVariants}
+            className="text-[34px] font-extrabold text-[#1a1c21] mb-2 heading text-center tracking-tight"
+          >
             Log In to DreMarr
-          </h1>
-          <p className="text-[#6b7280] text-center mb-10 text-[15px] leading-relaxed max-w-[340px]">
+          </motion.h1>
+          <motion.p 
+            variants={itemVariants}
+            className="text-[#6b7280] text-center mb-10 text-[15px] leading-relaxed max-w-[340px]"
+          >
             Access your account to connect, trade, and grow your network.
-          </p>
+          </motion.p>
 
           {/* Form */}
           <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col space-y-4">
             {/* Email Field */}
-            <div className="w-full relative mb-2">
+            <motion.div variants={itemVariants} className="w-full relative mb-2">
               <input
                 type="email"
                 placeholder="Email"
@@ -76,10 +115,10 @@ export default function Login() {
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1 ml-6 absolute -bottom-5">{errors.email.message}</p>
               )}
-            </div>
+            </motion.div>
 
             {/* Password Field */}
-            <div className="w-full relative mt-2">
+            <motion.div variants={itemVariants} className="w-full relative mt-2">
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
@@ -101,10 +140,10 @@ export default function Login() {
               {errors.password && (
                 <p className="text-red-500 text-xs mt-1 ml-6 absolute -bottom-5">{errors.password.message}</p>
               )}
-            </div>
+            </motion.div>
 
             {/* Forgot Password Link */}
-            <div className="w-full flex justify-end pt-3 pb-3">
+            <motion.div variants={itemVariants} className="w-full flex justify-end pt-1">
               <Link 
                 href="/forgot-password" 
                 className="text-[13px] font-semibold text-[#db6c5e] hover:text-[#c75e52] transition-colors"
@@ -112,19 +151,21 @@ export default function Login() {
               >
                 Forgot Your Password
               </Link>
-            </div>
+            </motion.div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full h-[54px] flex items-center justify-center bg-[#768e86] hover:bg-[#667d76] active:bg-[#596e67] text-white rounded-full font-bold text-[16px] transition-colors duration-200 mt-2"
-            >
-              Log In
-            </button>
+            <motion.div variants={itemVariants}>
+              <button
+                type="submit"
+                className="w-full h-[54px] flex items-center justify-center bg-[#768e86] hover:bg-[#667d76] active:bg-[#596e67] text-white rounded-full font-bold text-[16px] transition-colors duration-200"
+              >
+                Log In
+              </button>
+            </motion.div>
           </form>
 
           {/* Footer */}
-          <p className="mt-10 text-[14px] text-[#4b5563] font-medium">
+          <motion.p variants={itemVariants} className="mt-10 text-[14px] text-[#4b5563] font-medium">
             Dont have an account?{" "}
             <Link 
               href="/register" 
@@ -132,8 +173,8 @@ export default function Login() {
             >
               Create an account
             </Link>
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </main>
     </div>
   );

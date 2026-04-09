@@ -8,7 +8,7 @@ export default function PrivacyPage() {
 
   return (
     <div className="min-h-screen font-sans bg-white dark:bg-zinc-950">
-      <div className="max-w-[1340px] mx-auto px-6 py-16">
+      <div className="max-w-[1340px] mx-auto  py-16">
 
         {/* Header */}
         <div className="text-center mb-12">
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
           </section>
 
           {/* 4 */}
-          
+
           <section>
             <h2 className="text-lg font-bold text-gray-600 mb-2">{isSpanish ? "4. Responsabilidades del proveedor" : "4. Skill Provider Responsibilities"}</h2>
             <p className="text-gray-500">{isSpanish ? "Los proveedores aceptan:" : "Skill Providers agree to:"}</p>

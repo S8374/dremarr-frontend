@@ -91,7 +91,7 @@ export default function SearchServicesSection() {
   return (
     <section className="bg-background px-4 py-10 text-foreground sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1340px]">
-        <h2 className={`mb-4 font-semibold text-foreground ${isSpanish ? "text-[28px] sm:text-[36px]" : "text-[32px] sm:text-[42px]"}`}>
+        <h2 className="mb-4 font-semibold text-foreground text-[32px] sm:text-[42px]">
           {language === "es" ? "Buscar servicios ofrecidos" : "Search Services Offered"}
         </h2>
 
@@ -101,7 +101,7 @@ export default function SearchServicesSection() {
             placeholder={language === "es" ? "Buscar cualquier servicio ofrecido" : "Search for any service offered"}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className={`h-16 w-full rounded-2xl border border-border bg-card px-5 pr-20 text-foreground placeholder:text-muted-foreground focus:border-ring focus:outline-none sm:px-6 ${isSpanish ? "text-[15px] sm:text-[18px]" : "text-base sm:text-[24px]"}`}
+            className="h-16 w-full rounded-2xl border border-border bg-card px-5 pr-20 text-foreground placeholder:text-muted-foreground focus:border-ring focus:outline-none sm:px-6 text-base sm:text-[24px]"
           />
           <button
             type="button"

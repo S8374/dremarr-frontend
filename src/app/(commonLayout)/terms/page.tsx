@@ -8,8 +8,8 @@ export default function TermsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
-      <div className="max-w-[1340px] mx-auto px-6 py-12">
-    {/* Header */}
+      <div className="max-w-[1340px] mx-auto  py-12">
+        {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
             <span className="text-[#6f8f84] dark:text-[#9cc3b6]">DreMarr</span> {isSpanish ? "Terminos de servicio y" : "Terms of Service &"}<br />{isSpanish ? "acuerdo de usuario" : "User Agreement"}

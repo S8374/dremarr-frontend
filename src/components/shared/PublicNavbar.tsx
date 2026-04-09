@@ -137,7 +137,7 @@ const PublicNavbar = () => {
             <SheetContent side="right" className="w-[85vw] max-w-[320px] p-5">
               <div className="mt-8 flex flex-col gap-4">
                 {navItems.map((item) => (
-                  <Link key={item.label} href={item.href} className={`text-lg font-medium text-foreground ${isSpanish ? "text-[15px]" : ""}`}>
+                  <Link key={item.label} href={item.href} className="text-lg font-medium text-foreground">
                     {item.label}
                   </Link>
                 ))}
@@ -163,8 +163,7 @@ const PublicNavbar = () => {
 
                 <Link
                   href="/login"
-                  className={`mt-2 inline-flex w-fit rounded-full border border-[#89a49d] bg-[#f2f4f4] font-semibold text-[#5f7e75] dark:border-white dark:bg-card dark:text-white ${language === "es" ? "px-4 py-1 text-[13px]" : "px-8 py-2 text-base"
-                    }`}
+                  className="mt-2 inline-flex w-fit rounded-full border border-[#89a49d] bg-[#f2f4f4] px-8 py-2 text-base font-semibold text-[#5f7e75] dark:border-white dark:bg-card dark:text-white"
                 >
                   {language === "es" ? "Iniciar sesión" : "Login"}
                 </Link>

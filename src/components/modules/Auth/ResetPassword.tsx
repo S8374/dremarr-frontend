@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { motion, Variants } from "framer-motion";
 
 const resetPasswordSchema = z.object({
   password: z.string().min(6, { message: "Password must be at least 6 characters" }),
@@ -17,6 +18,28 @@ const resetPasswordSchema = z.object({
 });
 
 type ResetPasswordFormData = z.infer<typeof resetPasswordSchema>;
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.1,
+      ease: "easeOut",
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 export default function ResetPassword() {
   const router = useRouter();
@@ -44,9 +67,14 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fefefe] flex flex-col relative w-full">
+    <div className="min-h-screen bg-[#fefefe] flex flex-col relative w-full overflow-hidden">
       {/* Top back arrow */}
-      <div className="absolute top-8 left-8">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="absolute top-8 left-8"
+      >
         <Button
           variant="ghost"
           size="icon"
@@ -56,24 +84,35 @@ export default function ResetPassword() {
         >
           <ChevronLeft className="w-[18px] h-[18px]" strokeWidth={2.5} />
         </Button>
-      </div>
+      </motion.div>
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 w-full">
-        <div className="w-full max-w-[440px] mx-auto flex flex-col items-center mt-[-60px]">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-[440px] mx-auto flex flex-col items-center mt-[-60px]"
+        >
           {/* Header */}
-          <h1 className="text-[34px] font-extrabold text-[#1a1c21] mb-2 heading text-center tracking-tight">
+          <motion.h1 
+            variants={itemVariants}
+            className="text-[34px] font-extrabold text-[#1a1c21] mb-2 heading text-center tracking-tight"
+          >
             Reset Password
-          </h1>
-          <p className="text-[#6b7280] text-center mb-10 text-[15px] leading-relaxed max-w-[340px]">
+          </motion.h1>
+          <motion.p 
+            variants={itemVariants}
+            className="text-[#6b7280] text-center mb-10 text-[15px] leading-relaxed max-w-[340px]"
+          >
             Please enter your new password to complete the reset process.
-          </p>
+          </motion.p>
 
           {/* Form */}
           <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col space-y-4">
             
             {/* New Password Field */}
-            <div className="w-full relative mb-2">
+            <motion.div variants={itemVariants} className="w-full relative mb-2">
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="New Password"
@@ -95,10 +134,10 @@ export default function ResetPassword() {
               {errors.password && (
                 <p className="text-red-500 text-xs mt-1 ml-6 absolute -bottom-5">{errors.password.message}</p>
               )}
-            </div>
+            </motion.div>
 
             {/* Confirm Password Field */}
-            <div className="w-full relative mt-2">
+            <motion.div variants={itemVariants} className="w-full relative mt-2">
               <input
                 type={showConfirmPassword ? "text" : "password"}
                 placeholder="Confirm Password"
@@ -120,17 +159,19 @@ export default function ResetPassword() {
               {errors.confirmPassword && (
                 <p className="text-red-500 text-xs mt-1 ml-6 absolute -bottom-5">{errors.confirmPassword.message}</p>
               )}
-            </div>
+            </motion.div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full h-[54px] flex items-center justify-center bg-[#768e86] hover:bg-[#667d76] active:bg-[#596e67] text-white rounded-full font-bold text-[16px] transition-colors duration-200 mt-6"
-            >
-              Reset Password
-            </button>
+            <motion.div variants={itemVariants} className="w-full">
+              <button
+                type="submit"
+                className="w-full h-[54px] flex items-center justify-center bg-[#768e86] hover:bg-[#667d76] active:bg-[#596e67] text-white rounded-full font-bold text-[16px] transition-colors duration-200"
+              >
+                Reset Password
+              </button>
+            </motion.div>
           </form>
-        </div>
+        </motion.div>
       </main>
     </div>
   );

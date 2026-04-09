@@ -15,7 +15,7 @@ export function CreateOfferForm() {
   const [expectations, setExpectations] = useState("");
 
   return (
-    <div className="w-full  mx-auto rounded-[2rem] bg-white p-6 sm:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)] my-10 dark:bg-card">
+    <div className="w-full  mx-auto   p-6 sm:p-10  my-10">
       <Input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
