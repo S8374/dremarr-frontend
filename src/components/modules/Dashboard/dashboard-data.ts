@@ -10,8 +10,8 @@ export const myListings = [
     id: 1,
     title: "I will fix plumbing issues and install pipes professionally",
     location: "Miami, Fl",
-    views: "245 views",
-    messages: "04 message",
+    views: 245,
+    messages: 4,
     image:
       "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=400",
   },
@@ -20,8 +20,8 @@ export const myListings = [
     title:
       "Expert Electrical Solutions: Professional Wiring and Installation Services",
     location: "Texas",
-    views: "245 views",
-    messages: "08 message",
+    views: 245,
+    messages: 8,
     image:
       "https://images.unsplash.com/photo-1558444458-5cd899262da3?auto=format&fit=crop&q=80&w=400",
   },

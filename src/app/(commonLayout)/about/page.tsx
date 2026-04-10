@@ -9,7 +9,7 @@ export default function AboutPage() {
     const isSpanish = language === "es";
 
     return (
-        <div className="min-h-screen font-sans max-w-[1340px] mx-auto bg-white dark:bg-zinc-950">
+        <div className="min-h-screen font-sans container mx-auto bg-white dark:bg-zinc-950">
 
             {/* ── HERO SECTION ── */}
             <section className="pt-16 pb-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -167,5 +167,5 @@ export default function AboutPage() {
 
         </div>
     );
-}        
+}
 

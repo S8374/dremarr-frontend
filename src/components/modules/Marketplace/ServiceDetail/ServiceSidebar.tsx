@@ -25,72 +25,64 @@ export default function ServiceSidebar({ user }: ServiceSidebarProps) {
   const isSpanish = language === "es";
 
   return (
-    <div className="lg:sticky lg:top-24 flex flex-col gap-8 bg-background border border-border/50 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
+    <div className="lg:sticky lg:top-24 flex flex-col gap-8 bg-white border border-slate-100 rounded-[24px] p-6 shadow-sm">
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/50 mb-6">
-          {isSpanish ? "Publicado por" : "Posted by"}
+        <h3 className="text-[13px] font-bold text-slate-400 mb-6">
+          {isSpanish ? "Publicado por" : "Posted By"}
         </h3>
 
-        <div className="flex items-center gap-4 mb-6">
-          <div className="relative h-16 w-16 rounded-full overflow-hidden border-2 border-background ring-2 ring-[#6f8f84/10] shadow-md">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="relative h-[70px] w-[70px] rounded-full overflow-hidden border border-slate-100 shadow-sm shrink-0">
             <Image src={user.avatar} alt={user.name} fill className="object-cover" />
           </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-foreground leading-tight">{user.name}</span>
-            <div className="flex items-center gap-1.5 mt-0.5">
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <span className="text-sm font-bold text-foreground">{user.rating}</span>
+          <div className="flex flex-col gap-1 pt-1">
+            <div className="flex items-center justify-between gap-12">
+               <span className="text-[18px] font-bold text-slate-800 leading-tight block truncate max-w-[140px]">{user.name.toLowerCase()}</span>
+               <div className="flex items-center gap-1 shrink-0">
+                 <Star className="h-4 w-4 fill-orange-400 text-orange-400" />
+                 <span className="text-[13px] font-bold text-slate-800">{user.rating}</span>
+               </div>
+            </div>
+            
+            {/* Badges Row */}
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              {user.isVerified && (
+                <div className="bg-[#e4ece8] text-[#6d8a81] px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1">
+                   <div className="w-1 h-1 bg-[#6d8a81] rounded-full" />
+                   Verified
+                </div>
+              )}
+              {user.isRecommended && (
+                <div className="bg-[#fff0ed] text-[#f2654a] px-2 py-0.5 rounded text-[10px] font-bold">
+                   Trusted User
+                </div>
+              )}
+               <div className="bg-[#ffe8ed] text-[#ff4d6d] px-2 py-0.5 rounded text-[10px] font-bold">
+                   Top
+                </div>
             </div>
           </div>
         </div>
 
-        {/* Badges */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {user.isVerified && (
-            <Badge className="bg-[#6f8f84/10] text-[#6f8f84] border-none px-3 py-1 flex items-center gap-1.5 text-[10px] font-bold uppercase shadow-none">
-              <CheckCircle className="h-3.5 w-3.5" />
-              {isSpanish ? "VERIFICADO" : "VERIFIED"}
-            </Badge>
-          )}
-          {user.isRecommended && (
-            <Badge className="bg-[#f0502e/10] text-[#f0502e] border-none px-3 py-1 flex items-center gap-1.5 text-[10px] font-bold uppercase shadow-none">
-              <Star className="h-3.5 w-3.5" />
-              {isSpanish ? "RECOMENDADO" : "RECOMMENDED"}
-            </Badge>
-          )}
-          {user.isPro && (
-            <Badge className="bg-[#1a1c20] text-white border-none px-3 py-1 text-[10px] font-bold uppercase shadow-none">
-              PRO
-            </Badge>
-          )}
-        </div>
-
-        <p className="text-sm text-muted-foreground leading-relaxed font-medium mb-6">
+        <p className="text-[13px] text-slate-500 leading-relaxed font-medium mb-8">
           {user.bio}
         </p>
 
-        <div className="space-y-4 pt-6 border-t border-border/40">
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground font-medium">
-              <MapPin className="h-4 w-4" />
-              {isSpanish ? "Ubicación" : "Location"}
-            </div>
-            <span className="font-bold text-foreground">{user.location}</span>
+        <div className="grid grid-cols-2 gap-4 pb-10">
+          <div className="flex flex-col gap-1">
+             <span className="text-[11px] font-bold text-slate-300 uppercase">{isSpanish ? "Ubicación" : "Location"}</span>
+             <span className="text-[14px] font-bold text-slate-700">{user.location}</span>
           </div>
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground font-medium">
-              <Calendar className="h-4 w-4" />
-              {isSpanish ? "Miembro desde" : "Member since"}
-            </div>
-            <span className="font-bold text-foreground">{user.memberSince}</span>
+          <div className="flex flex-col gap-1">
+             <span className="text-[11px] font-bold text-slate-300 uppercase">{isSpanish ? "Miembro desde" : "Member since"}</span>
+             <span className="text-[14px] font-bold text-slate-700">{user.memberSince}</span>
           </div>
         </div>
-      </div>
 
-      <Button className="h-14 w-full rounded-full bg-[#6f8f84] hover:bg-[#5f7e75] text-white font-bold text-base shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] active:scale-95 flex items-center gap-3">
-        <MessageSquare className="h-5 w-5" />
-        {isSpanish ? "Enviar mensaje" : "Send message"}
-      </Button>
+        <Button className="h-[52px] w-full rounded-xl bg-[#728e85] hover:bg-[#5f7e75] text-white font-bold text-[15px] shadow-sm transition-all border-0">
+          {isSpanish ? "Enviar mensaje" : "Send message"}
+        </Button>
+      </div>
     </div>
   );
 }

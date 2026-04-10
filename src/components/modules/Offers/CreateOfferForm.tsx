@@ -58,7 +58,7 @@ export function CreateOfferForm() {
               maxLength={1500}
             />
             <div className="text-right text-[11px] font-semibold tracking-wide text-slate-400">
-               0/{1500 - expectations.length} characters
+              0/{1500 - expectations.length} characters
             </div>
           </div>
 

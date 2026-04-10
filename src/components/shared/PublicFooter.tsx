@@ -18,7 +18,7 @@ export default function Footer() {
 
     return (
         <footer className="bg-[#040607] text-white pt-16 pb-6">
-            <div className="mx-auto max-w-[1380px]">
+            <div className="container">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.2fr_1fr_1fr_1.15fr] md:gap-10">
                     <div>
                         <h2 className="text-[36px] font-semibold leading-none tracking-wide text-[#8ca7a1]">DREMARR</h2>

@@ -50,7 +50,7 @@ export default function FAQSection() {
 
   return (
     <section className="bg-background px-4 py-14 text-foreground sm:px-6 sm:py-16 lg:px-8">
-      <div className="mx-auto max-w-[1340px]">
+      <div className="container">
         <h2 className={`mb-10 text-center font-semibold text-foreground sm:mb-12 ${isSpanish ? "text-[24px] sm:text-[36px]" : "text-2xl sm:text-4xl"}`}>
           <span className="text-[#738C88]">{language === "es" ? "Preguntas" : "Frequently"}</span> {language === "es" ? "frecuentes" : "Asked Questions"}
         </h2>
@@ -78,9 +78,8 @@ export default function FAQSection() {
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-64 sm:max-h-56" : "max-h-0"
-                }`}
+                className={`overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-64 sm:max-h-56" : "max-h-0"
+                  }`}
               >
                 <div className={`px-5 pb-6 leading-relaxed text-muted-foreground sm:px-7 sm:pb-8 ${isSpanish ? "text-[14px] sm:text-[16px]" : "text-[15px] sm:text-[20px]"}`}>
                   {isSpanish ? faq.answerEs : faq.answer}

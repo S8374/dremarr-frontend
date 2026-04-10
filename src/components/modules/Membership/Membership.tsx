@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, X, PlusCircle, MinusCircle } from "lucide-react";
+import { Check, X, Plus, Minus } from "lucide-react";
 import { useLanguage } from "@/components/shared/language-provider";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, Variants } from "framer-motion";
@@ -174,9 +174,9 @@ const containerVariants: Variants = {
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     scale: 1,
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
   },
@@ -188,8 +188,8 @@ const cardVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.5, ease: "easeOut" }
   }
@@ -210,20 +210,20 @@ export default function Membership() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-foreground py-16 md:py-24 overflow-hidden">
       {/* Header */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center"
+        className="container flex flex-col items-center text-center"
       >
-        <motion.h1 
+        <motion.h1
           variants={itemVariants}
           className="text-[34px] md:text-[42px] font-semibold mb-3 heading text-[#1a1c21] dark:text-white tracking-tight"
         >
           {t.title}
         </motion.h1>
-        <motion.p 
+        <motion.p
           variants={itemVariants}
           className="text-[#6b7280] dark:text-gray-400 max-w-2xl text-[15px] mb-8 font-medium"
         >
@@ -231,7 +231,7 @@ export default function Membership() {
         </motion.p>
 
         {/* Toggle */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 text-sm font-bold mb-16 mt-2 max-w-[500px] w-full"
         >
@@ -254,7 +254,7 @@ export default function Membership() {
             <span className={isYearly ? "text-[#1a1c21] dark:text-white" : "text-[#71717a]"}>
               {t.yearly}
             </span>
-            <motion.span 
+            <motion.span
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               transition={{ repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
@@ -269,7 +269,7 @@ export default function Membership() {
         <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-6 md:gap-8 w-full max-w-[1100px] mb-24">
 
           {/* Silver */}
-          <motion.div 
+          <motion.div
             variants={cardVariants}
             whileHover="hover"
             className="bg-[#f7f8f9] dark:bg-zinc-900 rounded-[24px] p-8 w-full lg:w-[340px] flex flex-col text-left my-auto border border-transparent hover:border-[#67877e]/20 transition-colors"
@@ -277,7 +277,7 @@ export default function Membership() {
             <h3 className="text-[20px] font-semibold mb-2 text-[#1a1c21] dark:text-white">{t.silverTitle}</h3>
             <div className="flex items-baseline gap-1 mb-4">
               <AnimatePresence mode="wait">
-                <motion.span 
+                <motion.span
                   key={isYearly ? "yearly" : "monthly"}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -306,7 +306,7 @@ export default function Membership() {
           </motion.div>
 
           {/* Gold (Most Popular) */}
-          <motion.div 
+          <motion.div
             variants={cardVariants}
             whileHover="hover"
             className="bg-white dark:bg-zinc-950 border-[1.5px] border-[#cdb07c] rounded-[24px] p-8 md:px-10 md:py-10 shadow-[0_20px_50px_rgba(205,176,124,0.15)] w-full lg:w-[370px] flex flex-col text-left relative z-10 lg:-mx-2 lg:-my-8"
@@ -317,7 +317,7 @@ export default function Membership() {
             <h3 className="text-[20px] font-semibold mb-2 text-[#1a1c21] dark:text-white">{t.goldTitle}</h3>
             <div className="flex items-baseline gap-1 mb-3">
               <AnimatePresence mode="wait">
-                <motion.span 
+                <motion.span
                   key={isYearly ? "yearly" : "monthly"}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -353,7 +353,7 @@ export default function Membership() {
           </motion.div>
 
           {/* Platinum */}
-          <motion.div 
+          <motion.div
             variants={cardVariants}
             whileHover="hover"
             className="bg-[#f7f8f9] dark:bg-zinc-900 rounded-[24px] p-8 w-full lg:w-[340px] flex flex-col text-left my-auto border border-transparent hover:border-[#67877e]/20 transition-colors"
@@ -361,7 +361,7 @@ export default function Membership() {
             <h3 className="text-[20px] font-semibold mb-2 text-[#1a1c21] dark:text-white">{t.platinumTitle}</h3>
             <div className="flex items-baseline gap-1 mb-4">
               <AnimatePresence mode="wait">
-                <motion.span 
+                <motion.span
                   key={isYearly ? "yearly" : "monthly"}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -392,62 +392,47 @@ export default function Membership() {
         </div>
 
         {/* FAQs */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="w-full mx-auto pt-16"
-        >
-          <h2 className={`mb-12 text-center font-semibold heading ${language === "es" ? "text-3xl lg:text-[34px]" : "text-3xl lg:text-[34px]"}`}>
-            <span className="text-[#67877e]">{t.faqsTitle1}</span> <span className="text-[#1a1c21] dark:text-white">{t.faqsTitle2}</span>
+        <div className="w-full mx-auto pt-16">
+          <h2 className={`mb-10 text-center font-semibold text-foreground sm:mb-12 ${language === "es" ? "text-[24px] sm:text-[36px]" : "text-2xl sm:text-4xl"}`}>
+            <span className="text-[#738C88]">{language === "es" ? "Preguntas" : "Frequently"}</span> {language === "es" ? "frecuentes" : "Asked Questions"}
           </h2>
 
-          <div className="space-y-4 mx-auto">
+          <div className="space-y-4 mx-auto text-left w-full">
             {t.faqs.map((faq, idx) => {
               const isOpen = openFaqIndex === idx;
               return (
-                <motion.div
+                <div
                   key={idx}
-                  layout
-                  className="bg-[#f7f8f9] dark:bg-zinc-900 border-none rounded-2xl overflow-hidden"
+                  className="overflow-hidden rounded-2xl border border-border bg-card"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full px-6 md:px-8 py-5 md:py-6 flex items-center justify-between text-left focus:outline-none"
+                    className="group flex w-full items-center justify-between px-5 py-5 text-left sm:px-7 sm:py-6 focus:outline-none"
                   >
-                    <span className="font-semibold text-[16px] text-[#1a1c21] dark:text-white pr-8">
+                    <span className={`pr-6 font-medium leading-tight text-foreground sm:pr-8 ${language === "es" ? "text-[15px] sm:text-[22px]" : "text-[17px] sm:text-[28px]"}`}>
                       {faq.q}
                     </span>
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-primary/50">
                       {isOpen ? (
-                        <MinusCircle className="w-6 h-6 text-[#6b7280] dark:text-gray-400 shrink-0" strokeWidth={1.5} />
+                        <Minus className="h-4 w-4" />
                       ) : (
-                        <PlusCircle className="w-6 h-6 text-[#6b7280] dark:text-gray-400 shrink-0" strokeWidth={1.5} />
+                        <Plus className="h-4 w-4" />
                       )}
-                    </motion.div>
+                    </div>
                   </button>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      >
-                        <div className="px-6 md:px-8 pb-6 md:pb-8 text-[#6b7280] dark:text-gray-400 text-[14px] md:text-[15px] leading-relaxed">
-                          {faq.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
+                  >
+                    <div className={`px-5 pb-6 leading-relaxed text-muted-foreground sm:px-7 sm:pb-8 ${language === "es" ? "text-[14px] sm:text-[16px]" : "text-[15px] sm:text-[20px]"}`}>
+                      {faq.a}
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
-        </motion.div>
+        </div>
 
       </motion.div>
     </div>

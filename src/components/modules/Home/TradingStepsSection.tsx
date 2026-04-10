@@ -51,7 +51,7 @@ const TradingSteps = () => {
 
     return (
         <section className="bg-background px-4 py-16 text-foreground sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-[1340px]">
+            <div className="container">
                 <div className="mb-12 text-center">
                     <h2 className="mb-2 font-semibold text-foreground text-[30px] md:text-[44px]">
                         {language === "es" ? (
@@ -65,7 +65,7 @@ const TradingSteps = () => {
                     </p>
                 </div>
 
-                <motion.div 
+                <motion.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}

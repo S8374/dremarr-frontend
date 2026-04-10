@@ -8,7 +8,7 @@ export default function TermsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
-      <div className="max-w-[1340px] mx-auto  py-12">
+      <div className="container mx-auto  py-12">
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 leading-tight">

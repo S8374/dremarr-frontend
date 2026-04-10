@@ -1,10 +1,10 @@
-import CurrentOrder from "@/components/modules/Orders/CurrentOrder";
+import PlanBilling from "@/components/modules/Membership/PlanBilling";
 
-export default function OrdersPage() {
+export default function PlanBillingPage() {
   return (
     <div className="min-h-[calc(100vh-80px)] bg-[#f8f9fb] dark:bg-background">
       <div className="container py-8 md:py-12">
-        <CurrentOrder />
+        <PlanBilling />
       </div>
     </div>
   );

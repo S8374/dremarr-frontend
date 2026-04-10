@@ -8,7 +8,7 @@ export default function PrivacyPage() {
 
   return (
     <div className="min-h-screen font-sans bg-white dark:bg-zinc-950">
-      <div className="max-w-[1340px] mx-auto  py-16">
+      <div className="container mx-auto  py-16">
 
         {/* Header */}
         <div className="text-center mb-12">

@@ -40,7 +40,7 @@ export default function TradeWithConfidence() {
 
   return (
     <section className="bg-[#212927] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-[1340px] rounded-none  px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
+      <div className="container rounded-none py-12 sm:py-14 lg:py-16">
         <div className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.2fr] lg:gap-14">
           <div className="space-y-7">
             <h2 className="max-w-[360px] font-semibold leading-[1.07] tracking-[-0.02em] text-white text-4xl sm:text-5xl lg:text-[58px]">

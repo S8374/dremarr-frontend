@@ -30,7 +30,7 @@ const PublicNavbar = () => {
 
   return (
     <header className="w-full  border-border/70 bg-background/95 backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-full items-center justify-between px-5 py-4 sm:px-7 md:px-9 md:py-5 lg:mx-auto lg:max-w-[1380px] lg:px-3 xl:px-0">
+      <div className="container flex items-center justify-between py-4 md:py-5">
         <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
           <Link href="/" className="shrink-0">
             <Image

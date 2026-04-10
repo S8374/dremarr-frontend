@@ -4,46 +4,49 @@ import Image from "next/image";
 
 export default function DashboardOrders() {
   return (
-    <div className="rounded-2xl border border-slate-100 dark:border-border/60 bg-white dark:bg-card p-6 shadow-sm">
-      <h2 className="text-[18px] font-bold text-slate-900 dark:text-white mb-5 tracking-tight">
+    <div className="rounded-[24px] border border-slate-100 bg-white p-6 shadow-sm">
+      <h2 className="text-[20px] font-bold text-slate-800 mb-6 heading">
         Order History
       </h2>
       <div className="flex flex-col gap-4">
         {orderHistory.map((order) => (
           <div
             key={order.id}
-            className="flex items-center gap-4 rounded-xl p-3 hover:bg-slate-50 dark:hover:bg-muted/20 transition-colors"
+            className="flex items-center gap-6 rounded-[20px] p-4 border border-slate-100 hover:bg-slate-50 transition-all group"
           >
             {/* Thumbnail */}
-            <div className="relative h-[72px] w-[90px] shrink-0 rounded-xl overflow-hidden">
+            <div className="relative h-[80px] w-[100px] shrink-0 rounded-[16px] overflow-hidden shadow-sm">
               <Image
                 src={order.image}
                 alt={order.title}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform group-hover:scale-105"
               />
             </div>
 
             {/* Info */}
             <div className="flex flex-1 flex-col gap-2 min-w-0">
               {order.date && (
-                <span className="text-[11px] font-semibold text-slate-400">
+                <span className="text-[11px] font-bold text-slate-300">
                   {order.date}
                 </span>
               )}
-              <p className="text-[13px] font-bold text-slate-700 dark:text-slate-200 leading-snug line-clamp-2">
+              <p className="text-[15px] font-bold text-slate-700 leading-tight">
                 {order.title}
               </p>
-              <span
-                className={cn(
-                  "self-start px-3 py-1 rounded-full text-[11px] font-bold",
-                  order.status === "On-going"
-                    ? "bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-300"
-                    : "bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300"
-                )}
-              >
-                {order.status}
-              </span>
+            </div>
+
+            <div className="shrink-0 pt-6">
+                <span
+                    className={cn(
+                    "px-4 py-2 rounded-xl text-[12px] font-bold shadow-sm",
+                    order.status === "On-going"
+                        ? "bg-[#e2ebe8] text-[#728e85]"
+                        : "bg-[#f2e7d0] text-[#cfaa6a]"
+                    )}
+                >
+                    {order.status}
+                </span>
             </div>
           </div>
         ))}

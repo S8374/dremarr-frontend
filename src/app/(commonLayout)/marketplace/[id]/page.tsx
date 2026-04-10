@@ -33,7 +33,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background pb-20">
-      <div className="container mx-auto px-4 max-w-[1380px]">
+      <div className="container px-4">
         <ServiceHeader title={isSpanish ? serviceDetail.title_es : serviceDetail.title_en} />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -54,9 +54,11 @@ export default function ServiceDetailPage({ params }: PageProps) {
               description={isSpanish ? serviceDetail.fullDescription_es : serviceDetail.fullDescription_en} 
             />
 
+            <ServicePortfolio images={serviceDetail.portfolio} />
+
             {/* Recommended for you */}
-            <div className="mb-12">
-               <h2 className="text-2xl font-extrabold text-foreground mb-8">
+            <div className="mb-14">
+              <h2 className="text-[20px] font-bold text-slate-800 mb-8 heading">
                 {isSpanish ? "Recomendado para ti" : "Recommended for you"}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
@@ -66,7 +68,6 @@ export default function ServiceDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            <ServicePortfolio images={serviceDetail.portfolio} />
             <ServiceReviews reviews={serviceDetail.reviews} />
             <ServiceReviewForm />
           </div>

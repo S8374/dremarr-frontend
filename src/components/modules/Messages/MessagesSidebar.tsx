@@ -4,12 +4,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { ChevronLeft, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/components/shared/language-provider";
 
-const messages = [
+const messagesData = [
   {
     id: 1,
     name: "Killan James",
     message: "Typing...",
+    messageEs: "Escribiendo...",
     time: "04:30 PM",
     avatar: "https://i.pravatar.cc/150?u=killan",
     unread: 2,
@@ -20,6 +22,7 @@ const messages = [
     id: 2,
     name: "Ahmed Medi",
     message: "Wow really Cool",
+    messageEs: "Wow realmente genial",
     time: "01:15 AM",
     avatar: "https://i.pravatar.cc/150?u=team",
     unread: 0,
@@ -29,6 +32,7 @@ const messages = [
     id: 3,
     name: "Maria Rodriguez",
     message: "Ok, That's perfect",
+    messageEs: "Ok, eso es perfecto",
     time: "12:00 AM",
     avatar: "https://i.pravatar.cc/150?u=maria",
     unread: 0,
@@ -37,21 +41,29 @@ const messages = [
 ];
 
 export function MessagesSidebar() {
+  const { language } = useLanguage();
+  const isSpanish = language === "es";
+
   return (
-    <div className="flex flex-col h-full bg-background dark:bg-card border-r border-border/10 overflow-hidden scrollbar-hide">
-      <div className="p-10 pb-6">
-        <div className="flex items-center gap-6 mb-10">
-          <button className="h-12 w-12 flex items-center justify-center rounded-full bg-muted/50 transition-all hover:bg-muted active:scale-95">
-            <ChevronLeft className="h-6 w-6 stroke-[2]" />
+    <div className="flex flex-col h-full bg-background border-r border-border overflow-hidden scrollbar-hide">
+      <div className="p-8 pb-6">
+        <div className="flex items-center gap-6 mb-8">
+          <button 
+            onClick={() => window.history.back()}
+            className="h-10 w-10 flex items-center justify-center rounded-full border border-border bg-muted/20 transition-all hover:bg-muted/40 active:scale-90"
+          >
+            <ChevronLeft className="h-5 w-5 text-foreground" />
           </button>
-          <h1 className="text-3xl font-bold text-foreground tracking-tight">Messages</h1>
+          <h1 className="text-[28px] font-bold text-foreground tracking-tight heading">
+            {isSpanish ? "Mensajes" : "Messages"}
+          </h1>
         </div>
 
         <div className="relative group">
           <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground/50" />
           <Input 
-            placeholder="Search..." 
-            className="pl-14 h-14 bg-muted/30 dark:bg-background/20 border-none rounded-2xl text-[16px] placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:bg-muted/50 transition-all"
+            placeholder={isSpanish ? "Buscar..." : "Search..."} 
+            className="pl-14 h-14 bg-muted/30 dark:bg-muted/10 border-none rounded-2xl text-[16px] text-foreground placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:bg-muted/50 transition-all"
           />
         </div>
       </div>
@@ -60,7 +72,7 @@ export function MessagesSidebar() {
         data-lenis-prevent
         className="flex-1 overflow-y-auto mt-2 px-4 space-y-2 scrollbar-hide"
       >
-        {messages.map((msg) => (
+        {messagesData.map((msg) => (
           <div
             key={msg.id}
             className={cn(
@@ -88,7 +100,7 @@ export function MessagesSidebar() {
                   "text-[14px] truncate",
                   msg.isTyping ? "text-emerald-500 font-bold" : "text-muted-foreground font-medium"
                 )}>
-                  {msg.message}
+                  {isSpanish ? msg.messageEs : msg.message}
                 </p>
                 {msg.unread > 0 && (
                   <span className="flex items-center justify-center h-5 w-5 rounded-full bg-red-500 text-[10px] font-bold text-white shrink-0">

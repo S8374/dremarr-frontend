@@ -90,7 +90,7 @@ export default function SearchServicesSection() {
 
   return (
     <section className="bg-background px-4 py-10 text-foreground sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-[1340px]">
+      <div className="container">
         <h2 className="mb-4 font-semibold text-foreground text-[32px] sm:text-[42px]">
           {language === "es" ? "Buscar servicios ofrecidos" : "Search Services Offered"}
         </h2>

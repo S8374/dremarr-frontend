@@ -61,7 +61,7 @@ export function Hero() {
 
   return (
     <section className="relative bg-background text-foreground">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -76,24 +76,24 @@ export function Hero() {
           className="object-cover"
         />
       </motion.div>
-      <div className="mx-auto w-full max-w-full px-4 pb-12 pt-0 sm:px-6 md:pb-16 lg:mx-auto lg:max-w-[1380px] lg:px-6 xl:px-0">
+      <div className="container pb-12 pt-0 md:pb-16">
         <div className="grid grid-cols-1 items-start gap-8 md:gap-10 xl:grid-cols-[1fr_0.88fr] xl:gap-12">
           {/* Left */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ staggerChildren: 0.1 }}
             className="pt-2 md:pt-6 xl:pt-10"
           >
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className={`mb-6 inline-flex items-center rounded-full border border-border bg-muted px-4 py-1 font-medium text-muted-foreground ${isSpanish ? "text-[11px]" : "text-[12px]"}`}
             >
               {language === "es" ? "Confiado por más de 50,000 comerciantes de habilidades" : "Trusted by 50,000+ skill Traders"}
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className={`mb-4 max-w-[800px] font-bold leading-[1.08] tracking-[-0.02em] text-foreground ${isSpanish ? "text-[28px] sm:text-[38px] md:text-[50px] xl:text-[60px]" : "text-[34px] sm:text-[46px] md:text-[58px] xl:text-[74px]"}`}
             >
@@ -102,7 +102,7 @@ export function Hero() {
               <span className="text-[#708f88]">{language === "es" ? "moneda" : "Currency"}</span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className={`mb-8 max-w-[520px] leading-[1.45] text-muted-foreground ${isSpanish ? "text-sm sm:text-base md:text-lg" : "text-base sm:text-lg md:text-xl"}`}
             >
@@ -111,7 +111,7 @@ export function Hero() {
                 : "Exchange your expertise for services you need. No money required, just skills that matter."}
             </motion.p>
 
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="mb-8 flex flex-wrap items-center gap-4 md:mb-10"
             >
@@ -131,7 +131,7 @@ export function Hero() {
             </motion.div>
 
             {/* Avatars */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="mb-9 flex items-center md:mb-12 "
             >
@@ -150,7 +150,7 @@ export function Hero() {
             </motion.div>
 
             {/* Stats */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="grid w-full max-w-[680px] grid-cols-3 overflow-hidden rounded-2xl border border-border bg-transparent px-1 py-3 sm:px-2 md:py-4"
             >
@@ -171,7 +171,7 @@ export function Hero() {
 
           {/* Right visual panel */}
           <div className="relative mx-auto h-80 w-full self-start sm:h-[420px] md:h-[520px] xl:h-[700px] xl:self-end">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -186,54 +186,50 @@ export function Hero() {
                   fill
                   priority={index === 0}
                   sizes="(max-width: 1024px) 100vw, 620px"
-                  className={`object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                    index === activeSlide ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
-                  }`}
+                  className={`object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${index === activeSlide ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
+                    }`}
                 />
               ))}
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/20 via-black/5 to-transparent" />
             </motion.div>
 
             {/* Bottom profile card */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute bottom-3 left-3 flex h-13 w-[calc(100%-88px)] max-w-[335px] items-center gap-2 rounded-full bg-card/95 px-2.5 py-2 shadow-[0_12px_32px_-20px_rgba(10,18,40,0.6)] backdrop-blur-md sm:bottom-5 sm:left-5 sm:h-[72px] sm:w-[335px] sm:gap-3 sm:px-3 xl:bottom-10"
+              className="absolute bottom-3 left-3 z-20 flex h-14 w-[calc(100%-140px)] max-w-[320px] items-center gap-3 rounded-full bg-card/95 px-4 py-2 shadow-[0_15px_45px_-15px_rgba(10,18,40,0.6)] backdrop-blur-md sm:bottom-6 sm:left-6 sm:h-[86px] sm:w-full sm:max-w-[420px] sm:gap-5 sm:px-5 xl:bottom-12"
             >
-              <Image
-                src={currentSlide.avatar}
-                alt={currentSlide.name}
-                width={50}
-                height={50}
-                className="h-9 w-9 rounded-full object-cover sm:h-[50px] sm:w-[50px]"
-              />
-              <div className="flex-1">
-                <p className="text-[12px] font-semibold leading-tight text-[#6e8e84] sm:text-[14px]">
+              <div className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-black sm:h-[62px] sm:w-[62px]">
+                <Image
+                  src={currentSlide.avatar}
+                  alt={currentSlide.name}
+                  width={62}
+                  height={62}
+                  className="h-10 w-10 rounded-full object-cover sm:h-[56px] sm:w-[56px]"
+                />
+              </div>
+              <div className="flex-1 overflow-hidden">
+                <p className="truncate text-sm font-bold leading-tight text-[#5d7d74] sm:text-[24px]">
                   {currentSlide.name}
                 </p>
-                <p className="text-[9px] text-muted-foreground sm:text-[13px]">{currentSlide.role}</p>
+                <p className="text-[10px] font-medium text-muted-foreground sm:text-[16px]">{currentSlide.role}</p>
               </div>
             </motion.div>
 
             {/* Bottom arrow control */}
-            <div className="absolute bottom-2 right-2 z-20 flex items-center gap-1.5 sm:bottom-5 sm:right-4 sm:gap-2 xl:bottom-9">
+            <div className="absolute bottom-2.5 right-2.5 z-30 flex items-center gap-2 sm:bottom-6 sm:right-6 sm:gap-4 xl:bottom-12">
               <button
                 type="button"
                 aria-label="Show next hero slide"
                 onClick={handleNextSlide}
-                className="flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-white/90  text-white shadow-xl transition-colors hover:bg-[#1a2f4d] sm:h-[72px] sm:w-[72px]"
+                className="flex h-[56px] w-[56px] items-center justify-center rounded-full border-[1.5px] border-white/95 bg-transparent text-white shadow-2xl transition-all hover:bg-white hover:text-black sm:h-[88px] sm:w-[88px] sm:border-2"
               >
-                <ArrowRight className="h-5 w-5 sm:h-7 sm:w-7" />
+                <ArrowRight className="h-6 w-6 sm:h-9 sm:w-9" />
               </button>
-              <div className="hidden items-center gap-1.5 sm:flex">
-                {heroSlides.map((_, index) => (
-                  <span
-                    key={index}
-                    className={`h-1.5 w-1.5 rounded-full ${index === activeSlide ? "bg-white" : "bg-white/60"}`}
-                  />
-                ))}
+              <div className="mb-1">
+                <span className="h-2 w-2 rounded-full bg-white sm:h-3 sm:w-3 block" />
               </div>
             </div>
           </div>

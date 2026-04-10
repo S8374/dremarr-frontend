@@ -8,8 +8,8 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
 
   return (
     <div className="min-h-screen bg-[#f8f9fb] dark:bg-background">
-      <div className="mx-auto w-full max-w-full px-4 py-8 sm:px-6 md:py-12 lg:max-w-[1440px] lg:px-8 xl:px-12">
-         <ProfileDetail data={data} />
+      <div className="container py-8 md:py-12">
+        <ProfileDetail data={data} />
       </div>
     </div>
   );

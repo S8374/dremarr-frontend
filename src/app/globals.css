@@ -142,7 +142,31 @@
   .subtitle,
   .sub-title,
   .heading {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading) !important;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+
+  button,
+  .cursor-pointer {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  button:active,
+  a:active,
+  .active-shrink:active {
+    scale: 0.96;
+  }
+
+  button:hover,
+  .hover-grow:hover {
+    scale: 1.02;
   }
 }
 
@@ -150,9 +174,9 @@
   .hero-image-clip {
     border-radius: 32px;
     -webkit-clip-path: path("M 34 0 H 348 C 371 0 390 19 390 42 V 60 C 390 86 411 107 437 107 H 582 C 603 107 620 124 620 145 V 720 C 620 742 602 760 580 760 H 34 C 12 760 0 742 0 720 V 40 C 0 18 12 0 34 0 Z");
-   /* clip-path: path("M 34 0 H 348 C 430 0 421 50 422 44 V 58 C 424 90 532 85 427 85 H 588 C 625 91 620 124 620 145 V 720 C 620 742 602 760 580 760 H 34 C 12 760 0 742 0 720 V 40 C 0 18 12 0 34 0 Z"); */
-   clip-path: path("M 34 0 H 348 C 430 0 421 50 422 44 V 44 C 425 90 544 81 440 81 H 588 C 625 91 620 124 620 145 V 720 C 620 742 602 760 580 760 H 34 C 12 760 0 742 0 720 V 40 C 0 18 12 0 34 0 Z");
-   /* clip-path:path("M 34 0 H 348 C 371 0 390 19 390 42 V 60 C 390 90 448 85 427 85 H 588 C 625 91 620 124 620 145 V 720 C 620 742 602 760 580 760 H 34 C 12 760 0 742 0 720 V 40 C 0 18 12 0 34 0 Z"); */
+    /* clip-path: path("M 34 0 H 348 C 430 0 421 50 422 44 V 58 C 424 90 532 85 427 85 H 588 C 625 91 620 124 620 145 V 720 C 620 742 602 760 580 760 H 34 C 12 760 0 742 0 720 V 40 C 0 18 12 0 34 0 Z"); */
+    clip-path: path("M 34 0 H 348 C 430 0 421 50 422 44 V 44 C 425 90 544 81 440 81 H 588 C 625 91 620 124 620 145 V 720 C 620 742 602 760 580 760 H 34 C 12 760 0 742 0 720 V 40 C 0 18 12 0 34 0 Z");
+    /* clip-path:path("M 34 0 H 348 C 371 0 390 19 390 42 V 60 C 390 90 448 85 427 85 H 588 C 625 91 620 124 620 145 V 720 C 620 742 602 760 580 760 H 34 C 12 760 0 742 0 720 V 40 C 0 18 12 0 34 0 Z"); */
   }
 
   .scrollbar-hide::-webkit-scrollbar {
@@ -160,9 +184,45 @@
     width: 0 !important;
     height: 0 !important;
   }
+
   .scrollbar-hide {
-    -ms-overflow-style: none !important; /* IE and Edge */
-    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important;
+    /* IE and Edge */
+    scrollbar-width: none !important;
+    /* Firefox */
+  }
+
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1400px;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  .btn-pill-outline {
+    @apply rounded-full border border-[#738C88] bg-transparent px-6 py-2 text-sm font-semibold text-[#738C88] transition-all hover:bg-[#738C88]/5 active:scale-95 sm:px-8 sm:py-2.5 sm:text-base;
   }
 }
 

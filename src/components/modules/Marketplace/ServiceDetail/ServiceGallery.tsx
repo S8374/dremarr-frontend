@@ -17,12 +17,12 @@ export default function ServiceGallery({ images, alt }: ServiceGalleryProps) {
   const next = () => setActiveIndex((i) => (i === images.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="relative w-full aspect-[16/9] mb-8 group overflow-hidden rounded-3xl shadow-lg border border-border/50">
+    <div className="relative w-full aspect-[16/10] mb-8 group overflow-hidden rounded-[20px] shadow-sm border border-slate-100">
       <Image
         src={images[activeIndex]}
         alt={alt}
         fill
-        className="object-cover transition-all duration-500 hover:scale-105"
+        className="object-cover"
         priority
       />
 
@@ -31,15 +31,15 @@ export default function ServiceGallery({ images, alt }: ServiceGalleryProps) {
         <>
           <button
             onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 h-12 w-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-md text-foreground opacity-0 group-hover:opacity-100 transition-all hover:bg-background shadow-xl"
+            className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 flex items-center justify-center rounded-full bg-white text-slate-800 shadow-lg transition-all active:scale-90"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 h-12 w-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-md text-foreground opacity-0 group-hover:opacity-100 transition-all hover:bg-background shadow-xl"
+            className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 flex items-center justify-center rounded-full bg-white text-slate-800 shadow-lg transition-all active:scale-90"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5" />
           </button>
         </>
       )}

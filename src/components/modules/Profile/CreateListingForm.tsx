@@ -123,7 +123,8 @@ export default function CreateListingForm() {
                 <Textarea 
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="min-h-[400px] w-full rounded-xl bg-white dark:bg-card border-slate-200 dark:border-border text-[14px] focus-visible:ring-[#728e85]/20 focus-visible:border-[#728e85] transition-all resize-none p-5 font-medium leading-relaxed shadow-sm text-slate-700 dark:text-slate-200"
+                    data-lenis-prevent
+                    className="min-h-[400px] w-full rounded-xl bg-white dark:bg-card border-slate-200 dark:border-border text-[14px] focus-visible:ring-[#728e85]/20 focus-visible:border-[#728e85] transition-all resize-y p-5 font-medium leading-relaxed shadow-sm text-slate-700 dark:text-slate-200"
                     required
                 />
             </div>

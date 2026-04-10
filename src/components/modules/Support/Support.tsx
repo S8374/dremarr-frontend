@@ -54,8 +54,8 @@ export default function Support() {
 
   return (
     <div className="min-h-[calc(100vh-200px)] bg-[#fafafa] py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-        
+      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+
         {/* Left Column (Text) */}
         <div className="lg:col-span-5 pt-4">
           <h1 className="text-3xl md:text-[34px] font-bold text-[#1a1c21] mb-5 heading tracking-tight">
@@ -70,7 +70,7 @@ export default function Support() {
         <div className="lg:col-span-7">
           <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              
+
               {/* Full name */}
               <div className="space-y-2 relative">
                 <Label htmlFor="fullName" className="text-[13px] font-medium text-gray-700">
@@ -81,9 +81,8 @@ export default function Support() {
                   type="text"
                   placeholder="Enter your full name"
                   {...register("fullName")}
-                  className={`w-full h-[46px] rounded-xl border px-4 text-[14px] text-gray-800 placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#768e86] focus:border-transparent transition-all ${
-                    errors.fullName ? "border-red-500" : "border-gray-200"
-                  }`}
+                  className={`w-full h-[46px] rounded-xl border px-4 text-[14px] text-gray-800 placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#768e86] focus:border-transparent transition-all ${errors.fullName ? "border-red-500" : "border-gray-200"
+                    }`}
                 />
                 {errors.fullName && (
                   <p className="text-red-500 text-xs mt-1 absolute -bottom-5">{errors.fullName.message}</p>
@@ -100,9 +99,8 @@ export default function Support() {
                   type="text"
                   placeholder="What do you need help with?"
                   {...register("subject")}
-                  className={`w-full h-[46px] rounded-xl border px-4 text-[14px] text-gray-800 placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#768e86] focus:border-transparent transition-all ${
-                    errors.subject ? "border-red-500" : "border-gray-200"
-                  }`}
+                  className={`w-full h-[46px] rounded-xl border px-4 text-[14px] text-gray-800 placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#768e86] focus:border-transparent transition-all ${errors.subject ? "border-red-500" : "border-gray-200"
+                    }`}
                 />
                 {errors.subject && (
                   <p className="text-red-500 text-xs mt-1 absolute -bottom-5">{errors.subject.message}</p>
@@ -137,9 +135,9 @@ export default function Support() {
                   id="message"
                   placeholder="Describe your question or issue in detail..."
                   {...register("message")}
-                  className={`w-full h-[120px] rounded-xl border p-4 text-[14px] text-gray-800 placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#768e86] focus:border-transparent transition-all resize-none ${
-                    errors.message ? "border-red-500" : "border-gray-200"
-                  }`}
+                  data-lenis-prevent
+                  className={`w-full h-[120px] rounded-xl border p-4 text-[14px] text-gray-800 placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#768e86] focus:border-transparent transition-all resize-y ${errors.message ? "border-red-500" : "border-gray-200"
+                    }`}
                 />
                 {errors.message && (
                   <p className="text-red-500 text-xs mt-1 absolute -bottom-5">{errors.message.message}</p>
@@ -151,15 +149,15 @@ export default function Support() {
                 <Label className="text-[13px] font-medium text-gray-700">
                   Upload Screenshot <span className="text-gray-400 font-normal">(optional)</span>
                 </Label>
-                
-                <div 
+
+                <div
                   className="w-full border-2 border-dashed border-gray-200 hover:border-[#67877e] rounded-xl py-8 px-4 flex flex-col items-center justify-center cursor-pointer transition-colors bg-white group"
                   onClick={() => fileInputRef.current?.click()}
                 >
                   <UploadCloud className="w-8 h-8 text-gray-400 group-hover:text-[#67877e] mb-3 transition-colors" strokeWidth={1.5} />
                   <p className="text-[15px] font-semibold text-gray-700 mb-1">Upload file</p>
                   <p className="text-xs text-gray-400 text-center">Add any screenshot's to help us review your issue faster</p>
-                  
+
                   <input
                     ref={fileInputRef}
                     type="file"
@@ -192,7 +190,7 @@ export default function Support() {
             </form>
           </div>
         </div>
-        
+
       </div>
     </div>
   );

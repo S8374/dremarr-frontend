@@ -15,42 +15,47 @@ export default function ServiceInfoCards({ need, duration, location }: ServiceIn
 
   const items = [
     {
-      icon: <Search className="h-5 w-5 text-[#6f8f84]" />,
-      label: isSpanish ? "Lo que necesito" : "What I need",
-      value: need
+      icon: <Search className="h-5 w-5 text-slate-500" />,
+      label: isSpanish ? "Intercambio Preferido" : "Preferred exchange",
+      value: need,
+      fullWidth: true
     },
     {
-      icon: <Clock className="h-5 w-5 text-[#6f8f84]" />,
-      label: isSpanish ? "Tiempo" : "Duration",
-      value: duration
+      icon: <Clock className="h-5 w-5 text-slate-500" />,
+      label: isSpanish ? "Plazo" : "Timeline",
+      value: duration,
+      fullWidth: false
     },
     {
-      icon: <MapPin className="h-5 w-5 text-[#6f8f84]" />,
+      icon: <MapPin className="h-5 w-5 text-slate-500" />,
       label: isSpanish ? "Ubicación" : "Location",
-      value: location
+      value: location,
+      fullWidth: false
     }
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-      {items.map((item, i) => (
-        <div 
-          key={i} 
-          className="flex items-center gap-4 p-5 rounded-2xl bg-muted/40 border border-border/60 hover:shadow-md transition-all group"
-        >
-          <div className="h-12 w-12 flex items-center justify-center rounded-xl bg-background group-hover:bg-[#6f8f84/10] transition-colors">
-            {item.icon}
+    <div className="flex flex-col gap-4 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {items.map((item, i) => (
+          <div 
+            key={i} 
+            className={`flex items-center gap-4 p-4 rounded-xl bg-[#f8f9fa] border border-slate-100 hover:bg-[#f2f4f5] transition-colors ${item.fullWidth ? 'md:col-span-2' : ''}`}
+          >
+            <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-white shadow-sm shrink-0">
+              {item.icon}
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[11px] font-bold text-slate-400">
+                {item.label}
+              </span>
+              <span className="text-[14px] font-bold text-slate-700">
+                {item.value}
+              </span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground/50">
-              {item.label}
-            </span>
-            <span className="text-sm font-bold text-foreground">
-              {item.value}
-            </span>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

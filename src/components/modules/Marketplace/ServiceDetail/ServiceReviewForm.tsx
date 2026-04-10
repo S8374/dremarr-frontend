@@ -13,14 +13,14 @@ export default function ServiceReviewForm() {
   const [hover, setHover] = useState(0);
 
   return (
-    <div className="p-8 rounded-3xl bg-background border border-border/50 shadow-sm mb-20 animate-in slide-in-from-bottom-4 duration-500">
-      <h2 className="text-2xl font-extrabold text-foreground mb-8">
+    <div className="p-8 rounded-[20px] bg-[#f8f9fa] border border-slate-100 shadow-sm mb-20">
+      <h2 className="text-[20px] font-bold text-slate-800 mb-8 heading">
         {isSpanish ? "Dar una reseña" : "Give a review"}
       </h2>
 
       <div className="space-y-8">
         <div>
-          <label className="text-xs font-bold uppercase tracking-widest text-[#f0502e] mb-4 block">
+          <label className="text-[13px] font-bold text-orange-500 mb-4 block">
             {isSpanish ? "Tu calificación *" : "Your Rating *"}
           </label>
           <div className="flex gap-2">
@@ -30,16 +30,16 @@ export default function ServiceReviewForm() {
                 <button
                   key={index}
                   type="button"
-                  className="transition-all transform hover:scale-125 focus:scale-110 active:scale-95"
+                  className="transition-all transform active:scale-95"
                   onClick={() => setRating(index)}
                   onMouseEnter={() => setHover(index)}
                   onMouseLeave={() => setHover(0)}
                 >
                   <Star
-                    className={`h-8 w-8 transition-colors ${
+                    className={`h-7 w-7 transition-colors ${
                       index <= (hover || rating)
-                        ? "fill-amber-400 text-amber-400"
-                        : "text-muted-foreground/30 fill-muted-foreground/10"
+                        ? "fill-orange-400 text-orange-400"
+                        : "text-slate-200 fill-slate-100"
                     }`}
                   />
                 </button>
@@ -49,16 +49,16 @@ export default function ServiceReviewForm() {
         </div>
 
         <div>
-           <label className="text-xs font-bold uppercase tracking-widest text-[#f0502e] mb-4 block">
+           <label className="text-[13px] font-bold text-orange-500 mb-4 block">
             {isSpanish ? "¿Cuál es tu reseña? *" : "What is Your Review? *"}
           </label>
           <Textarea 
             placeholder={isSpanish ? "Escribe tus comentarios aquí..." : "Write your comments here..."}
-            className="min-h-[160px] rounded-2xl border-border bg-muted/20 focus-visible:ring-[#6f8f84] text-base p-6 font-medium placeholder:text-muted-foreground/40 transition-all focus:bg-background"
+            className="min-h-[140px] rounded-xl border-slate-200 bg-white focus-visible:ring-[#728e85]/20 focus-visible:border-[#728e85] text-[15px] p-5 font-semibold placeholder:text-slate-300 transition-all resize-none shadow-sm"
           />
         </div>
 
-        <Button className="h-14 px-12 rounded-full bg-[#6f8f84] hover:bg-[#5f7e75] text-white font-bold text-base shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 duration-300">
+        <Button className="h-[52px] px-14 rounded-xl bg-[#728e85] hover:bg-[#5f7e75] text-white font-bold text-[15px] shadow-md transition-all border-0">
           {isSpanish ? "Enviar" : "Submit"}
         </Button>
       </div>

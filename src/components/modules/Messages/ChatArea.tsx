@@ -10,30 +10,35 @@ import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { MessagesSidebar } from "./MessagesSidebar";
 import { ProfileSidebar } from "./ProfileSidebar";
+import { useLanguage } from "@/components/shared/language-provider";
 import Link from "next/link";
 
-const messages = [
+const messagesData = [
   {
     id: 1,
     text: "Hello there",
+    textEs: "Hola",
     type: "received",
     time: "4:30 PM",
   },
   {
     id: 2,
     text: "I have an offer for you and need your assistance.",
+    textEs: "Tengo una oferta para ti y necesito tu ayuda.",
     type: "received",
     time: "4:31 PM",
   },
   {
     id: 3,
     text: "Hello James",
+    textEs: "Hola James",
     type: "sent",
     time: "4:32 PM",
   },
   {
     id: 4,
     text: "Sounds great! I'd be happy to hear more about the offer.",
+    textEs: "¡Suena genial! Estaría encantado de saber más sobre la oferta.",
     type: "sent",
     time: "4:33 PM",
   },
@@ -43,11 +48,15 @@ const messages = [
     type: "offer",
     time: "4:35 PM",
     need: "I need web development services to boost my online presence and I'm looking for help with five pages.",
+    needEs: "Necesito servicios de desarrollo web para aumentar mi presencia en línea y estoy buscando ayuda con cinco páginas.",
     offer: "I can offer you 5 hours of electrical work from a licensed electrician. We can negotiate what type of electrical work you would want.",
+    offerEs: "Puedo ofrecerte 5 horas de trabajo eléctrico de un electricista certificado. Podemos negociar qué tipo de trabajo eléctrico desearías.",
   },
 ];
 
 export function ChatArea() {
+  const { language } = useLanguage();
+  const isSpanish = language === "es";
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,83 +65,98 @@ export function ChatArea() {
     }
   }, []);
 
+  const labels = {
+    active: isSpanish ? "Activo" : "Active",
+    today: isSpanish ? "Hoy, 24 de Marzo" : "Today, March 24",
+    need: isSpanish ? "Necesito" : "Need",
+    offer: isSpanish ? "Oferta" : "Offer",
+    decline: isSpanish ? "Rechazar" : "Decline",
+    accept: isSpanish ? "Aceptar" : "Accept",
+    placeholder: isSpanish ? "Escribe un mensaje..." : "write a message...",
+    createOffer: isSpanish ? "Crear una oferta" : "Create an offer",
+    acceptOfferMsg: isSpanish ? "Por favor acepta la oferta" : "Please accept the offer",
+    within: isSpanish ? "dentro de 3 días / Miami, FL" : "within 3 days / Miami, FL",
+    serviceTitle: isSpanish ? "Construiré y repararé muebles y estructuras de madera" : "I will build and repair wooden furniture and structures",
+    serviceNeeds: isSpanish ? "Plomería y desarrollo web" : "Plumbing and web development"
+  };
+
   return (
-    <div className="relative flex h-full flex-col overflow-hidden bg-background dark:bg-card scrollbar-hide">
+    <div className="relative flex h-full flex-col overflow-hidden bg-background border-border scrollbar-hide">
       {/* Simple Header */}
-      <div className="flex items-center justify-between border-b border-border/10 px-4 py-4 sm:px-6 sm:py-5 lg:px-10 lg:py-6">
+      <div className="flex items-center justify-between border-b border-border px-10 py-6 bg-background/50 backdrop-blur-sm z-10">
         <div className="flex items-center gap-4">
-          {/* Mobile Menu Trigger for Messages */}
           <Sheet>
             <SheetTrigger asChild>
               <button className="lg:hidden p-2 -ml-2 text-muted-foreground hover:text-foreground transition-colors">
-                <Menu className="h-6 w-6 stroke-2" />
+                <Menu className="h-6 w-6" />
               </button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[85vw] max-w-[340px] border-r-0 p-0">
-               <SheetTitle className="sr-only">Messages Menu</SheetTitle>
+              <SheetTitle className="sr-only">Messages Menu</SheetTitle>
               <MessagesSidebar />
             </SheetContent>
           </Sheet>
 
           <div className="relative shrink-0">
-            <Avatar className="h-[52px] w-[52px] shadow-sm border border-background">
-              <AvatarImage src="https://i.pravatar.cc/150?u=killan" alt="KillanJames" />
+            <Avatar className="h-12 w-12 border border-border p-0.5 bg-muted/20">
+              <AvatarImage src="https://i.pravatar.cc/150?u=killan" alt="Killan" className="rounded-full" />
               <AvatarFallback>KJ</AvatarFallback>
             </Avatar>
           </div>
           <div className="flex flex-col">
             <h2 className="text-[17px] font-bold text-foreground leading-tight">Killan James</h2>
-            <span className="text-[12px] font-bold text-emerald-500 uppercase tracking-wider">Active</span>
+            <span className="text-[12px] font-bold text-emerald-500">{labels.active}</span>
           </div>
         </div>
 
-        {/* Mobile Info Trigger for Profile */}
-        <Sheet>
+        <div className="flex items-center gap-2">
+          <Sheet>
             <SheetTrigger asChild>
-              <button className="xl:hidden p-2 -mr-2 text-muted-foreground hover:text-foreground transition-colors">
-                <Info className="h-6 w-6 stroke-2" />
+              <button className="xl:hidden p-2 text-muted-foreground hover:text-foreground">
+                <Info className="h-6 w-6" />
               </button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[85vw] max-w-[300px] border-l-0 p-0">
-              <SheetTitle className="sr-only">Profile Information</SheetTitle>
+              <SheetTitle className="sr-only">Profile </SheetTitle>
               <ProfileSidebar />
             </SheetContent>
-        </Sheet>
+          </Sheet>
+        </div>
       </div>
 
       {/* Messages Thread */}
       <div
         ref={scrollRef}
         data-lenis-prevent
-        className="flex-1 space-y-6 overflow-y-auto bg-muted/20 p-4 scrollbar-hide dark:bg-background/40 sm:p-6 lg:space-y-10 lg:p-10"
+        className="flex-1 space-y-6 overflow-y-auto bg-muted/20 dark:bg-muted/5 p-4 scrollbar-hide sm:p-6 lg:space-y-10 lg:p-10"
       >
         <div className="flex justify-center mb-8">
-          <div className="relative flex h-px w-full items-center justify-center bg-border/50 dark:bg-border/10">
-            <span className="absolute px-6 py-2 bg-muted/80 dark:bg-background/60 rounded-full text-[11px] font-bold text-muted-foreground uppercase tracking-widest">Today, March 24</span>
+          <div className="flex items-center gap-4 w-full">
+            <div className="h-px bg-border flex-1 opacity-50" />
+            <span className="text-[12px]  text-muted-foreground/40">{labels.today}</span>
+            <div className="h-px bg-border flex-1 opacity-50" />
           </div>
         </div>
 
         {/* Service Card Invite */}
         <div className="flex justify-start">
-          <div className="relative w-full max-w-[540px] rounded-4xl border border-border/50 bg-card p-3 shadow-sm transition-all duration-300 hover:shadow-md sm:rounded-[2.5rem] sm:p-4">
+          <div className="relative w-full max-w-[540px] rounded-3xl border border-border bg-card p-3 shadow-none">
             <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
-              <div className="relative h-[150px] w-full shrink-0 overflow-hidden rounded-[1.25rem] shadow-sm sm:h-[135px] sm:w-[180px] sm:rounded-3xl">
+              <div className="relative h-[110px] w-full shrink-0 overflow-hidden rounded-[18px] sm:w-[150px]">
                 <Image
                   src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=400&auto=format&fit=crop"
                   alt="Service"
                   fill
-                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  className="object-cover"
                 />
               </div>
-              <div className="flex min-w-0 flex-col justify-center">
-                <h3 className="mb-3 text-[15px] font-semibold leading-snug tracking-tight text-foreground">I will build and repair wooden furniture and structures</h3>
-                <div className="flex items-center gap-2 rounded-lg border border-border/50 bg-muted/10">
-                  <div className="flex flex-wrap items-center gap-2 p-2">
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-foreground text-[10px] font-bold uppercase text-background tracking-widest shadow-sm">
-                      Need
-                    </div>
-                    <span className="text-[12px] text-muted-foreground">Plumbing and web development</span>
+              <div className="flex-1 flex flex-col items-start justify-center pr-4">
+                <h3 className="mb-3 text-[15px]  leading-tight text-foreground">{labels.serviceTitle}</h3>
+                <div className="flex items-center gap-2 rounded-xl border border-border bg-muted/30 p-1 pr-4 w-full">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px] bg-foreground text-[11px] font-bold text-background shadow-sm">
+                    {labels.need}
                   </div>
+                  <span className="text-[14px] f text-muted-foreground truncate">{labels.serviceNeeds}</span>
                 </div>
               </div>
             </div>
@@ -141,42 +165,46 @@ export function ChatArea() {
 
         {/* Current Dialog */}
         <div className="space-y-6">
-          {messages.map((msg) => {
+          {messagesData.map((msg) => {
             if (msg.type === "offer") {
               return (
                 <div key={msg.id} className="flex flex-col items-start pt-4 pb-2">
-                  <div className="flex items-start gap-3 w-full max-w-[550px]">
-                    <Avatar className="h-[42px] w-[42px] shrink-0 shadow-sm border border-background mt-2">
+                  <div className="flex items-start gap-3 w-full max-w-[640px]">
+                    <Avatar className="h-10 w-10 shrink-0 border border-border mt-0.5">
                       <AvatarImage src="https://i.pravatar.cc/150?u=killan" alt="Killan" />
-                      <AvatarFallback className="font-bold text-xs">KJ</AvatarFallback>
+                      <AvatarFallback>KJ</AvatarFallback>
                     </Avatar>
-                    
-                    <div className="w-full flex flex-col gap-4">
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <div className="flex-1 bg-card dark:bg-muted/10 border border-border/50 dark:border-border/20 p-5 rounded-3xl rounded-tl-none shadow-sm flex flex-col gap-3">
-                           <div className="text-[13px] font-bold text-foreground">Need</div>
-                           <p className="text-[13px] leading-relaxed text-muted-foreground font-medium">
-                              {msg.need}
-                           </p>
+
+                    <div className="w-full flex flex-col gap-3">
+                      <div className="bg-card dark:bg-muted/40 px-7 py-3 rounded-[20px] rounded-tl-none  text-[15px] text-foreground w-fit mb-1 border border-border shadow-sm">
+                        {labels.acceptOfferMsg}
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="bg-card border border-border p-5 rounded-[12px] flex flex-col gap-4 min-h-[180px] shadow-sm">
+                          <div className="text-[13px] font-bold text-foreground opacity-90">{labels.need}</div>
+                          <p className="text-[13px] leading-relaxed text-muted-foreground font-bold">
+                            {isSpanish ? msg.needEs : msg.need}
+                          </p>
                         </div>
-                        <div className="flex-1 bg-card dark:bg-muted/10 border border-border/50 dark:border-border/20 p-5 rounded-3xl shadow-sm flex flex-col gap-3">
-                           <div className="text-[13px] font-bold text-foreground">Offer</div>
-                           <p className="text-[13px] leading-relaxed text-muted-foreground font-medium">
-                              {msg.offer}
-                           </p>
+                        <div className="bg-card border border-border p-5 rounded-[12px] flex flex-col gap-4 min-h-[180px] shadow-sm">
+                          <div className="text-[13px] font-bold text-foreground opacity-90">{labels.offer}</div>
+                          <p className="text-[13px] leading-relaxed text-muted-foreground font-bold">
+                            {isSpanish ? msg.offerEs : msg.offer}
+                          </p>
                         </div>
                       </div>
-                      
-                      <div className="flex flex-col sm:flex-row items-center justify-end gap-3 w-full pr-2">
-                         <span className="text-[11px] font-bold tracking-widest uppercase text-muted-foreground shrink-0">within 7 days / Miami, FI</span>
-                         <div className="flex items-center gap-3">
-                            <Button variant="outline" className="rounded-full px-5 h-9 text-[12px] font-bold text-rose-500 border-rose-100 bg-rose-50 hover:bg-rose-100 hover:text-rose-600 dark:border-rose-900/50 dark:bg-rose-900/20">
-                                Decline
-                            </Button>
-                            <Button className="rounded-full px-6 h-9 text-[12px] font-bold bg-[#6b8b7e] hover:bg-[#5b786c] text-white transition-transform active:scale-95">
-                                Accept
-                            </Button>
-                         </div>
+
+                      <div className="flex flex-col items-end gap-3 w-full mt-1 pr-1">
+                        <span className="text-[11px] font-bold text-muted-foreground/40">{labels.within}</span>
+                        <div className="flex items-center gap-3">
+                          <button className="rounded-full px-6 h-9 text-[13px] font-bold text-muted-foreground bg-muted hover:bg-muted/80 transition-colors border border-border">
+                            {labels.decline}
+                          </button>
+                          <button className="rounded-full px-8 h-9 text-[13px] font-bold bg-[#728e85] hover:bg-[#5f7e75] text-white transition-all active:scale-95 shadow-md">
+                            {labels.accept}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -194,18 +222,18 @@ export function ChatArea() {
                   msg.type === "sent" ? "flex-row-reverse" : "flex-row"
                 )}>
                   {msg.type === "received" && (
-                    <Avatar className="h-[42px] w-[42px] shrink-0 shadow-sm border border-background">
+                    <Avatar className="h-10 w-10 border border-border">
                       <AvatarImage src="https://i.pravatar.cc/150?u=killan" alt="Killan" />
-                      <AvatarFallback className="font-bold text-xs">KJ</AvatarFallback>
+                      <AvatarFallback>KJ</AvatarFallback>
                     </Avatar>
                   )}
                   <div className={cn(
-                    "px-7 py-4 text-[14px] leading-relaxed shadow-sm transition-all duration-300",
+                    "px-7 py-3 text-[15px]  transition-all duration-300 rounded-[22px] shadow-sm",
                     msg.type === "sent"
-                      ? "bg-muted/30 text-foreground rounded-4xl rounded-tr-none dark:bg-muted/20"
-                      : "bg-background text-foreground border border-border/50 dark:bg-muted/10 rounded-4xl rounded-tl-none"
+                      ? "bg-[#e2ebe8] text-[#3e524c]"
+                      : "bg-card border border-border text-foreground"
                   )}>
-                    {msg.text}
+                    {isSpanish ? msg.textEs : msg.text}
                   </div>
                 </div>
               </div>
@@ -215,25 +243,25 @@ export function ChatArea() {
       </div>
 
       {/* Input Bar Section */}
-      <div className="border-t border-border/10 bg-background dark:bg-card px-4 py-4 sm:px-6 sm:py-5 lg:px-10 lg:py-5">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 lg:gap-6">
+      <div className="border-t border-border bg-background px-10 py-5">
+        <div className="flex items-center gap-6">
           <div className="flex-1 relative">
             <Input
-              placeholder="write a message"
-              className="w-full rounded-4xl border-none bg-muted/20 py-5 pl-6 pr-24 text-[14px] font-bold placeholder:text-muted-foreground/60 transition-all focus-visible:bg-muted/30 focus-visible:ring-0 dark:bg-background/20 dark:text-white dark:focus-visible:bg-background/40 sm:py-6 sm:pl-8 sm:pr-32 sm:text-[15px]"
+              placeholder={labels.placeholder}
+              className="w-full h-12 rounded-full border-none bg-muted/30 dark:bg-muted/10 pl-8 pr-28 text-[15px] font-bold text-foreground placeholder:text-muted-foreground/40 focus-visible:ring-0"
             />
-            <div className="absolute right-5 top-1/2 flex -translate-y-1/2 items-center gap-3 sm:right-8 sm:gap-4">
-              <button className="text-muted-foreground hover:text-foreground transition-all active:scale-95">
-                <Paperclip className="h-6 w-6 stroke-[2.5]" />
+            <div className="absolute right-6 top-1/2 flex -translate-y-1/2 items-center gap-4">
+              <button className="text-muted-foreground hover:text-foreground transition-colors">
+                <Paperclip className="h-5 w-5 stroke-[2.5]" />
               </button>
-              <button className="text-muted-foreground hover:text-foreground transition-all active:scale-95">
-                <Send className="h-6 w-6 stroke-[2.5]" />
+              <button className="text-muted-foreground hover:text-foreground transition-colors">
+                <Send className="h-5 w-5 stroke-[2.5]" />
               </button>
             </div>
           </div>
-          <Button asChild className="h-14 w-full rounded-4xl border-4 border-muted/50 bg-card px-6 text-[16px] font-bold text-muted-foreground transition-all duration-300 hover:scale-[1.02] hover:bg-muted/20 active:scale-95 dark:border-border/40 dark:bg-muted/10 dark:text-foreground sm:w-auto sm:min-w-[220px] sm:px-10 sm:text-[18px] lg:min-w-60 lg:px-12">
-            <Link href="/create-offer">Create an offer</Link>
-          </Button>
+          <Link href="/create-offer" className="btn-pill-outline h-12 flex items-center justify-center px-8 border-border whitespace-nowrap">
+            {labels.createOffer}
+          </Link>
         </div>
       </div>
     </div>

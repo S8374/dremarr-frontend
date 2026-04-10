@@ -10,7 +10,7 @@ export default function MarketplaceHeader() {
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between mb-10 mt-6 sm:mt-10 animate-in slide-in-from-top-4 duration-500">
       <div className="max-w-2xl text-center lg:text-left">
-        <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-4 bg-clip-text">
+        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-4 bg-clip-text">
           {isSpanish ? "Mercado" : "Marketplace"}
         </h1>
         <p className="text-base text-muted-foreground sm:text-lg lg:text-xl font-medium max-w-xl mx-auto lg:mx-0">

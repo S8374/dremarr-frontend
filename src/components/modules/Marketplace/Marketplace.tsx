@@ -50,12 +50,12 @@ export default function Marketplace() {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 max-w-[1380px] py-8 animate-pulse">
-           <div className="h-48 bg-muted/10 rounded-3xl mb-10" />
-           <div className="h-16 bg-muted/10 rounded-xl mb-10" />
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3].map(i => <div key={i} className="h-80 bg-muted/10 rounded-2xl" />)}
-           </div>
+        <div className="container py-8 animate-pulse">
+          <div className="h-48 bg-muted/10 rounded-3xl mb-10" />
+          <div className="h-16 bg-muted/10 rounded-xl mb-10" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map(i => <div key={i} className="h-80 bg-muted/10 rounded-2xl" />)}
+          </div>
         </div>
       </div>
     );
@@ -63,7 +63,7 @@ export default function Marketplace() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 max-w-[1380px] py-8 mb-20 animate-in fade-in duration-700">
+      <div className="container py-8 mb-20 animate-in fade-in duration-700">
         <MarketplaceHeader />
 
         <MarketplaceFilters

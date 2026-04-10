@@ -17,21 +17,21 @@ const bgMap: Record<string, string> = {
 
 export default function DashboardStats() {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {dashboardStats.map((stat) => (
         <div
           key={stat.id}
-          className="flex items-center justify-between rounded-2xl border border-slate-100 dark:border-border/60 bg-white dark:bg-card px-5 py-5 shadow-sm hover:shadow-md transition-shadow"
+          className="flex items-center justify-between rounded-2xl border border-slate-100 bg-white px-6 py-6 shadow-sm hover:shadow-md transition-all"
         >
-          <div className="flex flex-col gap-0.5">
-            <span className="text-[12px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+          <div className="flex flex-col gap-1">
+            <span className="text-[12px] font-bold text-slate-400 capitalize">
               {stat.label}
             </span>
-            <span className="text-[28px] font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <span className="text-[28px] font-bold text-slate-800 tracking-tight heading">
               {stat.value}
             </span>
           </div>
-          <div className={`p-3 rounded-full ${bgMap[stat.icon]}`}>
+          <div className={`h-11 w-11 flex items-center justify-center rounded-full shadow-sm ${bgMap[stat.icon]}`}>
             {iconMap[stat.icon]}
           </div>
         </div>
