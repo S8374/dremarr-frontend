@@ -1,0 +1,8 @@
+.git
+node_modules
+.next
+.vscode
+*.log
+.DS_Store
+README.md
+public/mock-data # exclude if huge

@@ -50,18 +50,18 @@ const TradingSteps = () => {
     };
 
     return (
-        <section className="bg-background px-4 py-16 text-foreground sm:px-6 lg:px-8">
+        <section className="bg-background px-4 py-20 text-foreground sm:px-6 lg:px-8">
             <div className="container">
-                <div className="mb-12 text-center">
-                    <h2 className="mb-2 font-semibold text-foreground text-[30px] md:text-[44px]">
+                <div className="mb-14 text-center">
+                    <h2 className="mb-4 text-[32px] font-bold leading-tight tracking-tight text-foreground sm:text-[38px] md:text-[44px]">
                         {language === "es" ? (
-                            <>Empieza a <span className="text-[#79948d]">intercambiar</span> en 3 pasos</>
+                            <>Empieza a <span className="text-[#6d8b84]">intercambiar</span> en 3 pasos</>
                         ) : (
-                            <>Start <span className="text-[#79948d]">Trading</span> in Three Steps</>
+                            <>Start <span className="text-[#6d8b84]">Trading</span> in Three Steps</>
                         )}
                     </h2>
-                    <p className="text-[24px] text-muted-foreground">
-                        {language === "es" ? "Sin configuración complicada. Solo crea, conecta e intercambia." : "No complicated setup. Just creat, connect, and exchange."}
+                    <p className="mx-auto max-w-2xl text-[16px] leading-[1.6] text-muted-foreground sm:text-[18px] md:text-[20px]">
+                        {language === "es" ? "Sin configuración complicada. Solo crea, conecta e intercambia." : "No complicated setup. Just create, connect, and exchange."}
                     </p>
                 </div>
 
@@ -69,29 +69,29 @@ const TradingSteps = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ staggerChildren: 0.1 }}
-                    className="grid grid-cols-1 gap-6 md:grid-cols-3 text-center"
+                    transition={{ staggerChildren: 0.15 }}
+                    className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 xl:gap-8"
                 >
                     {steps.map((step, index) => (
                         <motion.article
                             variants={cardVariants}
                             key={index}
-                            className="rounded-2xl bg-muted/40 dark:bg-card px-7 py-7 border border-border/50"
+                            className={`mx-auto flex h-full w-full flex-col items-center rounded-3xl border border-border/40 bg-muted/30 px-6 py-10 transition-all hover:bg-muted/40 lg:px-4 xl:px-8 dark:bg-card ${index === 2 ? "md:col-span-2 lg:col-span-1 md:max-w-md" : ""}`}
                         >
-                            <div className="relative mb-5 flex h-14 items-start justify-center">
-                                <span className="absolute left-0 top-0 text-[58px] font-extrabold leading-none text-foreground/20 dark:text-foreground/25">
+                            <div className="relative mb-8 flex w-full items-center justify-center">
+                                <span className="absolute left-0 text-[48px] font-black leading-none text-foreground/10 md:text-[58px] lg:text-[68px]">
                                     {step.number}
                                 </span>
-                                <div className="mt-1 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-muted/60 dark:bg-muted/20">
-                                    <step.icon className="h-5 w-5 text-[#6d8b84]" />
+                                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-background shadow-sm border border-border/50 transition-transform group-hover:scale-110 dark:bg-muted/30 lg:h-16 lg:w-16">
+                                    <step.icon className="h-7 w-7 text-[#6d8b84] lg:h-8 lg:w-8" />
                                 </div>
                             </div>
 
-                            <h3 className="mb-3 text-[37px] font-semibold leading-tight text-foreground">
+                            <h3 className="mb-4 text-center text-[20px] font-bold tracking-tight text-foreground sm:text-2xl lg:text-[21px] xl:text-[26px]">
                                 {isSpanish ? step.titleEs : step.title}
                             </h3>
 
-                            <p className="text-[22px] leading-[1.35] text-muted-foreground">
+                            <p className="text-center text-[15px] leading-[1.6] text-muted-foreground sm:text-base lg:text-[15px] xl:text-[17px]">
                                 {step.description}
                             </p>
                         </motion.article>

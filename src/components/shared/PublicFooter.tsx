@@ -17,22 +17,22 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="bg-[#040607] text-white pt-16 pb-6">
+        <footer className="overflow-x-hidden bg-[#040607] pt-16 pb-6 text-white">
             <div className="container">
-                <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.2fr_1fr_1fr_1.15fr] md:gap-10">
-                    <div>
+                <div className="grid grid-cols-1 justify-items-center gap-12 text-center md:grid-cols-2 md:justify-items-stretch md:gap-10 md:text-left lg:grid-cols-[1.2fr_1fr_1fr_1.15fr]">
+                    <div className="w-full">
                         <h2 className="text-[36px] font-semibold leading-none tracking-wide text-[#8ca7a1]">DREMARR</h2>
                         <p className="mt-2 text-[16px] text-[#cad2d7]">
                             {isSpanish ? "Donde la habilidad es moneda" : "Where Skill is Currency"}
                         </p>
                     </div>
 
-                    <div>
+                    <div className="w-full">
                         <h3 className="text-lg font-semibold text-white">{isSpanish ? "Enlaces" : "Quick Links"}</h3>
-                        <ul className="mt-5 space-y-3 text-[#c8d0d5]">
+                        <ul className="mt-5 grid justify-center gap-3 text-[#c8d0d5] md:block md:space-y-3">
                             {quickLinks.map((item) => (
                                 <li key={item.href}>
-                                    <Link href={item.href} className="transition-colors hover:text-white">
+                                    <Link href={item.href} className="inline-block min-w-[150px] text-center transition-colors hover:text-white md:min-w-0 md:text-left">
                                         {item.label}
                                     </Link>
                                 </li>
@@ -40,28 +40,28 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div>
+                    <div className="w-full">
                         <h3 className="text-lg font-semibold text-white">{isSpanish ? "Conectar" : "Connect"}</h3>
-                        <div className="mt-5 space-y-4 text-[#c8d0d5]">
-                            <a href="#" className="flex items-center gap-3 transition-colors hover:text-white">
+                        <div className="mt-5 grid justify-center gap-4 text-[#c8d0d5] md:block md:space-y-4">
+                            <a href="#" className="mx-auto flex w-fit items-center justify-center gap-3 transition-colors hover:text-white md:mx-0 md:w-auto md:justify-start">
                                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7f9b95] text-[#f2f5f6]">
                                     <Instagram className="h-5 w-5" />
                                 </span>
                                 Instagram
                             </a>
-                            <a href="#" className="flex items-center gap-3 transition-colors hover:text-white">
+                            <a href="#" className="mx-auto flex w-fit items-center justify-center gap-3 transition-colors hover:text-white md:mx-0 md:w-auto md:justify-start">
                                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7f9b95] text-[#f2f5f6]">
                                     <Facebook className="h-5 w-5" />
                                 </span>
                                 Facebook
                             </a>
-                            <a href="#" className="flex items-center gap-3 transition-colors hover:text-white">
+                            <a href="#" className="mx-auto flex w-fit items-center justify-center gap-3 transition-colors hover:text-white md:mx-0 md:w-auto md:justify-start">
                                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7f9b95] text-[#f2f5f6]">
                                     <Linkedin className="h-5 w-5" />
                                 </span>
                                 Linkedin
                             </a>
-                            <a href="#" className="flex items-center gap-3 transition-colors hover:text-white">
+                            <a href="#" className="mx-auto flex w-fit items-center justify-center gap-3 transition-colors hover:text-white md:mx-0 md:w-auto md:justify-start">
                                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#7f9b95] text-[20px] text-[#f2f5f6]">
                                     ♪
                                 </span>
@@ -70,13 +70,13 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="w-full">
                         <h3 className="text-lg font-semibold text-white">{isSpanish ? "Mantente al dia" : "Stay Updated"}</h3>
-                        <p className="mt-4 text-[17px] text-[#c8d0d5]">
+                        <p className="mx-auto mt-4 max-w-sm text-[17px] text-[#c8d0d5] md:mx-0">
                             {isSpanish ? "Recibe las ultimas noticias y ofertas especiales" : "Get the latest news and special offers"}
                         </p>
 
-                        <div className="mt-5 flex h-11 w-full max-w-[370px] items-center overflow-hidden rounded-full bg-[#1d282b]">
+                        <div className="mx-auto mt-5 flex h-11 w-full max-w-[370px] items-center overflow-hidden rounded-full bg-[#1d282b] md:mx-0">
                             <input
                                 type="email"
                                 placeholder={isSpanish ? "Tu correo" : "Your email"}
@@ -93,13 +93,13 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-10 border-t border-[#2d363c] pt-4 text-[15px] text-[#c8d0d5]">
-                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                        <div className="flex flex-wrap items-center gap-3 md:gap-4">
+                    <div className="flex flex-col items-center gap-3 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
+                        <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start md:gap-4">
                             <span>© 2026 DreMarr LLC. All rights reserved</span>
-                            <span className="hidden md:inline">|</span>
+                            <span className="hidden lg:inline">|</span>
                             <span>hello@dremmarr.com</span>
                         </div>
-                        <div className="flex items-center gap-6">
+                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 lg:justify-end">
                             <Link href="/terms" className="transition-colors hover:text-white">
                                 {isSpanish ? "Terminos y condiciones" : "Terms & conditions"}
                             </Link>

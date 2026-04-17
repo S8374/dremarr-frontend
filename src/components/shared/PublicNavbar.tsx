@@ -134,39 +134,106 @@ const PublicNavbar = () => {
                 <Menu className="h-5 w-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[85vw] max-w-[320px] p-5">
-              <div className="mt-8 flex flex-col gap-4">
-                {navItems.map((item) => (
-                  <Link key={item.label} href={item.href} className="text-lg font-medium text-foreground">
-                    {item.label}
-                  </Link>
-                ))}
-
-                <div className="mt-2 grid grid-cols-3 gap-2">
-                  <Button type="button" variant="outline" size="sm" onClick={() => setTheme("light")}>Light</Button>
-                  <Button type="button" variant="outline" size="sm" onClick={() => setTheme("dark")}>Dark</Button>
-                  <Button type="button" variant="outline" size="sm" onClick={() => setTheme("system")}>System</Button>
+            <SheetContent side="right" className="flex w-[85vw] flex-col border-l border-border/40 bg-background/95 p-0 backdrop-blur-xl sm:max-w-xs">
+              <div className="flex h-full flex-col">
+                {/* Mobile Menu Header */}
+                <div className="flex items-center justify-between border-b border-border/40 px-6 py-5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
+                      <Image
+                        src={logo}
+                        alt="Dremarr logo"
+                        width={32}
+                        height={32}
+                        className="h-7 w-7 rounded-lg object-cover"
+                      />
+                    </div>
+                    <span className="text-lg font-bold tracking-tight text-foreground">Dremarr</span>
+                  </div>
                 </div>
 
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button type="button" variant="outline" className="mt-1 w-fit rounded-xl">
-                      {languageLabel}
-                      <ChevronDown className="h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-40 rounded-2xl border-border/60 p-1 shadow-lg">
-                    <DropdownMenuItem onClick={() => setLanguage("en")}>English</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setLanguage("es")}>Español</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                {/* Mobile Nav Links */}
+                <div className="flex-1 overflow-y-auto px-4 py-6">
+                  <div className="space-y-2">
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="flex items-center gap-4 rounded-2xl px-4 py-4 text-[17px] font-semibold text-foreground/80 transition-all active:bg-primary/10 active:text-primary"
+                      >
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/50 text-muted-foreground group-active:bg-primary/20">
+                           {item.href === "/" && <Menu className="h-5 w-5" />}
+                           {item.href === "/marketplace" && <Laptop className="h-5 w-5" />}
+                           {item.href === "/membership" && <MessageSquare className="h-5 w-5" />}
+                        </div>
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
 
-                <Link
-                  href="/login"
-                  className="mt-2 inline-flex w-fit rounded-full border border-[#89a49d] bg-[#f2f4f4] px-8 py-2 text-base font-semibold text-[#5f7e75] dark:border-white dark:bg-card dark:text-white"
-                >
-                  {language === "es" ? "Iniciar sesión" : "Login"}
-                </Link>
+                  {/* Settings / Preferences */}
+                  <div className="mt-8">
+                    <h4 className="mb-4 px-4 text-xs font-bold uppercase tracking-widest text-muted-foreground/60">
+                      {isSpanish ? "Preferencias" : "Preferences"}
+                    </h4>
+                    
+                    <div className="space-y-6 rounded-3xl bg-muted/30 p-4 border border-border/40">
+                      {/* Theme Selection */}
+                      <div className="space-y-3">
+                        <p className="px-1 text-[13px] font-bold text-foreground/70">{isSpanish ? "Tema" : "Appearance"}</p>
+                        <div className="grid grid-cols-3 gap-2">
+                          <button
+                            onClick={() => setTheme("light")}
+                            className={`flex flex-col items-center gap-1.5 rounded-2xl py-2.5 text-[11px] font-bold transition-all ${theme === "light" ? "bg-background text-primary shadow-sm" : "text-muted-foreground hover:bg-background/50"}`}
+                          >
+                            <Sun className="h-4 w-4" /> Light
+                          </button>
+                          <button
+                            onClick={() => setTheme("dark")}
+                            className={`flex flex-col items-center gap-1.5 rounded-2xl py-2.5 text-[11px] font-bold transition-all ${theme === "dark" ? "bg-background text-primary shadow-sm" : "text-muted-foreground hover:bg-background/50"}`}
+                          >
+                            <Moon className="h-4 w-4" /> Dark
+                          </button>
+                          <button
+                            onClick={() => setTheme("system")}
+                            className={`flex flex-col items-center gap-1.5 rounded-2xl py-2.5 text-[11px] font-bold transition-all ${theme === "system" ? "bg-background text-primary shadow-sm" : "text-muted-foreground hover:bg-background/50"}`}
+                          >
+                            <Laptop className="h-4 w-4" /> System
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Language Selection */}
+                      <div className="space-y-3">
+                        <p className="px-1 text-[13px] font-bold text-foreground/70">{isSpanish ? "Idioma" : "Language"}</p>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => setLanguage("en")}
+                            className={`flex-1 rounded-2xl py-2.5 text-[13px] font-bold transition-all ${language === "en" ? "bg-background text-primary shadow-sm ring-1 ring-primary/20" : "bg-muted/40 text-muted-foreground hover:bg-background/50"}`}
+                          >
+                            English
+                          </button>
+                          <button
+                            onClick={() => setLanguage("es")}
+                            className={`flex-1 rounded-2xl py-2.5 text-[13px] font-bold transition-all ${language === "es" ? "bg-background text-primary shadow-sm ring-1 ring-primary/20" : "bg-muted/40 text-muted-foreground hover:bg-background/50"}`}
+                          >
+                            Español
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile Menu Footer */}
+                <div className="border-t border-border/40 p-6">
+                  <Link
+                    href="/login"
+                    className="flex w-full items-center justify-center gap-2 rounded-2xl bg-primary py-4 text-base font-bold text-white shadow-lg shadow-primary/20 transition-transform active:scale-95"
+                  >
+                    {isSpanish ? "Iniciar sesión" : "Log In"}
+                  </Link>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

@@ -221,6 +221,7 @@
       padding-right: 1rem;
     }
   }
+
   .btn-pill-outline {
     @apply rounded-full border border-[#738C88] bg-transparent px-6 py-2 text-sm font-semibold text-[#738C88] transition-all hover:bg-[#738C88]/5 active:scale-95 sm:px-8 sm:py-2.5 sm:text-base;
   }

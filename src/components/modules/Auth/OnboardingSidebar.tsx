@@ -4,10 +4,11 @@ import { cn } from "@/lib/utils";
 
 const STEPS = [
   { id: 1, label: "Account setup" },
-  { id: 2, label: "Personal info" },
-  { id: 3, label: "Professional info" },
-  { id: 4, label: "Account Security" },
-  { id: 5, label: "Create your first trade" },
+  { id: 2, label: "Email verification" },
+  { id: 3, label: "Personal info" },
+  { id: 4, label: "Professional info" },
+  { id: 5, label: "Account Security" },
+  { id: 6, label: "Create your first trade" },
 ];
 
 interface OnboardingSidebarProps {

@@ -9,12 +9,20 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { OnboardingSidebar } from "./OnboardingSidebar";
 import { StepAccountSetup } from "./StepAccountSetup";
+import { StepEmailVerification } from "./StepEmailVerification";
 import { StepPersonalInfo } from "./StepPersonalInfo";
 import { StepProfessionalInfo } from "./StepProfessionalInfo";
 import { StepAccountSecurity } from "./StepAccountSecurity";
 import { StepFirstTrade } from "./StepFirstTrade";
 
-const MOBILE_STEP_LABELS = ["Ac. setup", "Personal info", "Prof. info", "Ac. Security", "Create trade"];
+const MOBILE_STEP_LABELS = [
+  "Ac. setup",
+  "Verify email",
+  "Personal info",
+  "Prof. info",
+  "Ac. Security",
+  "Create trade",
+];
 
 const signupSchema = z
   .object({
@@ -23,6 +31,10 @@ const signupSchema = z
       .string()
       .trim()
       .min(10, "Phone number must be at least 10 digits."),
+    emailOtp: z
+      .string()
+      .trim()
+      .regex(/^\d{4,8}$/, "Enter a valid OTP"),
     password: z.string().min(8, "Password must be at least 8 characters."),
     confirmPassword: z.string().min(8, "Confirm Password must be at least 8 characters."),
     displayName: z.string().trim().min(2, "Display name is required."),
@@ -45,18 +57,19 @@ export type SignupFormData = {
   // Step 1
   email: string;
   phone: string;
+  emailOtp: string;
   password: string;
   confirmPassword: string;
-  // Step 2
+  // Step 3
   displayName: string;
   language: string;
   bio: string;
   profilePhoto: File | null;
-  // Step 3
+  // Step 4
   occupation: string;
   skills: string[];
   workFiles: File[];
-  // Step 4
+  // Step 5
   idType: string;
   idFile: File | null;
   certFile: File | null;
@@ -66,11 +79,12 @@ type SignupSchemaData = z.infer<typeof signupSchema>;
 
 import { AnimatePresence, motion } from "framer-motion";
 
-const TOTAL_STEPS = 5;
+const TOTAL_STEPS = 6;
 
 const initialFormData: SignupFormData = {
   email: "",
   phone: "",
+  emailOtp: "",
   password: "",
   confirmPassword: "",
   displayName: "",
@@ -122,14 +136,18 @@ export default function Signup() {
     }
 
     if (currentStep === 2) {
-      isValid = await trigger(["displayName", "language", "bio"]);
+      isValid = await trigger(["emailOtp"]);
     }
 
     if (currentStep === 3) {
-      isValid = await trigger(["occupation", "skills"]);
+      isValid = await trigger(["displayName", "language", "bio"]);
     }
 
     if (currentStep === 4) {
+      isValid = await trigger(["occupation", "skills"]);
+    }
+
+    if (currentStep === 5) {
       isValid = await trigger(["idType"]);
     }
 
@@ -198,10 +216,11 @@ export default function Signup() {
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 {currentStep === 1 && <StepAccountSetup {...stepProps} />}
-                {currentStep === 2 && <StepPersonalInfo {...stepProps} />}
-                {currentStep === 3 && <StepProfessionalInfo {...stepProps} />}
-                {currentStep === 4 && <StepAccountSecurity {...stepProps} />}
-                {currentStep === 5 && <StepFirstTrade {...stepProps} />}
+                {currentStep === 2 && <StepEmailVerification {...stepProps} />}
+                {currentStep === 3 && <StepPersonalInfo {...stepProps} />}
+                {currentStep === 4 && <StepProfessionalInfo {...stepProps} />}
+                {currentStep === 5 && <StepAccountSecurity {...stepProps} />}
+                {currentStep === 6 && <StepFirstTrade {...stepProps} />}
               </motion.div>
             </AnimatePresence>
           </main>

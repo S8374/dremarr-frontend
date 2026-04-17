@@ -61,21 +61,7 @@ export function Hero() {
 
   return (
     <section className="relative bg-background text-foreground">
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="pointer-events-none absolute right-6 top-14 hidden h-52 w-40 overflow-hidden rounded-[28px] border border-border/80 bg-card shadow-[0_18px_40px_-22px_rgba(15,23,42,0.45)] lg:block xl:hidden"
-      >
-        <Image
-          src={heroDoctorImage}
-          alt="Skill exchange preview"
-          fill
-          sizes="160px"
-          className="object-cover"
-        />
-      </motion.div>
+
       <div className="container pb-12 pt-0 md:pb-16">
         <div className="grid grid-cols-1 items-start gap-8 md:gap-10 xl:grid-cols-[1fr_0.88fr] xl:gap-12">
           {/* Left */}
@@ -170,7 +156,7 @@ export function Hero() {
           </motion.div>
 
           {/* Right visual panel */}
-          <div className="relative mx-auto h-80 w-full self-start sm:h-[420px] md:h-[520px] xl:h-[700px] xl:self-end">
+          <div className="relative mx-auto h-80 w-full self-start sm:h-[420px] md:h-[520px] lg:h-[700px] xl:h-[700px] xl:self-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -186,7 +172,7 @@ export function Hero() {
                   fill
                   priority={index === 0}
                   sizes="(max-width: 1024px) 100vw, 620px"
-                  className={`object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${index === activeSlide ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
+                  className={`object-cover object-top transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${index === activeSlide ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
                     }`}
                 />
               ))}
