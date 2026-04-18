@@ -120,7 +120,7 @@ const PublicNavbar = () => {
         </div>
 
         <Link
-          href="/#"
+          href="/login"
           // login
           className={`hidden items-center justify-center rounded-full border border-[#88a39b] bg-[#f3f4f5] font-semibold text-[#5f7e75] shadow-[0_2px_0_rgba(101,132,123,0.22)] dark:border-white dark:bg-card dark:text-white md:inline-flex px-6 py-1.5 text-sm lg:px-8 lg:py-2 lg:text-base ${isSpanish ? "xl:px-10 xl:py-4 xl:text-[13px] xl:leading-none" : "xl:px-14 xl:py-2.5 xl:text-[19px]"}`}
         >
