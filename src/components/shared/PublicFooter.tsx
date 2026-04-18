@@ -9,11 +9,16 @@ export default function Footer() {
     const isSpanish = language === "es";
 
     const quickLinks = [
-        { href: "/marketplace", label: isSpanish ? "Mercado" : "Marketplace" },
-        { href: "/membership", label: isSpanish ? "Membresia" : "Membership" },
-        { href: "/messages", label: isSpanish ? "Mensajes" : "Message" },
-        { href: "/about", label: isSpanish ? "Nuestra historia" : "Our story" },
-        { href: "/support", label: isSpanish ? "Soporte" : "Support" },
+        { href: "/#", label: isSpanish ? "Mercado" : "Marketplace" },
+        // marketplace
+        { href: "/#", label: isSpanish ? "Membresia" : "Membership" },
+        // membership
+        { href: "/#", label: isSpanish ? "Mensajes" : "Message" },
+        // messages
+        { href: "/#", label: isSpanish ? "Nuestra historia" : "Our story" },
+        // about
+        { href: "/#", label: isSpanish ? "Soporte" : "Support" },
+        // support
     ];
 
     return (
@@ -100,13 +105,16 @@ export default function Footer() {
                             <span>hello@dremmarr.com</span>
                         </div>
                         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 lg:justify-end">
-                            <Link href="/terms" className="transition-colors hover:text-white">
+                            {/* terms */}
+                            <Link href="/#" className="transition-colors hover:text-white">
                                 {isSpanish ? "Terminos y condiciones" : "Terms & conditions"}
                             </Link>
-                            <Link href="/privacy" className="transition-colors hover:text-white">
+                            {/* privacy */}
+                            <Link href="/#" className="transition-colors hover:text-white">
                                 {isSpanish ? "Politica de privacidad" : "Privacy Policy"}
                             </Link>
-                            <Link href="/about" className="transition-colors hover:text-white">
+                            {/* about */}
+                            <Link href="/#" className="transition-colors hover:text-white">
                                 {isSpanish ? "Sobre nosotros" : "About Us"}
                             </Link>
                         </div>

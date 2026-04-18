@@ -24,8 +24,10 @@ const PublicNavbar = () => {
 
   const navItems = [
     { href: "/", label: isSpanish ? "Inicio" : "Home" },
-    { href: "/marketplace", label: isSpanish ? "Mercado" : "Marketplace" },
-    { href: "/membership", label: isSpanish ? "Membresía" : "Membership" },
+    { href: "/#", label: isSpanish ? "Mercado" : "Marketplace" },
+    //marketplace 
+    { href: "/#", label: isSpanish ? "Membresía" : "Membership" },
+    // membership
   ];
 
   return (
@@ -54,7 +56,8 @@ const PublicNavbar = () => {
             ))}
 
             <Link
-              href="/messages"
+            // messages
+              href="/#"
               aria-label="Messages"
               className="relative text-muted-foreground transition-all hover:text-[#6f8f84] hover:scale-110 active:scale-95"
             >
@@ -117,9 +120,9 @@ const PublicNavbar = () => {
         </div>
 
         <Link
-          href="/login"
-          className={`hidden rounded-full border border-[#88a39b] bg-[#f3f4f5] font-semibold text-[#5f7e75] shadow-[0_2px_0_rgba(101,132,123,0.22)] dark:border-white dark:bg-card dark:text-white md:inline-flex ${isSpanish ? "px-4 py-1 text-[13px] leading-none lg:px-6 lg:py-1.5 xl:px-10 xl:py-4" : "px-6 py-1.5 text-sm lg:px-8 lg:py-2 lg:text-base xl:px-14 xl:py-2.5 xl:text-[19px]"
-            }`}
+          href="/#"
+          // login
+          className={`hidden items-center justify-center rounded-full border border-[#88a39b] bg-[#f3f4f5] font-semibold text-[#5f7e75] shadow-[0_2px_0_rgba(101,132,123,0.22)] dark:border-white dark:bg-card dark:text-white md:inline-flex px-6 py-1.5 text-sm lg:px-8 lg:py-2 lg:text-base ${isSpanish ? "xl:px-10 xl:py-4 xl:text-[13px] xl:leading-none" : "xl:px-14 xl:py-2.5 xl:text-[19px]"}`}
         >
           {language === "es" ? "Iniciar sesión" : "Login"}
         </Link>
@@ -159,13 +162,8 @@ const PublicNavbar = () => {
                       <Link
                         key={item.label}
                         href={item.href}
-                        className="flex items-center gap-4 rounded-2xl px-4 py-4 text-[17px] font-semibold text-foreground/80 transition-all active:bg-primary/10 active:text-primary"
+                        className="flex items-center rounded-2xl px-4 py-4 text-[17px] font-semibold text-foreground/80 transition-all active:bg-primary/10 active:text-primary"
                       >
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/50 text-muted-foreground group-active:bg-primary/20">
-                           {item.href === "/" && <Menu className="h-5 w-5" />}
-                           {item.href === "/marketplace" && <Laptop className="h-5 w-5" />}
-                           {item.href === "/membership" && <MessageSquare className="h-5 w-5" />}
-                        </div>
                         {item.label}
                       </Link>
                     ))}
@@ -228,8 +226,8 @@ const PublicNavbar = () => {
                 {/* Mobile Menu Footer */}
                 <div className="border-t border-border/40 p-6">
                   <Link
-                    href="/login"
-                    className="flex w-full items-center justify-center gap-2 rounded-2xl bg-primary py-4 text-base font-bold text-white shadow-lg shadow-primary/20 transition-transform active:scale-95"
+                    href="/#"
+                    className="flex w-full items-center justify-center rounded-full border border-[#88a39b] bg-[#f3f4f5] py-3 text-base font-bold text-[#5f7e75] shadow-[0_2px_0_rgba(101,132,123,0.22)] transition-transform active:scale-95 dark:border-white dark:bg-card dark:text-white"
                   >
                     {isSpanish ? "Iniciar sesión" : "Log In"}
                   </Link>

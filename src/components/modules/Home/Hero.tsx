@@ -4,31 +4,40 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
-import heroImage from "@/assets/images/hero.jpg";
-import heroDoctorImage from "@/assets/images/hero-doctor.jpg";
-import avatarOne from "@/assets/images/doctor-cardiologist.jpg";
-import avatarTwo from "@/assets/images/doctor-neurologist.jpg";
-import avatarThree from "@/assets/images/doctor-orthopedic.jpg";
+import developerImage from "@/assets/images/hero/developer.png";
+import electriciansImage from "@/assets/images/hero/electricians.jpeg";
+import hairStylistsImage from "@/assets/images/hero/hair-stylists.png";
+import mechanicsImage from "@/assets/images/hero/mechanics.png";
+import developerUserImage from "@/assets/images/hero/users/developer.png";
+import electriciansUserImage from "@/assets/images/hero/users/electricians.png";
+import hairStylistsUserImage from "@/assets/images/hero/users/hair-stylists.png";
+import mechanicsUserImage from "@/assets/images/hero/users/mechanics.png";
 import { useLanguage } from "@/components/shared/language-provider";
 
 const heroSlides = [
   {
-    image: heroImage,
-    avatar: avatarThree,
+    image: electriciansImage,
+    avatar: electriciansUserImage,
     name: "Mr. John Lother",
     role: "Electrician",
   },
   {
-    image: heroDoctorImage,
-    avatar: avatarOne,
+    image: hairStylistsImage,
+    avatar: hairStylistsUserImage,
     name: "Dr. Sarah Miles",
-    role: "Cardiologist",
+    role: "Hair Stylist",
   },
   {
-    image: heroImage,
-    avatar: avatarTwo,
+    image: mechanicsImage,
+    avatar: mechanicsUserImage,
     name: "Dr. Eric Nolan",
-    role: "Neurologist",
+    role: "Mechanic",
+  },
+  {
+    image: developerImage,
+    avatar: developerUserImage,
+    name: "Mr. Sabbir",
+    role: "Web Developer",
   },
 ];
 
@@ -122,7 +131,7 @@ export function Hero() {
               className="mb-9 flex items-center md:mb-12 "
             >
               <div className="flex -space-x-2.5">
-                {[avatarOne, avatarTwo, avatarThree, avatarOne].map((avatar, i) => (
+                {[electriciansUserImage, hairStylistsUserImage, mechanicsUserImage, developerUserImage].map((avatar, i) => (
                   <Image
                     key={i}
                     src={avatar}
@@ -187,7 +196,7 @@ export function Hero() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="absolute bottom-3 left-3 z-20 flex h-14 w-[calc(100%-140px)] max-w-[320px] items-center gap-3 rounded-full bg-card/95 px-4 py-2 shadow-[0_15px_45px_-15px_rgba(10,18,40,0.6)] backdrop-blur-md sm:bottom-6 sm:left-6 sm:h-[86px] sm:w-full sm:max-w-[420px] sm:gap-5 sm:px-5 xl:bottom-12"
             >
-              <div className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-black sm:h-[62px] sm:w-[62px]">
+              <div className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full sm:h-[62px] sm:w-[62px]">
                 <Image
                   src={currentSlide.avatar}
                   alt={currentSlide.name}
