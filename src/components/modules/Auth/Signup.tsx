@@ -47,6 +47,7 @@ const signupSchema = z
     idType: z.string().trim().min(1, "ID type is required."),
     idFile: z.any().nullable(),
     certFile: z.any().nullable(),
+    heardAboutUs: z.string().min(1, "Please tell us how you heard about us."),
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ["confirmPassword"],
@@ -73,6 +74,8 @@ export type SignupFormData = {
   idType: string;
   idFile: File | null;
   certFile: File | null;
+  // New
+  heardAboutUs: string;
 };
 
 type SignupSchemaData = z.infer<typeof signupSchema>;
@@ -97,6 +100,7 @@ const initialFormData: SignupFormData = {
   idType: "Government Issued ID",
   idFile: null,
   certFile: null,
+  heardAboutUs: "",
 };
 
 export default function Signup() {
@@ -132,7 +136,7 @@ export default function Signup() {
     let isValid = true;
 
     if (currentStep === 1) {
-      isValid = await trigger(["email", "phone", "password", "confirmPassword"]);
+      isValid = await trigger(["email", "phone", "password", "confirmPassword", "heardAboutUs"]);
     }
 
     if (currentStep === 2) {
