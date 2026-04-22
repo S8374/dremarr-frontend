@@ -72,7 +72,7 @@ export default function Login() {
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full bg-[#f1f3f4] hover:bg-[#e4e6e7] text-gray-700 w-11 h-11 border border-transparent shadow-sm"
+          className="rounded-full bg-[#f1f3f4] hover:bg-[#e4e6e7] text-gray-700 w-11 h-11 border border-transparent shadow-sm hover-grow"
           onClick={() => router.back()}
           type="button"
         >
@@ -157,7 +157,7 @@ export default function Login() {
             <motion.div variants={itemVariants}>
               <button
                 type="submit"
-                className="w-full h-[54px] flex items-center justify-center bg-[#768e86] hover:bg-[#667d76] active:bg-[#596e67] text-white rounded-full font-bold text-[16px] transition-colors duration-200"
+                className="w-full h-[54px] flex items-center justify-center bg-[#768e86] hover:bg-[#667d76] active:bg-[#596e67] text-white rounded-full font-bold text-[16px] transition-colors duration-200 hover-grow"
               >
                 Log In
               </button>

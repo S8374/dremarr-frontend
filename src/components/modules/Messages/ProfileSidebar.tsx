@@ -2,7 +2,8 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Star, ShieldCheck, Zap } from "lucide-react";
+import { Star, BadgeCheck, Crown } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useLanguage } from "@/components/shared/language-provider";
@@ -85,17 +86,17 @@ export function ProfileSidebar() {
           </div>
 
           <div className="flex flex-wrap gap-1.5 mb-6">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#6d8a81] text-white">
-              <ShieldCheck className="h-4 w-4 stroke-[2.5]" />
-              <span className="text-[10px] font-bold">{labels.verified}</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#cfaa6a] text-white">
-              <span className="text-[10px] font-bold">{labels.gold}</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#f0502e] text-white">
-              <Zap className="h-3.5 w-3.5 stroke-[2.5] fill-white" />
-              <span className="text-[10px] font-bold uppercase">Pro</span>
-            </div>
+            <Badge variant="secondary" className="h-6 gap-1 bg-[#738C88] text-white border-none px-2 rounded-full text-[10px] font-bold shadow-sm hover:bg-[#738C88]">
+              <BadgeCheck className="h-3.5 w-3.5 fill-white text-[#738C88]" />
+              {labels.verified}
+            </Badge>
+            <Badge className="h-6 bg-[#cfaa6a] hover:bg-[#b0905a] text-white border-none px-3 rounded-full text-[10px] font-bold shadow-sm">
+              {labels.gold}
+            </Badge>
+            <Badge variant="default" className="h-6 bg-gradient-to-r from-[#f28b5a] to-[#f0502e] hover:from-[#f28b5a] hover:to-[#f0502e] text-white border-none px-2.5 rounded-full text-[10px] font-bold shadow-sm gap-1">
+              <Crown className="h-3.5 w-3.5 fill-none text-white stroke-[2.5px]" />
+              PRO
+            </Badge>
           </div>
 
           <p className="text-[13px]  leading-[1.6] text-muted-foreground mb-8 tracking-tight">
@@ -145,7 +146,8 @@ export function ProfileSidebar() {
 
       {/* Sticky View Profile Button */}
       <div className="border-t border-border bg-background/80 p-4 backdrop-blur-sm shadow-[0_-8px_30px_rgba(0,0,0,0.02)]">
-        <Link href="/profile/1" className="btn-pill-outline h-14 w-full flex items-center justify-center border-border">
+        <Link href="#" className="btn-pill-outline h-14 w-full flex items-center justify-center border-border">
+        {/* /profile/1 */}
           {labels.viewProfile}
         </Link>
       </div>

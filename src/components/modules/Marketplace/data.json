@@ -27,11 +27,11 @@
       "need_es": "Terapia de masaje o diseno web",
       "duration_en": "2-3 weeks",
       "duration_es": "2-3 semanas",
-      "image": "/next.svg",
+      "image": "/assets/marketplace/service_electrical.png",
       "location": "Austin, TX",
       "user": {
         "name": "Maria Rodriguez",
-        "avatar": "/globe.svg",
+        "avatar": "/assets/marketplace/avatar_female_1.png",
         "rating": 4.9,
         "isVerified": true,
         "isPro": true
@@ -46,11 +46,11 @@
       "need_es": "Corte de cabello",
       "duration_en": "2-3 weeks",
       "duration_es": "2-3 semanas",
-      "image": "/file.svg",
+      "image": "/assets/marketplace/service_plumbing.png",
       "location": "Austin, TX",
       "user": {
         "name": "James Smith",
-        "avatar": "/window.svg",
+        "avatar": "/assets/marketplace/avatar_male_1.png",
         "rating": 4.9,
         "isVerified": true,
         "isPro": true
@@ -65,11 +65,11 @@
       "need_es": "Corte de cabello",
       "duration_en": "2-3 weeks",
       "duration_es": "2-3 semanas",
-      "image": "/vercel.svg",
+      "image": "/assets/marketplace/service_carpentry.png",
       "location": "Dallas, TX",
       "user": {
         "name": "Michael Johnson",
-        "avatar": "/next.svg",
+        "avatar": "/assets/marketplace/avatar_male_2.png",
         "rating": 4.9,
         "isVerified": false,
         "isPro": true
@@ -84,11 +84,11 @@
       "need_es": "Diseno grafico",
       "duration_en": "1-2 weeks",
       "duration_es": "1-2 semanas",
-      "image": "/globe.svg",
+      "image": "/assets/marketplace/service_painting.png",
       "location": "Miami, FL",
       "user": {
         "name": "Robert Williams",
-        "avatar": "/file.svg",
+        "avatar": "/assets/marketplace/avatar_male_1.png",
         "rating": 4.8,
         "isVerified": false,
         "isPro": false
@@ -103,11 +103,11 @@
       "need_es": "Edicion de video",
       "duration_en": "2-4 weeks",
       "duration_es": "2-4 semanas",
-      "image": "/window.svg",
+      "image": "/assets/marketplace/service_roofing.png",
       "location": "Austin, TX",
       "user": {
         "name": "David Brown",
-        "avatar": "/vercel.svg",
+        "avatar": "/assets/marketplace/avatar_male_2.png",
         "rating": 4.7,
         "isVerified": true,
         "isPro": false
@@ -122,11 +122,11 @@
       "need_es": "Diseno de logo",
       "duration_en": "2-3 weeks",
       "duration_es": "2-3 semanas",
-      "image": "/next.svg",
+      "image": "/assets/marketplace/service_landscaping.png",
       "location": "Dallas, TX",
       "user": {
         "name": "William Jones",
-        "avatar": "/globe.svg",
+        "avatar": "/assets/marketplace/avatar_male_1.png",
         "rating": 4.9,
         "isVerified": true,
         "isPro": true
@@ -141,11 +141,11 @@
       "need_es": "Diseno UI",
       "duration_en": "1-3 weeks",
       "duration_es": "1-3 semanas",
-      "image": "/file.svg",
+      "image": "/assets/marketplace/service_autorepair.png",
       "location": "Miami, FL",
       "user": {
         "name": "John Miller",
-        "avatar": "/window.svg",
+        "avatar": "/assets/marketplace/avatar_male_2.png",
         "rating": 4.8,
         "isVerified": true,
         "isPro": false
@@ -160,11 +160,11 @@
       "need_es": "Ayuda con redes sociales",
       "duration_en": "1-2 weeks",
       "duration_es": "1-2 semanas",
-      "image": "/vercel.svg",
+      "image": "/assets/marketplace/service_cleaning.png",
       "location": "Austin, TX",
       "user": {
         "name": "Sarah Davis",
-        "avatar": "/next.svg",
+        "avatar": "/assets/marketplace/avatar_female_1.png",
         "rating": 4.9,
         "isVerified": true,
         "isPro": false
@@ -179,11 +179,11 @@
       "need_es": "Fotografia",
       "duration_en": "1-2 weeks",
       "duration_es": "1-2 semanas",
-      "image": "/globe.svg",
+      "image": "/assets/marketplace/service_hair.png",
       "location": "Dallas, TX",
       "user": {
         "name": "Jennifer Wilson",
-        "avatar": "/file.svg",
+        "avatar": "/assets/marketplace/avatar_female_2.png",
         "rating": 4.6,
         "isVerified": true,
         "isPro": false
@@ -198,11 +198,11 @@
       "need_es": "Redaccion de contenido",
       "duration_en": "1-2 weeks",
       "duration_es": "1-2 semanas",
-      "image": "/window.svg",
+      "image": "/assets/marketplace/service_makeup.png",
       "location": "Miami, FL",
       "user": {
-        "name": "Michael Smith",
-        "avatar": "/vercel.svg",
+        "name": "Michelle Smith",
+        "avatar": "/assets/marketplace/avatar_female_1.png",
         "rating": 4.9,
         "isVerified": true,
         "isPro": false
@@ -217,11 +217,11 @@
       "need_es": "Edicion de fotos",
       "duration_en": "2-3 weeks",
       "duration_es": "2-3 semanas",
-      "image": "/next.svg",
+      "image": "/assets/marketplace/service_cooking.png",
       "location": "Austin, TX",
       "user": {
         "name": "Robert Smith",
-        "avatar": "/globe.svg",
+        "avatar": "/assets/marketplace/avatar_male_1.png",
         "rating": 4.9,
         "isVerified": true,
         "isPro": true
@@ -236,11 +236,11 @@
       "need_es": "Corte de cabello",
       "duration_en": "2-3 weeks",
       "duration_es": "2-3 semanas",
-      "image": "/file.svg",
+      "image": "/assets/marketplace/service_fitness.png",
       "location": "Dallas, TX",
       "user": {
         "name": "Maria Garcia",
-        "avatar": "/window.svg",
+        "avatar": "/assets/marketplace/avatar_female_2.png",
         "rating": 4.9,
         "isVerified": true,
         "isPro": true

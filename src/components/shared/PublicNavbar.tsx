@@ -15,7 +15,11 @@ import { Button } from "../ui/button";
 import logo from "@/assets/logo/logo.png";
 import { useLanguage } from "./language-provider";
 
+import { usePathname } from "next/navigation";
+
 const PublicNavbar = () => {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const { theme, resolvedTheme, setTheme } = useTheme();
   const { language, setLanguage } = useLanguage();
   const isSpanish = language === "es";
@@ -24,14 +28,14 @@ const PublicNavbar = () => {
 
   const navItems = [
     { href: "/", label: isSpanish ? "Inicio" : "Home" },
-    { href: "/#", label: isSpanish ? "Mercado" : "Marketplace" },
+    { href: "/marketplace", label: isSpanish ? "Mercado" : "Marketplace" },
     //marketplace 
-    { href: "/#", label: isSpanish ? "Membresía" : "Membership" },
+    { href: "/membership", label: isSpanish ? "Membresía" : "Membership" },
     // membership
   ];
 
   return (
-    <header className="w-full  border-border/70 bg-background/95 backdrop-blur-md">
+    <header className={`w-full border-border/70 backdrop-blur-md ${isHomePage ? "bg-background/95" : "bg-[#f3f4f6] dark:bg-[#1a1c20]/95"}`}>
       <div className="container flex items-center justify-between py-4 md:py-5">
         <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
           <Link href="/" className="shrink-0">
@@ -57,7 +61,7 @@ const PublicNavbar = () => {
 
             <Link
             // messages
-              href="/#"
+              href="/messages"
               aria-label="Messages"
               className="relative text-muted-foreground transition-all hover:text-[#6f8f84] hover:scale-110 active:scale-95"
             >
@@ -124,7 +128,7 @@ const PublicNavbar = () => {
           // login
           className={`hidden items-center justify-center rounded-full border border-[#88a39b] bg-[#f3f4f5] font-semibold text-[#5f7e75] shadow-[0_2px_0_rgba(101,132,123,0.22)] dark:border-white dark:bg-card dark:text-white md:inline-flex px-6 py-1.5 text-sm lg:px-8 lg:py-2 lg:text-base ${isSpanish ? "xl:px-10 xl:py-4 xl:text-[13px] xl:leading-none" : "xl:px-14 xl:py-2.5 xl:text-[19px]"}`}
         >
-          {language === "es" ? "Iniciar sesión" : "Login"}
+          {language === "es" ? "Iniciar sesión" : "Log In"}
         </Link>
 
         <div className="md:hidden">

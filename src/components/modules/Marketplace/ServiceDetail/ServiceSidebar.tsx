@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle, MapPin, Calendar, Star, MessageSquare } from "lucide-react";
+import { BadgeCheck, MapPin, Calendar, Star, MessageSquare, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/components/shared/language-provider";
@@ -47,19 +47,22 @@ export default function ServiceSidebar({ user }: ServiceSidebarProps) {
             {/* Badges Row */}
             <div className="flex flex-wrap gap-1.5 mt-2">
               {user.isVerified && (
-                <div className="bg-[#e4ece8] text-[#6d8a81] px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1">
-                   <div className="w-1 h-1 bg-[#6d8a81] rounded-full" />
-                   Verified
-                </div>
+                <Badge variant="secondary" className="h-5 gap-1 bg-[#738C88] text-white border-none px-2 rounded-full text-[9px] font-bold shadow-sm hover:bg-[#738C88]">
+                  <BadgeCheck className="h-3 w-3 fill-white text-[#738C88]" />
+                  Verified
+                </Badge>
+              )}
+              {user.isPro && (
+                <Badge variant="default" className="h-5 bg-gradient-to-r from-[#f28b5a] to-[#f0502e] hover:from-[#f28b5a] hover:to-[#f0502e] text-white border-none px-2 rounded-full text-[9px] font-bold shadow-sm gap-1">
+                  <Crown className="h-3 w-3 fill-none text-white stroke-[2.5px]" />
+                  PRO
+                </Badge>
               )}
               {user.isRecommended && (
-                <div className="bg-[#fff0ed] text-[#f2654a] px-2 py-0.5 rounded text-[10px] font-bold">
+                <Badge variant="outline" className="h-5 bg-[#fff0ed] text-[#f2654a] border-none px-2 rounded-full text-[9px] font-bold shadow-sm">
                    Trusted User
-                </div>
+                </Badge>
               )}
-               <div className="bg-[#ffe8ed] text-[#ff4d6d] px-2 py-0.5 rounded text-[10px] font-bold">
-                   Top
-                </div>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle, Clock, MapPin, Star } from "lucide-react";
+import { BadgeCheck, Clock, Crown, MapPin, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/components/shared/language-provider";
 
@@ -78,13 +78,14 @@ export default function MarketplaceCard({ service }: MarketplaceCardProps) {
 
           <div className="flex items-center gap-1.5 shrink-0">
             {service.user.isVerified && (
-              <Badge variant="outline" className="h-7 gap-1 bg-background text-[#6f8f84] border-muted px-2.5 text-[10px] font-semibold shadow-sm">
-                <CheckCircle className="h-3.5 w-3.5 shadow-none" />
+              <Badge variant="secondary" className="h-6 gap-1 bg-[#738C88] text-white border-none px-2 rounded-full text-[10px] font-medium shadow-sm hover:bg-[#738C88]">
+                <BadgeCheck className="h-3.5 w-3.5 fill-white text-[#738C88]" />
                 {isSpanish ? "Verificado" : "Verified"}
               </Badge>
             )}
             {service.user.isPro && (
-              <Badge variant="default" className="h-7 bg-[#f0502e] hover:bg-[#d04020] text-white border-none px-3 text-[10px] font-bold shadow-sm">
+              <Badge variant="default" className="h-6 bg-gradient-to-r from-[#f28b5a] to-[#f0502e] hover:from-[#f28b5a] hover:to-[#f0502e] text-white border-none px-2.5 rounded-full text-[10px] font-bold shadow-sm gap-1">
+                <Crown className="h-3.5 w-3.5 fill-none text-white stroke-[2.5px]" />
                 PRO
               </Badge>
             )}

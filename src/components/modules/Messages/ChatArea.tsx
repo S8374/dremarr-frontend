@@ -259,7 +259,8 @@ export function ChatArea() {
               </button>
             </div>
           </div>
-          <Link href="/create-offer" className="btn-pill-outline h-12 flex items-center justify-center px-8 border-border whitespace-nowrap">
+          <Link href="#" className="btn-pill-outline h-12 flex items-center justify-center px-8 border-border whitespace-nowrap">
+           {/* create-offer */}
             {labels.createOffer}
           </Link>
         </div>

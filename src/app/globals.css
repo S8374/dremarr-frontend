@@ -164,7 +164,6 @@
     scale: 0.96;
   }
 
-  button:hover,
   .hover-grow:hover {
     scale: 1.02;
   }

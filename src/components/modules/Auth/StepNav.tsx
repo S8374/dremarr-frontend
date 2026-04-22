@@ -27,7 +27,7 @@ export function StepNav({
           <Button
             variant="outline"
             onClick={onBack}
-            className="h-11 min-w-[106px] rounded-full px-5 gap-1 border-[#87a09a] text-[#6e8f88] hover:bg-gray-50"
+            className="h-11 min-w-[106px] rounded-full px-5 gap-1 border-[#87a09a] text-[#6e8f88] hover:bg-gray-50 hover-grow"
           >
             <ChevronLeft className="w-4 h-4" />
             Back
@@ -37,7 +37,7 @@ export function StepNav({
         <Button
           onClick={onNext}
           disabled={disableNext}
-          className="h-11 min-w-[126px] rounded-full px-6 gap-1 bg-[#6f8f89] hover:bg-[#5f7d76] text-white"
+          className="h-11 min-w-[126px] rounded-full px-6 gap-1 bg-[#6f8f89] hover:bg-[#5f7d76] text-white hover-grow"
         >
           {nextLabel}
           <ChevronRight className="w-4 h-4" />
