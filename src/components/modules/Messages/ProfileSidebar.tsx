@@ -52,7 +52,7 @@ export function ProfileSidebar() {
     role: isSpanish ? "Electricista" : "Electrician",
     verified: isSpanish ? "Verificado" : "Verified",
     gold: isSpanish ? "Membresía Oro" : "Gold Membership",
-    bio: isSpanish 
+    bio: isSpanish
       ? "Electricista profesional que brinda servicios eléctricos seguros y confiables para hogares y empresas. Experto en cableado, instalaciones, reparaciones y resolución de problemas. Me concentro en el trabajo de calidad, la seguridad y la satisfacción del cliente."
       : "Professional electrician providing safe and reliable electrical services for homes and businesses. Skilled in wiring, installations, repairs, and troubleshooting. I focus on quality work, safety, and customer satisfaction.",
     location: isSpanish ? "Ubicación" : "Location",
@@ -121,7 +121,7 @@ export function ProfileSidebar() {
             <div key={row.id} className="bg-card rounded-3xl p-6 border border-border shadow-sm">
               <div className="flex justify-between items-start mb-4">
                 <span className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wide">
-                    {isSpanish ? row.dateEs : row.date}
+                  {isSpanish ? row.dateEs : row.date}
                 </span>
                 <div className="flex items-center gap-0.5">
                   {[...Array(row.stars)].map((_, i) => (
@@ -132,7 +132,7 @@ export function ProfileSidebar() {
               <div className="flex flex-col mb-4">
                 <h4 className="text-[14px] font-bold text-foreground leading-none mb-1">{row.name}</h4>
                 <span className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-widest leading-none">
-                    {isSpanish ? row.roleEs : row.role}
+                  {isSpanish ? row.roleEs : row.role}
                 </span>
               </div>
 
@@ -147,7 +147,7 @@ export function ProfileSidebar() {
       {/* Sticky View Profile Button */}
       <div className="border-t border-border bg-background/80 p-4 backdrop-blur-sm shadow-[0_-8px_30px_rgba(0,0,0,0.02)]">
         <Link href="#" className="btn-pill-outline h-14 w-full flex items-center justify-center border-border">
-        {/* /profile/1 */}
+          {/* /profile/1 */}
           {labels.viewProfile}
         </Link>
       </div>

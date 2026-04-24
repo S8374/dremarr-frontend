@@ -28,7 +28,7 @@ export default function ServiceReviews({ reviews }: ServiceReviewsProps) {
 
   return (
     <div className="mb-12">
-      <h2 className="text-[20px] font-bold text-slate-900 mb-8 heading">
+      <h2 className="text-[20px] font-bold text-foreground mb-8">
         {isSpanish ? 'Reseñas' : 'Reviews'}
       </h2>
 
@@ -37,12 +37,12 @@ export default function ServiceReviews({ reviews }: ServiceReviewsProps) {
           <div key={review.id} className="transition-all">
             <div className="flex items-center justify-between mb-4">
               <div className="flex flex-col gap-3">
-                <span className="text-[14px] font-bold text-slate-300">
+                <span className="text-[14px] font-bold text-muted-foreground">
                   {isSpanish ? review.date_es : review.date_en}
                 </span>
 
                 <div className="flex items-center gap-3">
-                  <div className="relative h-12 w-12 rounded-full overflow-hidden border border-slate-100 shadow-sm">
+                  <div className="relative h-12 w-12 rounded-full overflow-hidden border border-border shadow-sm">
                     <Image
                       src={review.avatar}
                       alt={review.user}
@@ -51,7 +51,7 @@ export default function ServiceReviews({ reviews }: ServiceReviewsProps) {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[15px] font-bold text-slate-800">
+                    <span className="text-[15px] font-bold text-foreground">
                       {review.user}
                     </span>
                     <div className="flex items-center gap-0.5 mt-0.5">
@@ -61,7 +61,7 @@ export default function ServiceReviews({ reviews }: ServiceReviewsProps) {
                           className={
                             i < review.rating
                               ? 'h-3.5 w-3.5 fill-orange-400 text-orange-400'
-                              : 'h-3.5 w-3.5 text-slate-200 fill-slate-200'
+                              : 'h-3.5 w-3.5 text-muted fill-muted/20'
                           }
                         />
                       ))}
@@ -70,7 +70,7 @@ export default function ServiceReviews({ reviews }: ServiceReviewsProps) {
                 </div>
               </div>
             </div>
-            <p className="text-[15px] text-slate-500 leading-relaxed font-semibold">
+            <p className="text-[15px] text-muted-foreground leading-relaxed ">
               {isSpanish ? review.comment_es : review.comment_en}
             </p>
           </div>

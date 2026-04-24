@@ -39,26 +39,26 @@ export default function ServiceDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-8 animate-in fade-in slide-in-from-left-4 duration-700">
-            <ServiceGallery 
-              images={serviceDetail.images} 
-              alt={isSpanish ? serviceDetail.title_es : serviceDetail.title_en} 
+            <ServiceGallery
+              images={serviceDetail.images}
+              alt={isSpanish ? serviceDetail.title_es : serviceDetail.title_en}
             />
-            
-            <ServiceInfoCards 
+
+            <ServiceInfoCards
               need={isSpanish ? serviceDetail.need_es : serviceDetail.need_en}
               duration={isSpanish ? serviceDetail.duration_es : serviceDetail.duration_en}
               location={serviceDetail.location}
             />
 
-            <ServiceDescription 
-              description={isSpanish ? serviceDetail.fullDescription_es : serviceDetail.fullDescription_en} 
+            <ServiceDescription
+              description={isSpanish ? serviceDetail.fullDescription_es : serviceDetail.fullDescription_en}
             />
 
             <ServicePortfolio images={serviceDetail.portfolio} />
 
             {/* Recommended for you */}
             <div className="mb-14">
-              <h2 className="text-[20px] font-bold text-slate-800 mb-8 heading">
+              <h2 className="text-[20px] font-bold text-slate-800 mb-8 heading dark:text-white">
                 {isSpanish ? "Recomendado para ti" : "Recommended for you"}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
@@ -74,13 +74,13 @@ export default function ServiceDetailPage({ params }: PageProps) {
 
           {/* Sidebar */}
           <div className="lg:col-span-4 animate-in fade-in slide-in-from-right-4 duration-700">
-            <ServiceSidebar 
+            <ServiceSidebar
               user={{
                 ...serviceDetail.user,
                 bio: isSpanish ? serviceDetail.user.bio_es : serviceDetail.user.bio_en,
                 memberSince: isSpanish ? serviceDetail.user.memberSince_es : serviceDetail.user.memberSince_en,
                 location: serviceDetail.location
-              }} 
+              }}
             />
           </div>
         </div>

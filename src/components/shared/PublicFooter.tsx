@@ -26,7 +26,7 @@ export default function Footer() {
             <div className="container">
                 <div className="grid grid-cols-1 justify-items-center gap-12 text-center md:grid-cols-2 md:justify-items-stretch md:gap-10 md:text-left lg:grid-cols-[1.2fr_1fr_1fr_1.15fr]">
                     <div className="w-full">
-                        <h2 className="text-[36px] font-semibold leading-none tracking-wide text-[#8ca7a1]">DREMARR</h2>
+                        <h2 className="text-[36px] font-semibold leading-none tracking-wide text-brand font-brand">DREMARR</h2>
                         <p className="mt-2 text-[16px] text-[#cad2d7]">
                             {isSpanish ? "Donde la habilidad es moneda" : "Where Skill is Currency"}
                         </p>

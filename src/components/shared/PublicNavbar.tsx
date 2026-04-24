@@ -37,18 +37,21 @@ const PublicNavbar = () => {
   return (
     <header className={`w-full border-border/70 backdrop-blur-md ${isHomePage ? "bg-background/95" : "bg-[#f3f4f6] dark:bg-[#1a1c20]/95"}`}>
       <div className="container flex items-center justify-between py-4 md:py-5">
-        <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
-          <Link href="/" className="shrink-0">
+        <div className="flex items-center gap-2 md:gap-4 lg:gap-5">
+          <Link href="/" className="flex items-center gap-1 shrink-0 group">
             <Image
               src={logo}
-              alt="Dremarr logo"
+              alt="DreMarr logo"
               width={46}
               height={46}
-              className="h-[42px] w-[42px] rounded-full object-cover"
+              className="h-[42px] w-[42px] rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
+            <span className="text-xl font-bold tracking-tighter text-brand sm:text-2xl font-brand">
+              DREMARR
+            </span>
           </Link>
 
-          <nav className="hidden items-center gap-3 text-[13px] font-medium text-muted-foreground md:flex lg:gap-5 lg:text-[15px] xl:gap-7 xl:text-[16px]">
+          <nav className="hidden items-center gap-2 text-[13px] font-medium text-muted-foreground md:flex lg:gap-4 lg:text-[15px] xl:gap-5 xl:text-[16px]">
             {navItems.map((item, index) => (
               <Link
                 key={item.label}
@@ -60,7 +63,7 @@ const PublicNavbar = () => {
             ))}
 
             <Link
-            // messages
+              // messages
               href="/messages"
               aria-label="Messages"
               className="relative text-muted-foreground transition-all hover:text-[#6f8f84] hover:scale-110 active:scale-95"
@@ -76,11 +79,11 @@ const PublicNavbar = () => {
                 <Button
                   type="button"
                   size="sm"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#cfaa6a] px-3 py-1.5 text-[12px] font-semibold text-white shadow-[0_10px_24px_-16px_rgba(207,170,106,0.95)] transition-transform hover:-translate-y-0.5 hover:bg-[#c99a52] lg:gap-2 lg:px-4 lg:py-2 lg:text-[13px]"
+                  className="inline-flex h-7 items-center gap-1 rounded-full bg-[#cfaa6a] px-1.5 text-[10px] font-bold text-white shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-[#c99a52] lg:h-7.5 lg:gap-1 lg:px-2 lg:text-[11px]"
                 >
-                  {resolvedTheme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-                  <span className={`max-w-[72px] truncate ${isSpanish ? "text-[11px]" : ""}`}>{modeLabel}</span>
-                  <ChevronDown className="h-4 w-4" />
+                  {resolvedTheme === "dark" ? <Moon className="h-3 w-3" /> : <Sun className="h-3 w-3" />}
+                  <span className="max-w-[50px] truncate">{modeLabel}</span>
+                  <ChevronDown className="h-2.5 w-2.5 opacity-50" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-40 rounded-2xl border-border/60 p-1 shadow-lg">
@@ -105,10 +108,10 @@ const PublicNavbar = () => {
                   type="button"
                   size="sm"
                   variant="outline"
-                  className="ml-1 inline-flex items-center gap-1.5 rounded-full border-border/70 bg-background px-3 py-1.5 text-[12px] font-semibold text-foreground shadow-[0_10px_30px_-24px_rgba(15,23,42,0.55)] transition-transform hover:-translate-y-0.5 dark:bg-muted/20 lg:gap-2 lg:px-4 lg:py-2"
+                  className="ml-1 inline-flex h-7 items-center gap-1 rounded-full border-border/70 bg-background px-1.5 text-[10px] font-bold text-foreground shadow-sm transition-transform hover:-translate-y-0.5 dark:bg-muted/20 lg:h-7.5 lg:gap-1 lg:px-2 lg:text-[11px]"
                 >
-                  <span className={`max-w-[78px] truncate ${isSpanish ? "text-[11px]" : ""}`}>{languageLabel}</span>
-                  <ChevronDown className="h-4 w-4" />
+                  <span className="max-w-[55px] truncate">{languageLabel}</span>
+                  <ChevronDown className="h-2.5 w-2.5 opacity-50" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-40 rounded-2xl border-border/60 p-1 shadow-lg">
@@ -146,16 +149,16 @@ const PublicNavbar = () => {
                 {/* Mobile Menu Header */}
                 <div className="flex items-center justify-between border-b border-border/40 px-6 py-5">
                   <div className="flex items-center gap-2.5">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                       <Image
                         src={logo}
-                        alt="Dremarr logo"
-                        width={32}
-                        height={32}
-                        className="h-7 w-7 rounded-lg object-cover"
+                        alt="DreMarr logo"
+                        width={36}
+                        height={36}
+                        className="h-8 w-8 rounded-lg object-cover"
                       />
                     </div>
-                    <span className="text-lg font-bold tracking-tight text-foreground">Dremarr</span>
+                    <span className="text-xl font-bold tracking-tighter text-brand font-brand">DREMARR</span>
                   </div>
                 </div>
 
@@ -178,7 +181,7 @@ const PublicNavbar = () => {
                     <h4 className="mb-4 px-4 text-xs font-bold uppercase tracking-widest text-muted-foreground/60">
                       {isSpanish ? "Preferencias" : "Preferences"}
                     </h4>
-                    
+
                     <div className="space-y-6 rounded-3xl bg-muted/30 p-4 border border-border/40">
                       {/* Theme Selection */}
                       <div className="space-y-3">

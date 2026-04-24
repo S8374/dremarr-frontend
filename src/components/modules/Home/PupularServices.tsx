@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import heroImage from "@/assets/images/hero.jpg";
-import heroDoctorImage from "@/assets/images/hero-doctor.jpg";
-import avatarOne from "@/assets/images/doctor-cardiologist.jpg";
-import avatarTwo from "@/assets/images/doctor-neurologist.jpg";
-import avatarThree from "@/assets/images/doctor-orthopedic.jpg";
 import { useLanguage } from "@/components/shared/language-provider";
+import serviceElectrical from "@/assets/images/service-electrical.png";
+import serviceHomeRepair from "@/assets/images/service-home-repair.png";
+import serviceAutomotive from "@/assets/images/service-automotive.png";
+import serviceLandscaping from "@/assets/images/service-landscaping.png";
+import serviceBeauty from "@/assets/images/service-beauty.png";
 
 // JSON Data
 const popularServices = [
@@ -16,31 +16,31 @@ const popularServices = [
     id: 1,
     title: "Electrical & Technical Services",
     titleEs: "Servicios eléctricos y técnicos",
-    image: heroImage,
+    image: serviceElectrical,
   },
   {
     id: 2,
     title: "Home Repair & Maintenance",
     titleEs: "Reparación y mantenimiento del hogar",
-    image: avatarTwo,
+    image: serviceHomeRepair,
   },
   {
     id: 3,
     title: "Automotive Services",
     titleEs: "Servicios automotrices",
-    image: heroDoctorImage,
+    image: serviceAutomotive,
   },
   {
     id: 4,
     title: "Landscaping & Outdoor Work",
     titleEs: "Jardinería y trabajos exteriores",
-    image: avatarThree,
+    image: serviceLandscaping,
   },
   {
     id: 5,
     title: "Personal Care & Beauty Services",
     titleEs: "Cuidado personal y belleza",
-    image: avatarOne,
+    image: serviceBeauty,
   },
 ];
 

@@ -14,15 +14,15 @@ export default function ServiceHeader({ title }: ServiceHeaderProps) {
   const isSpanish = language === "es";
 
   return (
-    <div className="flex flex-col gap-6 mb-8 pt-8">
+    <div className="flex flex-col gap-6 mb-8 pt-8 font-sans">
       <button
         onClick={() => router.back()}
-        className="h-10 w-10 flex items-center justify-center rounded-full border border-slate-200 bg-white hover:bg-slate-50 transition-all shadow-sm active:scale-90"
+        className="h-10 w-10 flex items-center justify-center rounded-full border border-border bg-card hover:bg-muted transition-all shadow-sm active:scale-90"
       >
-        <ChevronLeft className="h-5 w-5 text-slate-800" />
+        <ChevronLeft className="h-5 w-5 text-foreground" />
       </button>
 
-      <h1 className="text-3xl md:text-[36px] font-bold tracking-tight text-slate-900 leading-tight heading">
+      <h1 className="text-3xl md:text-[36px] font-bold tracking-tight text-foreground leading-tight">
         {title}
       </h1>
     </div>

@@ -39,12 +39,12 @@ export function CreateOfferForm() {
           <div className="flex flex-col gap-2">
             <Textarea
               placeholder="Be clear about what you can do, your experience, and what's included."
-              className="min-h-[140px] resize-none rounded-[1rem] border-slate-200 p-4 text-[15px] font-medium placeholder:text-slate-400 focus-visible:ring-emerald-500/20 dark:border-border/50 dark:bg-muted/10 dark:placeholder:text-slate-500"
+              className="min-h-[140px] resize-none rounded-[1rem] border-slate-200 p-4 text-[15px] font-medium placeholder:text-muted-foreground focus-visible:ring-emerald-500/20 dark:border-border/50 dark:bg-muted/10 dark:placeholder:text-slate-500"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               maxLength={1500}
             />
-            <div className="text-right text-[11px] font-semibold tracking-wide text-slate-400">
+            <div className="text-right text-[11px] font-semibold tracking-wide text-muted-foreground">
               0/{1500 - description.length} characters
             </div>
           </div>
@@ -52,12 +52,12 @@ export function CreateOfferForm() {
           <div className="flex flex-col gap-2">
             <Textarea
               placeholder="Be specific so both sides understand expectations upfront."
-              className="min-h-[140px] resize-none rounded-[1rem] border-slate-200 p-4 text-[15px] font-medium placeholder:text-slate-400 focus-visible:ring-emerald-500/20 dark:border-border/50 dark:bg-muted/10 dark:placeholder:text-slate-500"
+              className="min-h-[140px] resize-none rounded-[1rem] border-slate-200 p-4 text-[15px] font-medium placeholder:text-muted-foreground focus-visible:ring-emerald-500/20 dark:border-border/50 dark:bg-muted/10 dark:placeholder:text-slate-500"
               value={expectations}
               onChange={(e) => setExpectations(e.target.value)}
               maxLength={1500}
             />
-            <div className="text-right text-[11px] font-semibold tracking-wide text-slate-400">
+            <div className="text-right text-[11px] font-semibold tracking-wide text-muted-foreground">
               0/{1500 - expectations.length} characters
             </div>
           </div>
@@ -65,11 +65,11 @@ export function CreateOfferForm() {
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
             <Input
               placeholder="When do you need this done?"
-              className="flex-1 rounded-xl border-slate-200 py-6 px-4 font-medium placeholder:text-slate-400 dark:border-border/50 dark:bg-muted/10"
+              className="flex-1 rounded-xl border-slate-200 py-6 px-4 font-medium placeholder:text-muted-foreground dark:border-border/50 dark:bg-muted/10"
             />
             <Input
               placeholder="Location this will take place"
-              className="flex-1 rounded-xl border-slate-200 py-6 px-4 font-medium placeholder:text-slate-400 dark:border-border/50 dark:bg-muted/10"
+              className="flex-1 rounded-xl border-slate-200 py-6 px-4 font-medium placeholder:text-muted-foreground dark:border-border/50 dark:bg-muted/10"
             />
           </div>
 

@@ -60,7 +60,7 @@ export default function MarketplaceCard({ service }: MarketplaceCardProps) {
       {/* Content */}
       <div className="flex flex-col p-5 gap-4">
         {/* User Info & Badges */}
-        <div className="flex items-center border-b pb-4 mb-2 justify-between gap-3">
+        <div className="flex items-center border-b border-border pb-4 mb-2 justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="relative h-10 w-10 shrink-0 rounded-full overflow-hidden border-2 border-background shadow-sm">
               <Image src={service.user.avatar} alt={service.user.name} fill className="object-cover" />

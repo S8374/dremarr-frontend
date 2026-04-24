@@ -15,7 +15,7 @@ export default function ServicePortfolio({ images }: ServicePortfolioProps) {
 
   return (
     <div className="mb-12">
-      <h2 className="text-[20px] font-bold text-slate-900 mb-6 heading">
+      <h2 className="text-[20px] font-bold text-foreground mb-6">
         {isSpanish ? 'Portafolio' : 'Portfolio'}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

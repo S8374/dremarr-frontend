@@ -25,22 +25,22 @@ export default function ServiceSidebar({ user }: ServiceSidebarProps) {
   const isSpanish = language === "es";
 
   return (
-    <div className="lg:sticky lg:top-24 flex flex-col gap-8 bg-white border border-slate-100 rounded-[24px] p-6 shadow-sm">
+    <div className="lg:sticky lg:top-24 flex flex-col gap-8 bg-card border border-border rounded-[24px] p-6 shadow-sm">
       <div>
-        <h3 className="text-[13px] font-bold text-slate-400 mb-6">
+        <h3 className="text-[13px] font-bold text-foreground mb-6">
           {isSpanish ? "Publicado por" : "Posted By"}
         </h3>
 
         <div className="flex items-start gap-4 mb-6">
-          <div className="relative h-[70px] w-[70px] rounded-full overflow-hidden border border-slate-100 shadow-sm shrink-0">
+          <div className="relative h-[70px] w-[70px] rounded-full overflow-hidden border border-border shadow-sm shrink-0">
             <Image src={user.avatar} alt={user.name} fill className="object-cover" />
           </div>
           <div className="flex flex-col gap-1 pt-1">
             <div className="flex items-center justify-between gap-12">
-               <span className="text-[18px] font-bold text-slate-800 leading-tight block truncate max-w-[140px]">{user.name.toLowerCase()}</span>
+               <span className="text-[18px] font-bold text-foreground leading-tight block truncate max-w-[140px]">{user.name.toLowerCase()}</span>
                <div className="flex items-center gap-1 shrink-0">
                  <Star className="h-4 w-4 fill-orange-400 text-orange-400" />
-                 <span className="text-[13px] font-bold text-slate-800">{user.rating}</span>
+                 <span className="text-[13px] font-bold text-foreground">{user.rating}</span>
                </div>
             </div>
             
@@ -59,7 +59,7 @@ export default function ServiceSidebar({ user }: ServiceSidebarProps) {
                 </Badge>
               )}
               {user.isRecommended && (
-                <Badge variant="outline" className="h-5 bg-[#fff0ed] text-[#f2654a] border-none px-2 rounded-full text-[9px] font-bold shadow-sm">
+                <Badge variant="outline" className="h-5 bg-[#fff0ed] dark:bg-[#fff0ed]/10 text-[#f2654a] border-none px-2 rounded-full text-[9px] font-bold shadow-sm">
                    Trusted User
                 </Badge>
               )}
@@ -67,18 +67,18 @@ export default function ServiceSidebar({ user }: ServiceSidebarProps) {
           </div>
         </div>
 
-        <p className="text-[13px] text-slate-500 leading-relaxed font-medium mb-8">
+        <p className="text-[13px] text-muted-foreground leading-relaxed font-medium mb-8">
           {user.bio}
         </p>
 
         <div className="grid grid-cols-2 gap-4 pb-10">
           <div className="flex flex-col gap-1">
-             <span className="text-[11px] font-bold text-slate-300 uppercase">{isSpanish ? "Ubicación" : "Location"}</span>
-             <span className="text-[14px] font-bold text-slate-700">{user.location}</span>
+             <span className="text-[11px] font-bold text-muted-foreground uppercase">{isSpanish ? "Ubicación" : "Location"}</span>
+             <span className="text-[14px] font-bold text-foreground">{user.location}</span>
           </div>
           <div className="flex flex-col gap-1">
-             <span className="text-[11px] font-bold text-slate-300 uppercase">{isSpanish ? "Miembro desde" : "Member since"}</span>
-             <span className="text-[14px] font-bold text-slate-700">{user.memberSince}</span>
+             <span className="text-[11px] font-bold text-muted-foreground uppercase">{isSpanish ? "Miembro desde" : "Member since"}</span>
+             <span className="text-[14px] font-bold text-foreground">{user.memberSince}</span>
           </div>
         </div>
 

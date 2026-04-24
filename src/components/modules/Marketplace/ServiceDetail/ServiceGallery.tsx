@@ -17,7 +17,7 @@ export default function ServiceGallery({ images, alt }: ServiceGalleryProps) {
   const next = () => setActiveIndex((i) => (i === images.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="relative w-full aspect-[16/10] mb-8 group overflow-hidden rounded-[20px] shadow-sm border border-slate-100">
+    <div className="relative w-full aspect-[16/10] mb-8 group overflow-hidden rounded-[20px] shadow-sm border border-border">
       <Image
         src={images[activeIndex]}
         alt={alt}
@@ -31,13 +31,13 @@ export default function ServiceGallery({ images, alt }: ServiceGalleryProps) {
         <>
           <button
             onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 flex items-center justify-center rounded-full bg-white text-slate-800 shadow-lg transition-all active:scale-90"
+            className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm text-foreground shadow-lg transition-all active:scale-90 border border-border"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 flex items-center justify-center rounded-full bg-white text-slate-800 shadow-lg transition-all active:scale-90"
+            className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm text-foreground shadow-lg transition-all active:scale-90 border border-border"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
@@ -53,7 +53,7 @@ export default function ServiceGallery({ images, alt }: ServiceGalleryProps) {
             className={cn(
               "h-2 rounded-full transition-all duration-300",
               i === activeIndex 
-                ? "w-8 bg-[#6f8f84]" 
+                ? "w-8 bg-[#738c88]" 
                 : "w-2 bg-white/50 backdrop-blur-sm"
             )}
           />

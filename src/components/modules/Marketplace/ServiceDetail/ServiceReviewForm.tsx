@@ -13,15 +13,15 @@ export default function ServiceReviewForm() {
   const [hover, setHover] = useState(0);
 
   return (
-    <div className="p-8 rounded-[20px] bg-[#f8f9fa] border border-slate-100 shadow-sm mb-20">
-      <h2 className="text-[20px] font-bold text-slate-800 mb-8 heading">
+    <div className="p-8 rounded-[20px] bg-muted/30 border border-border shadow-sm mb-20">
+      <h2 className="text-[20px] font-bold text-foreground mb-8">
         {isSpanish ? "Dar una reseña" : "Give a review"}
       </h2>
 
       <div className="space-y-8">
         <div>
-          <label className="text-[13px] font-bold text-orange-500 mb-4 block">
-            {isSpanish ? "Tu calificación *" : "Your Rating *"}
+          <label className="text-lg  text-muted-foreground mb-4 block">
+            {isSpanish ? "Tu calificación *" : "Add Your Rating *"}
           </label>
           <div className="flex gap-2">
             {[...Array(5)].map((_, i) => {
@@ -39,7 +39,7 @@ export default function ServiceReviewForm() {
                     className={`h-7 w-7 transition-colors ${
                       index <= (hover || rating)
                         ? "fill-orange-400 text-orange-400"
-                        : "text-slate-200 fill-slate-100"
+                        : "text-muted fill-muted/20"
                     }`}
                   />
                 </button>
@@ -49,12 +49,12 @@ export default function ServiceReviewForm() {
         </div>
 
         <div>
-           <label className="text-[13px] font-bold text-orange-500 mb-4 block">
+           <label className="text-[13px] font-bold text-muted-foreground mb-4 block">
             {isSpanish ? "¿Cuál es tu reseña? *" : "What is Your Review? *"}
           </label>
           <Textarea 
             placeholder={isSpanish ? "Escribe tus comentarios aquí..." : "Write your comments here..."}
-            className="min-h-[140px] rounded-xl border-slate-200 bg-white focus-visible:ring-[#728e85]/20 focus-visible:border-[#728e85] text-[15px] p-5 font-semibold placeholder:text-slate-300 transition-all resize-none shadow-sm"
+            className="min-h-[140px] rounded-xl border-border bg-card focus-visible:ring-primary/20 focus-visible:border-primary text-[15px] p-5 placeholder:text-muted-foreground transition-all resize-none shadow-sm"
           />
         </div>
 

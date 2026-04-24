@@ -2,10 +2,10 @@
 
 import * as React from "react"
 import {
-  
+
   IconChartBar,
   IconDashboard,
- 
+
   IconFileAi,
   IconFileDescription,
   IconFileWord,
@@ -35,49 +35,49 @@ import Link from "next/link"
 import checkAuthStatus from "@/utility/auth"
 
 
-const {user} = await checkAuthStatus();
+const { user } = await checkAuthStatus();
 console.log(user)
 
-const {role} = user|| {role: 'guest'};
+const { role } = user || { role: 'guest' };
 
 const navMainItems = [
-    {
-      title: "Dashboard",
-      url: "#",
-      icon: IconDashboard,
-    },
-    // {
-    //   title: "Lifecycle",
-    //   url: "#",
-    //   icon: IconListDetails,
-    // },
-    // {
-    //   title: "Analytics",
-    //   url: "#",
-    //   icon: IconChartBar,
-    // },
-    // {
-    //   title: "Add Doctor",
-    //   url: "/dashboard/add-doctor",
-    //   icon: IconUsers,
-    // },
-  ]
+  {
+    title: "Dashboard",
+    url: "#",
+    icon: IconDashboard,
+  },
+  // {
+  //   title: "Lifecycle",
+  //   url: "#",
+  //   icon: IconListDetails,
+  // },
+  // {
+  //   title: "Analytics",
+  //   url: "#",
+  //   icon: IconChartBar,
+  // },
+  // {
+  //   title: "Add Doctor",
+  //   url: "/dashboard/add-doctor",
+  //   icon: IconUsers,
+  // },
+]
 
-  if(role === 'ADMIN'){
-    navMainItems.push(
-      {
-        title: "Manage Doctors",
-        url: "/dashboard/admin/manage-doctors",
-        icon: IconSettings,
-      },
-      {
-        title: "Manage Patients",
-        url: "/dashboard/admin/manage-patients",
-        icon: IconUsers,
-      }
-    )
-  }
-  
+if (role === 'ADMIN') {
+  navMainItems.push(
+    {
+      title: "Manage Doctors",
+      url: "/dashboard/admin/manage-doctors",
+      icon: IconSettings,
+    },
+    {
+      title: "Manage Patients",
+      url: "/dashboard/admin/manage-patients",
+      icon: IconUsers,
+    }
+  )
+}
+
 
 const data = {
   user: {
@@ -103,8 +103,11 @@ const data = {
       icon: IconSearch,
     },
   ],
- 
+
 }
+
+import logo from "@/assets/logo/logo.png"
+import Image from "next/image"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -116,9 +119,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <Link href="/">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">PH Health Care</span>
+              <Link href="/" className="flex items-center gap-2">
+                <Image
+                  src={logo}
+                  alt="DreMarr logo"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 rounded-full object-cover"
+                />
+                <span className="text-lg font-bold tracking-tight text-brand font-brand">DREMARR</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
