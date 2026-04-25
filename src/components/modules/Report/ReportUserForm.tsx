@@ -70,14 +70,14 @@ export default function ReportUserForm({ data }: ReportUserFormProps) {
           <form onSubmit={handleSubmit} className="rounded-3xl border border-slate-100 dark:border-border/40 bg-white dark:bg-card p-8 shadow-sm flex flex-col gap-6">
               
               <div className="flex flex-col gap-2">
-                  <label className="text-[14px] font-semibold text-slate-800 dark:text-slate-200">
+                  <label className="text-[16px] font-semibold text-slate-800 dark:text-slate-200">
                       {isSpanish ? "¿Cuál es el problema?" : "What's the issue?"}
                   </label>
                   <Input 
                       value={issue}
                       onChange={(e) => setIssue(e.target.value)}
                       placeholder={isSpanish ? "Ingresa tu problema aquí..." : "Enter your issue here..."} 
-                      className="h-12 w-full rounded-xl bg-white dark:bg-background border-slate-200 dark:border-border text-[15px] placeholder:text-slate-400 focus-visible:ring-0 transition-all font-medium"
+                      className="h-12 w-full rounded-xl bg-white dark:bg-background border-slate-200 dark:border-border text-[15px] placeholder:text-muted-foreground focus-visible:ring-0 transition-all font-medium"
                       required
                   />
               </div>
@@ -90,7 +90,7 @@ export default function ReportUserForm({ data }: ReportUserFormProps) {
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       placeholder={isSpanish ? "por favor describe tu problema en detalle..." : "please describe your issue in detail..."} 
-                      className="min-h-[140px] w-full rounded-xl bg-white dark:bg-background border-slate-200 dark:border-border text-[15px] placeholder:text-slate-400 focus-visible:ring-0 transition-all resize-none p-4 font-medium"
+                      className="min-h-[140px] w-full rounded-xl bg-white dark:bg-background border-slate-200 dark:border-border text-[15px] placeholder:text-muted-foreground focus-visible:ring-0 transition-all resize-none p-4 font-medium"
                       required
                   />
               </div>
@@ -111,7 +111,7 @@ export default function ReportUserForm({ data }: ReportUserFormProps) {
                           <h4 className="text-[15px] font-bold text-slate-800 dark:text-slate-200 mb-1">
                               {file ? file.name : (isSpanish ? "Subir archivo" : "Upload file")}
                           </h4>
-                          <p className="text-[12px] font-medium text-slate-400 dark:text-slate-500">
+                          <p className="text-[12px] font-medium text-muted-foreground dark:text-slate-500">
                              {isSpanish ? "Agrega cualquier prueba para ayudarnos a revisar tu reporte más rápido" : "Add any proof to help us review your report faster"}
                           </p>
                       </div>

@@ -15,8 +15,8 @@ export default function MarketplaceHeader() {
         </h1>
         <p className="text-base text-muted-foreground sm:text-lg lg:text-xl font-medium max-w-xl mx-auto lg:mx-0">
           {isSpanish 
-            ? "Descubre habilidades y servicios para el trueque: encuentra tu intercambio perfecto."
-            : "Discover skills and services to barter - find your perfect exchange."}
+            ? "Descubre habilidades y servicios para intercambiar — encuentra tu combinación perfecta."
+            : "Discover skills and services to exchange - find your perfect match."}
         </p>
       </div>
       <div className="flex justify-center lg:justify-end">

@@ -43,7 +43,7 @@ export default function ProfileSidebar({ data }: ProfileSidebarProps) {
               {isSpanish ? "Crear Anuncio" : "Create Listing"}
             </Button>
           </Link>
-          <Link href="/edit-profile" className="w-full">
+          {/* <Link href="/edit-profile" className="w-full">
             <Button className="h-12 w-full rounded-2xl bg-[#728e85] hover:bg-[#5f7e75] text-white font-bold transition-all duration-300 flex items-center justify-center gap-2">
               {isSpanish ? "Editar Perfil" : "Edit Profile"}
             </Button>
@@ -52,7 +52,7 @@ export default function ProfileSidebar({ data }: ProfileSidebarProps) {
             <button className="text-[13px] font-bold text-red-500 hover:text-red-600 transition-colors pt-2 uppercase tracking-wide cursor-pointer w-full text-center">
               {isSpanish ? "Reportar a esta persona" : "Report This Person"}
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

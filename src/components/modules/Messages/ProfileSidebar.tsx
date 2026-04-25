@@ -146,7 +146,7 @@ export function ProfileSidebar() {
 
       {/* Sticky View Profile Button */}
       <div className="border-t border-border bg-background/80 p-4 backdrop-blur-sm shadow-[0_-8px_30px_rgba(0,0,0,0.02)]">
-        <Link href="#" className="btn-pill-outline h-14 w-full flex items-center justify-center border-border">
+        <Link href="/profile/1" className="btn-pill-outline h-14 w-full flex items-center justify-center border-border">
           {/* /profile/1 */}
           {labels.viewProfile}
         </Link>

@@ -4,39 +4,39 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
-import developerImage from "@/assets/images/hero/developer.png";
-import electriciansImage from "@/assets/images/hero/electricians.jpeg";
-import hairStylistsImage from "@/assets/images/hero/hair-stylists.png";
-import mechanicsImage from "@/assets/images/hero/mechanics.png";
-import developerUserImage from "@/assets/images/hero/users/developer.png";
-import electriciansUserImage from "@/assets/images/hero/users/electricians.png";
-import hairStylistsUserImage from "@/assets/images/hero/users/hair-stylists.png";
-import mechanicsUserImage from "@/assets/images/hero/users/mechanics.png";
+import developerImage from "@/assets/images/hero/developer_hd.png";
+import electriciansImage from "@/assets/images/hero/electrician_hd.png";
+import hairStylistsImage from "@/assets/images/hero/hairstylist_hd.png";
+import mechanicsImage from "@/assets/images/hero/mechanic_hd.png";
+import developerUserImage from "@/assets/images/hero/users/developer_user_hd.png";
+import electriciansUserImage from "@/assets/images/hero/users/electrician_user_hd.png";
+import hairStylistsUserImage from "@/assets/images/hero/users/hairstylist_user_hd.png";
+import mechanicsUserImage from "@/assets/images/hero/users/mechanic_user_hd.png";
 import { useLanguage } from "@/components/shared/language-provider";
 
 const heroSlides = [
   {
     image: electriciansImage,
     avatar: electriciansUserImage,
-    name: "Mr. John Lother",
+    name: "Killan James",
     role: "Electrician",
   },
   {
     image: hairStylistsImage,
     avatar: hairStylistsUserImage,
-    name: "Dr. Sarah Miles",
+    name: "Sarah Miles",
     role: "Hair Stylist",
   },
   {
     image: mechanicsImage,
     avatar: mechanicsUserImage,
-    name: "Dr. Eric Nolan",
+    name: "Elena Rodriguez",
     role: "Mechanic",
   },
   {
     image: developerImage,
     avatar: developerUserImage,
-    name: "Mr. Sabbir",
+    name: "Elisa Morgan",
     role: "Web Developer",
   },
 ];

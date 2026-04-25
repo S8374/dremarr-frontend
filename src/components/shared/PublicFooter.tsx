@@ -1,12 +1,16 @@
 "use client";
 
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useLanguage } from "./language-provider";
 
 export default function Footer() {
+    const pathname = usePathname();
     const { language } = useLanguage();
     const isSpanish = language === "es";
+
+    if (pathname === "/messages") return null;
 
     const quickLinks = [
         { href: "/#", label: isSpanish ? "Mercado" : "Marketplace" },

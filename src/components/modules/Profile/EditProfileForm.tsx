@@ -63,7 +63,7 @@ export default function EditProfileForm({ data }: EditProfileFormProps) {
                           <Button type="button" className="h-10 px-4 rounded-xl bg-[#728e85] hover:bg-[#5f7e75] text-white font-semibold text-[13px] shadow-sm transition-all duration-300">
                              + {isSpanish ? "Cambiar Imagen" : "Change Image"}
                           </Button>
-                          <Button type="button" variant="secondary" className="h-10 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-muted dark:hover:bg-muted/80 text-slate-700 dark:text-white font-semibold text-[13px] shadow-sm transition-all duration-300">
+                          <Button type="button" variant="secondary" className="h-10 px-4 rounded-xl bg-muted hover:bg-slate-200 dark:bg-muted dark:hover:bg-muted/80 text-slate-700 dark:text-white font-semibold text-[13px] shadow-sm transition-all duration-300">
                              {isSpanish ? "Eliminar Imagen" : "Remove Image"}
                           </Button>
                       </div>

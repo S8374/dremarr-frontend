@@ -14,7 +14,7 @@ export default function ServiceReviewForm() {
 
   return (
     <div className="p-8 rounded-[20px] bg-muted/30 border border-border shadow-sm mb-20">
-      <h2 className="text-[20px] font-bold text-foreground mb-8">
+      <h2 className="text-xl font-bold text-foreground mb-8">
         {isSpanish ? "Dar una reseña" : "Give a review"}
       </h2>
 
@@ -30,16 +30,16 @@ export default function ServiceReviewForm() {
                 <button
                   key={index}
                   type="button"
-                  className="transition-all transform active:scale-95"
+                  className="transition-all transform active:scale-95 "
                   onClick={() => setRating(index)}
                   onMouseEnter={() => setHover(index)}
                   onMouseLeave={() => setHover(0)}
                 >
                   <Star
-                    className={`h-7 w-7 transition-colors ${
+                    className={`h-8 w-8 transition-all ${
                       index <= (hover || rating)
-                        ? "fill-orange-400 text-orange-400"
-                        : "text-muted fill-muted/20"
+                        ? "fill-amber-400 text-amber-400 scale-110"
+                        : "text-slate-200 fill-slate-100/50"
                     }`}
                   />
                 </button>

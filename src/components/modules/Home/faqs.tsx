@@ -14,10 +14,10 @@ const faqs = [
       "Esta plataforma es un mercado de intercambio de habilidades donde los usuarios pueden ofrecer sus servicios y recibir otros a cambio sin usar dinero. Solo conecta a personas que acuerdan el valor de su trabajo y quieren intercambiar de forma justa.",
   },
   {
-    question: "Do I need to pay to exchange services?",
+    question: "Do I need to pay to exchange Platform?",
     questionEs: "Tengo que pagar para intercambiar servicios?",
     answer:
-      "No, you don't need to pay any money. This is a pure skill-barter platform. You exchange your skills/services directly with other members.",
+      "No, you don't need to pay any money. This is a pure skill-exchange platform. You exchange your skills directly with other members.",
     answerEs:
       "No, no necesitas pagar dinero. Esta es una plataforma de trueque de habilidades. Intercambias tus servicios directamente con otros miembros.",
   },

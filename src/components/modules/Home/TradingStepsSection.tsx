@@ -31,7 +31,7 @@ const TradingSteps = () => {
         {
             number: "03",
             icon: CheckCircle,
-            title: language === "es" ? "Completa el intercambio" : "Complete the Barter",
+            title: language === "es" ? "Completa el intercambio" : "Complete the Exchange",
             titleEs: "Completa el intercambio",
             description:
                 language === "es"

@@ -15,12 +15,12 @@ export default function ServicePortfolio({ images }: ServicePortfolioProps) {
 
   return (
     <div className="mb-12">
-      <h2 className="text-[20px] font-bold text-foreground mb-6">
+      <h2 className="text-xl font-bold text-foreground mb-6">
         {isSpanish ? 'Portafolio' : 'Portfolio'}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Left image */}
-        <div className="relative aspect-[3/2] rounded-[14px] overflow-hidden">
+        <div className="relative aspect-3/2 rounded-[14px] overflow-hidden">
           <Image
             src={images[0]}
             alt="Portfolio 1"
@@ -30,7 +30,7 @@ export default function ServicePortfolio({ images }: ServicePortfolioProps) {
         </div>
 
         {/* Right image with +X */}
-        <div className="relative aspect-[3/2] rounded-[14px] overflow-hidden group cursor-pointer">
+        <div className="relative aspect-3/2 rounded-[14px] overflow-hidden group cursor-pointer">
           <Image
             src={images[1] || images[0]}
             alt="Portfolio 2"

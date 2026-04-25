@@ -16,7 +16,7 @@ export default function ProfileServices({ data }: ProfileServicesProps) {
       
       {/* What I Provide */}
       <div className="flex flex-col gap-4">
-        <h3 className="text-[17px] font-bold text-slate-900 dark:text-white tracking-tight">
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
           {isSpanish ? "Lo que ofrezco" : "What I Provide"}
         </h3>
         
@@ -45,12 +45,12 @@ export default function ProfileServices({ data }: ProfileServicesProps) {
 
       {/* What I Need */}
       <div className="flex flex-col gap-4">
-         <h3 className="text-[17px] font-bold text-slate-900 dark:text-white tracking-tight">
+         <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
           {isSpanish ? "Lo que necesito" : "What I Need"}
         </h3>
         <div className="flex flex-wrap gap-2">
            {(isSpanish ? data.needs_es : data.needs_en).map((need: string, index: number) => (
-             <div key={index} className="px-4 py-2 rounded-lg border border-border text-[12px] font-medium text-slate-600 dark:text-slate-300">
+             <div key={index} className="px-4 py-2 rounded-lg border border-border text-[12px] font-medium text-muted-foreground dark:text-slate-300">
                {need}
              </div>
            ))}

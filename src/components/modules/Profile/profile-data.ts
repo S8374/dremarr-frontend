@@ -1,7 +1,9 @@
+import avatarImg from "@/assets/images/hero/users/electrician_user_hd.png";
+
 export const profileData = {
   id: 1,
   name: "Killan James",
-  avatar: "https://i.pravatar.cc/150?u=killan",
+  avatar: avatarImg.src,
   title_en: "Electrician",
   title_es: "Electricista",
   rating: 5.0,

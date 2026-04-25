@@ -84,7 +84,7 @@ export default function MarketplaceCard({ service }: MarketplaceCardProps) {
               </Badge>
             )}
             {service.user.isPro && (
-              <Badge variant="default" className="h-6 bg-gradient-to-r from-[#f28b5a] to-[#f0502e] hover:from-[#f28b5a] hover:to-[#f0502e] text-white border-none px-2.5 rounded-full text-[10px] font-bold shadow-sm gap-1">
+              <Badge variant="default" className="h-6 bg-linear-to-r from-[#f28b5a] to-[#f0502e] hover:from-[#f28b5a] hover:to-[#f0502e] text-white border-none px-2.5 rounded-full text-[10px] font-bold shadow-sm gap-1">
                 <Crown className="h-3.5 w-3.5 fill-none text-white stroke-[2.5px]" />
                 PRO
               </Badge>
@@ -93,7 +93,7 @@ export default function MarketplaceCard({ service }: MarketplaceCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="line-clamp-2 text-base font-bold text-foreground leading-tight min-h-[2.5rem]">
+        <h3 className="line-clamp-2 text-base font-bold text-foreground leading-tight min-h-10">
           {title}
         </h3>
 

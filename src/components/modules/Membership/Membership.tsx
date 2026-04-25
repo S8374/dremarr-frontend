@@ -26,21 +26,17 @@ const TRANSLATIONS = {
     btnSilver: "Join Silver",
     btnGold: "Start 14-Day Free Trial",
     btnPlatinum: "Join Platinum",
-    billingDesc: "Full access with monthly billing.",
+    silverDesc: "Perfect for individuals starting out",
+    platinumDesc: "Full access with monthly billing.",
     silverFeatures: [
-      "Unlimited posts and responses",
+      "1 listing per month",
+      "Basic profile",
       "Full message board access",
-      "Unlimited messaging",
-      "Upload verification documents",
-      "Eligible for all badges",
-      "Leave and receive reviews",
-      "Priority search ranking",
-      "Featured member status",
-      "Premium support",
-      "Early access to new features"
+      "Private messaging",
+      "Technical support"
     ],
     goldFeatures: [
-      "Post up to 5 listings per month",
+      "5 listings per month",
       "Unlimited listing responses",
       "Full message board access",
       "Unlimited private messaging",
@@ -51,14 +47,9 @@ const TRANSLATIONS = {
       "Priority support",
       "Access to exclusive webinars and workshops"
     ],
-    goldMissed: "Featured member status",
     platinumFeatures: [
-      "Unlimited posts and responses",
-      "Full message board access",
-      "Unlimited messaging",
-      "Upload verification documents",
+      "All items listed above",
       "Eligible for all badges",
-      "Leave and receive reviews",
       "Priority search ranking",
       "Featured member status",
       "Premium support",
@@ -79,7 +70,7 @@ const TRANSLATIONS = {
       },
       {
         q: "What payment methods do you accept?",
-        a: "We accept all major credit cards, PayPal, and Apple Pay."
+        a: "We accept all major credit cards, PayPal"
       }
     ]
   },
@@ -88,7 +79,7 @@ const TRANSLATIONS = {
     subtitle: "Comienza gratis y mejora en cualquier momento para desbloquear más funciones y hacer crecer tu red de trueque",
     monthly: "Mensual",
     yearly: "Anual",
-    save20: "Ahorra 20%",
+    save20: "ahorra 20%",
     mostPopular: "Más Popular",
     perMonth: "por mes",
     perYear: "por año",
@@ -102,21 +93,17 @@ const TRANSLATIONS = {
     btnSilver: "Unirse a Plata",
     btnGold: "Iniciar Prueba de 14 Días",
     btnPlatinum: "Unirse a Platino",
-    billingDesc: "Acceso total con facturación mensual.",
+    silverDesc: "Perfecto para personas que están comenzando",
+    platinumDesc: "Acceso total con facturación mensual.",
     silverFeatures: [
-      "Publicaciones y respuestas ilimitadas",
+      "1 anuncio por mes",
+      "Perfil básico",
       "Acceso completo al foro",
-      "Mensajes ilimitados",
-      "Subir documentos de verificación",
-      "Elegible para todas las insignias",
-      "Dejar y recibir reseñas",
-      "Calificación de búsqueda prioritaria",
-      "Estado de miembro destacado",
-      "Soporte premium",
-      "Acceso anticipado a nuevas funciones"
+      "Mensajería privada",
+      "Soporte técnico"
     ],
     goldFeatures: [
-      "Publicar hasta 5 anuncios por mes",
+      "5 anuncios por mes",
       "Respuestas ilimitadas a anuncios",
       "Acceso completo al foro",
       "Mensajería privada ilimitada",
@@ -127,15 +114,10 @@ const TRANSLATIONS = {
       "Soporte prioritario",
       "Acceso a seminarios y talleres exclusivos"
     ],
-    goldMissed: "Estado de miembro destacado",
     platinumFeatures: [
-      "Publicaciones y respuestas ilimitadas",
-      "Acceso completo al foro",
-      "Mensajes ilimitados",
-      "Subir documentos de verificación",
+      "Todos los artículos mencionados anteriormente",
       "Elegible para todas las insignias",
-      "Dejar y recibir reseñas",
-      "Calificación de búsqueda prioritaria",
+      "Clasificación de búsqueda prioritaria",
       "Estado de miembro destacado",
       "Soporte premium",
       "Acceso anticipado a nuevas funciones"
@@ -266,13 +248,13 @@ export default function Membership() {
         </motion.div>
 
         {/* Pricing Cards Layout */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-6 md:gap-8 w-full max-w-[1100px] mb-24">
+        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-6 md:gap-8 w-full max-w-[1100px] mb-24 px-4">
 
           {/* Silver */}
           <motion.div
             variants={cardVariants}
             whileHover="hover"
-            className="bg-[#f7f8f9] dark:bg-zinc-900 rounded-[24px] p-8 w-full lg:w-[340px] flex flex-col text-left my-auto border border-transparent hover:border-[#67877e]/20 transition-colors"
+            className="bg-[#f7f8f9] dark:bg-zinc-900 rounded-3xl p-8 w-full lg:w-[340px] flex flex-col text-left my-auto border border-transparent hover:border-[#67877e]/20 transition-colors"
           >
             <h3 className="text-[20px] font-semibold mb-2 text-[#1a1c21] dark:text-white">{t.silverTitle}</h3>
             <div className="flex items-baseline gap-1 mb-4">
@@ -284,13 +266,18 @@ export default function Membership() {
                   exit={{ opacity: 0, y: -10 }}
                   className="text-[38px] font-bold text-[#1a1c21] dark:text-white tracking-[-0.04em]"
                 >
-                  {isYearly ? "$191.90" : "$19.99"}
+                  {isYearly ? "$3.99" : "$4.99"}
                 </motion.span>
               </AnimatePresence>
-              <span className="text-[#6b7280] dark:text-gray-400 text-[13px]">{isYearly ? t.perYear : t.perMonth}</span>
+              <div className="flex flex-col">
+                <span className="text-[#6b7280] dark:text-gray-400 text-[13px]">{t.perMonth}</span>
+                {isYearly && (
+                  <span className="text-[10px] text-[#4caf50] font-bold">($47.90 {t.perYear})</span>
+                )}
+              </div>
             </div>
             <p className="text-[13px] text-[#2d3339] dark:text-gray-300 mb-6 font-medium">
-              {t.billingDesc}
+              {t.silverDesc}
             </p>
             <Button variant="outline" className="w-full rounded-full h-[46px] text-[#67877e] dark:text-[#8cb3a7] border border-[#67877e] hover:bg-[#67877e] hover:text-white transition-all bg-transparent mb-8 font-semibold text-[14px]">
               {t.btnSilver}
@@ -309,7 +296,7 @@ export default function Membership() {
           <motion.div
             variants={cardVariants}
             whileHover="hover"
-            className="bg-white dark:bg-zinc-950 border-[1.5px] border-[#cdb07c] rounded-[24px] p-8 md:px-10 md:py-10 shadow-[0_20px_50px_rgba(205,176,124,0.15)] w-full lg:w-[370px] flex flex-col text-left relative z-10 lg:-mx-2 lg:-my-8"
+            className="bg-white dark:bg-zinc-950 border-[2px] border-[#cdb07c] rounded-[24px] p-8 md:px-10 md:py-10 shadow-[0_20px_50px_rgba(205,176,124,0.15)] w-full lg:w-[370px] flex flex-col text-left relative z-10 lg:-mx-2 lg:-my-8"
           >
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#d2b17a] text-white text-[11px] px-5 py-1.5 rounded-full whitespace-nowrap font-medium shadow-lg">
               {t.mostPopular}
@@ -324,10 +311,15 @@ export default function Membership() {
                   exit={{ opacity: 0, y: -10 }}
                   className="text-[38px] font-bold text-[#1a1c21] dark:text-white tracking-[-0.04em]"
                 >
-                  {isYearly ? "$95.90" : "$9.99"}
+                  {isYearly ? "$7.99" : "$9.99"}
                 </motion.span>
               </AnimatePresence>
-              <span className="text-[#6b7280] dark:text-gray-400 text-[13px]">{isYearly ? t.perYear : t.perMonth}</span>
+              <div className="flex flex-col">
+                <span className="text-[#6b7280] dark:text-gray-400 text-[13px]">{t.perMonth}</span>
+                {isYearly && (
+                  <span className="text-[10px] text-[#4caf50] font-bold">($95.90 {t.perYear})</span>
+                )}
+              </div>
             </div>
             <div className="mb-6">
               <p className="font-semibold text-[15px] text-[#1a1c21] dark:text-white mb-[5px]">{t.trial14}</p>
@@ -345,10 +337,6 @@ export default function Membership() {
                   <span className="leading-tight">{feature}</span>
                 </li>
               ))}
-              <li className="flex gap-3 text-[#9ca3af] dark:text-gray-500 opacity-90 items-start">
-                <X className="w-[18px] h-[18px] shrink-0 mt-[1px]" strokeWidth={2} />
-                <span className="leading-tight">{t.goldMissed}</span>
-              </li>
             </ul>
           </motion.div>
 
@@ -368,13 +356,18 @@ export default function Membership() {
                   exit={{ opacity: 0, y: -10 }}
                   className="text-[38px] font-bold text-[#1a1c21] dark:text-white tracking-[-0.04em]"
                 >
-                  {isYearly ? "$191.90" : "$19.99"}
+                  {isYearly ? "$15.99" : "$19.99"}
                 </motion.span>
               </AnimatePresence>
-              <span className="text-[#6b7280] dark:text-gray-400 text-[13px]">{isYearly ? t.perYear : t.perMonth}</span>
+              <div className="flex flex-col">
+                <span className="text-[#6b7280] dark:text-gray-400 text-[13px]">{t.perMonth}</span>
+                {isYearly && (
+                  <span className="text-[10px] text-[#4caf50] font-bold">($191.90 {t.perYear})</span>
+                )}
+              </div>
             </div>
             <p className="text-[13px] text-[#2d3339] dark:text-gray-300 mb-6 font-medium">
-              {t.billingDesc}
+              {t.platinumDesc}
             </p>
             <Button variant="outline" className="w-full rounded-full h-[46px] text-[#67877e] dark:text-[#8cb3a7] border border-[#67877e] hover:bg-[#67877e] hover:text-white transition-all bg-transparent mb-8 font-semibold text-[14px]">
               {t.btnPlatinum}
