@@ -1,15 +1,15 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
- 
+
 // This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const token = request.cookies.get('accessToken')?.value;
 
     console.log(token)
 
     const { pathname } = request.nextUrl;
 
-    const protectedPaths = [ '/profile', '/settings', '/appointments'];
+    const protectedPaths = ['/profile', '/settings', '/appointments'];
 
     const authRoutes = ['/login', '/register', '/forgot-password'];
 
@@ -18,13 +18,13 @@ export function middleware(request: NextRequest) {
     })
 
     // current path auth route or not
-    const isAuthRoute = authRoutes.some((route)=>
+    const isAuthRoute = authRoutes.some((route) =>
         pathname === route
     )
 
     console.log(isAuthRoute)
 
-    if(isProtectedPath && !token){
+    if (isProtectedPath && !token) {
         return NextResponse.redirect(new URL('/login', request.url))
     }
 
@@ -33,8 +33,8 @@ export function middleware(request: NextRequest) {
 
     return NextResponse.next()
 }
- 
+
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/login', '/register', '/forgot-password'],
+    matcher: ['/login', '/register', '/forgot-password'],
 }

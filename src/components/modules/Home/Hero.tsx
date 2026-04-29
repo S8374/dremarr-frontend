@@ -71,101 +71,102 @@ export function Hero() {
   return (
     <section className="relative bg-background text-foreground">
 
-      <div className="container pb-12 pt-0 md:pb-16">
-        <div className="grid grid-cols-1 items-start gap-8 md:gap-10 xl:grid-cols-[1fr_0.88fr] xl:gap-12">
+      <div className="container pb-12 pt-0 md:pb-16 xl:px-14">
+        <div className="grid grid-cols-1 items-stretch gap-8 md:gap-10 lg:grid-cols-[1fr_620px] xl:grid-cols-[1fr_620px] 2xl:grid-cols-[1fr_0.88fr] lg:gap-12 xl:gap-12">
           {/* Left */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ staggerChildren: 0.1 }}
-            className="pt-2 md:pt-6 xl:pt-10"
+            className="flex flex-col h-full"
           >
-            <motion.div
-              variants={itemVariants}
-              className={`mb-6 inline-flex items-center rounded-full border border-border bg-muted px-4 py-1 font-medium text-muted-foreground ${isSpanish ? "text-[11px]" : "text-[12px]"}`}
-            >
-              {language === "es" ? "Confiado por más de 50,000 comerciantes de habilidades" : "Trusted by 50,000+ skill Traders"}
-            </motion.div>
-
-            <motion.h1
-              variants={itemVariants}
-              className={`mb-4 max-w-[800px] font-bold leading-[1.08] tracking-[-0.02em] text-foreground ${isSpanish ? "text-[28px] sm:text-[38px] md:text-[50px] xl:text-[60px]" : "text-[34px] sm:text-[46px] md:text-[58px] xl:text-[74px]"}`}
-            >
-              {language === "es" ? "Donde la habilidad es" : "Where Skill is"}
-              <br />
-              <span className="text-[#708f88]">{language === "es" ? "moneda" : "Currency"}</span>
-            </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className={`mb-8 max-w-[520px] leading-[1.45] text-muted-foreground ${isSpanish ? "text-sm sm:text-base md:text-lg" : "text-base sm:text-lg md:text-xl"}`}
-            >
-              {language === "es"
-                ? "Intercambia tu experiencia por los servicios que necesitas. Sin dinero, solo habilidades que importan."
-                : "Exchange your expertise for services you need. No money required, just skills that matter."}
-            </motion.p>
-
-            <motion.div
-              variants={itemVariants}
-              className="mb-8 flex flex-wrap items-center gap-4 md:mb-10"
-            >
-              <button
-                type="button"
-                className="w-full rounded-full bg-[#6f8f89] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_-12px_rgba(110,142,131,0.75)] transition-colors hover:bg-[#5f7c72] sm:w-auto sm:px-8 sm:py-3.5 sm:text-base"
+            <div className="flex flex-col h-full justify-center">
+              <motion.div
+                variants={itemVariants}
+                className={`mb-6 inline-flex items-center rounded-full border border-border w-fit bg-muted px-4 py-1 font-medium text-muted-foreground ${isSpanish ? "text-[11px]" : "text-[12px]"}`}
               >
-                {language === "es" ? "Unirse a la lista" : "Join The Waitlist"}
-              </button>
+                {language === "es" ? "Confiado por más de 50,000 comerciantes de habilidades" : "Trusted by 50,000+ skill Traders"}
+              </motion.div>
 
-              <button
-                type="button"
-                className="w-full rounded-full border border-[#cfaa6b] px-6 py-3 text-sm font-semibold text-[#cfaa6b] transition-colors hover:bg-[#cfaa6b]/10 sm:w-auto sm:px-8 sm:py-3.5 sm:text-base"
+              <motion.h1
+                variants={itemVariants}
+                className={`mb-4 max-w-[800px] font-bold leading-[1.08] tracking-[-0.02em] text-foreground ${isSpanish ? "text-[28px] sm:text-[36px] md:text-[44px] lg:text-[46px] xl:text-[60px]" : "text-[34px] sm:text-[42px] md:text-[50px] lg:text-[48px] xl:text-[74px]"}`}
               >
-                {language === "es" ? "Explorar mercado" : "Browse Marketplace"}
-              </button>
-            </motion.div>
+                {language === "es" ? "Donde la habilidad es" : "Where Skill is"}
+                <br />
+                <span className="text-[#708f88]">{language === "es" ? "moneda" : "Currency"}</span>
+              </motion.h1>
 
-            {/* Avatars */}
+              <motion.p
+                variants={itemVariants}
+                className={`mb-8 max-w-[520px] leading-[1.45] text-muted-foreground ${isSpanish ? "text-sm sm:text-base md:text-lg" : "text-base sm:text-lg md:text-xl"}`}
+              >
+                {language === "es"
+                  ? "Intercambia tu experiencia por los servicios que necesitas. Sin dinero, solo habilidades que importan."
+                  : "Exchange your expertise for services you need. No money required, just skills that matter."}
+              </motion.p>
+
+              <motion.div
+                variants={itemVariants}
+                className="mb-8 flex flex-wrap items-center gap-4 md:mb-10"
+              >
+                <button
+                  type="button"
+                  className="w-full rounded-full bg-[#6f8f89] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_-12px_rgba(110,142,131,0.75)] transition-colors hover:bg-[#5f7c72] sm:w-auto sm:px-8 sm:py-3.5 sm:text-base"
+                >
+                  {language === "es" ? "Unirse a la lista" : "Join The Waitlist"}
+                </button>
+
+                <button
+                  type="button"
+                  className="w-full rounded-full border border-[#cfaa6b] px-6 py-3 text-sm font-semibold text-[#cfaa6b] transition-colors hover:bg-[#cfaa6b]/10 sm:w-auto sm:px-8 sm:py-3.5 sm:text-base"
+                >
+                  {language === "es" ? "Explorar mercado" : "Browse Marketplace"}
+                </button>
+              </motion.div>
+
+              {/* Avatars */}
+              <motion.div
+                variants={itemVariants}
+                className="mb-9 flex items-center md:mb-12 "
+              >
+                <div className="flex -space-x-2.5">
+                  {[electriciansUserImage, hairStylistsUserImage, mechanicsUserImage, developerUserImage].map((avatar, i) => (
+                    <Image
+                      key={i}
+                      src={avatar}
+                      alt={`User ${i + 1}`}
+                      width={42}
+                      height={42}
+                      className="h-[42px] w-[42px] rounded-full border-2 border-background object-cover"
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
             <motion.div
               variants={itemVariants}
-              className="mb-9 flex items-center md:mb-12 "
-            >
-              <div className="flex -space-x-2.5">
-                {[electriciansUserImage, hairStylistsUserImage, mechanicsUserImage, developerUserImage].map((avatar, i) => (
-                  <Image
-                    key={i}
-                    src={avatar}
-                    alt={`User ${i + 1}`}
-                    width={42}
-                    height={42}
-                    className="h-[42px] w-[42px] rounded-full border-2 border-background object-cover"
-                  />
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              variants={itemVariants}
-              className="grid w-full max-w-[680px] grid-cols-3 overflow-hidden rounded-2xl border border-border bg-transparent px-1 py-3 sm:px-2 md:py-4"
+              className="mt-auto grid w-full max-w-[520px] grid-cols-3 overflow-hidden rounded-2xl border border-border bg-transparent px-1 py-3 sm:px-2 md:py-4 xl:mb-12"
             >
               <div className="flex flex-col items-center justify-center border-r border-border px-2 py-1">
-                <span className={`font-semibold leading-none text-foreground ${isSpanish ? "text-[22px] sm:text-[28px] md:text-[38px]" : "text-[24px] sm:text-[30px] md:text-[41px]"}`}>50K+</span>
-                <span className={`mt-2 font-medium text-muted-foreground ${isSpanish ? "text-[10px] sm:text-[11px]" : "text-xs sm:text-sm"}`}>{language === "es" ? "Miembros" : "Member"}</span>
+                <span className={`font-semibold leading-none text-foreground ${isSpanish ? "text-[18px] sm:text-[22px] lg:text-[20px] xl:text-[38px]" : "text-[20px] sm:text-[24px] lg:text-[22px] xl:text-[41px]"}`}>50K+</span>
+                <span className={`mt-2 font-medium text-muted-foreground ${isSpanish ? "text-[10px] sm:text-[11px] lg:text-[9px]" : "text-xs sm:text-sm lg:text-[10px] xl:text-sm"}`}>{language === "es" ? "Miembros" : "Member"}</span>
               </div>
               <div className="flex flex-col items-center justify-center border-r border-border px-2 py-1">
-                <span className={`font-semibold leading-none text-foreground ${isSpanish ? "text-[22px] sm:text-[28px] md:text-[38px]" : "text-[24px] sm:text-[30px] md:text-[41px]"}`}>200K+</span>
-                <span className={`mt-2 font-medium text-muted-foreground ${isSpanish ? "text-[10px] sm:text-[11px]" : "text-xs sm:text-sm"}`}>{language === "es" ? "Habilidades" : "Skills Traded"}</span>
+                <span className={`font-semibold leading-none text-foreground ${isSpanish ? "text-[18px] sm:text-[22px] lg:text-[20px] xl:text-[38px]" : "text-[20px] sm:text-[24px] lg:text-[22px] xl:text-[41px]"}`}>200K+</span>
+                <span className={`mt-2 font-medium text-muted-foreground ${isSpanish ? "text-[10px] sm:text-[11px] lg:text-[9px]" : "text-xs sm:text-sm lg:text-[10px] xl:text-sm"}`}>{language === "es" ? "Habilidades" : "Skills Traded"}</span>
               </div>
               <div className="flex flex-col items-center justify-center px-2 py-1">
-                <span className={`font-semibold leading-none text-foreground ${isSpanish ? "text-[22px] sm:text-[28px] md:text-[38px]" : "text-[24px] sm:text-[30px] md:text-[41px]"}`}>4.8</span>
-                <span className={`mt-2 font-medium text-muted-foreground ${isSpanish ? "text-[10px] sm:text-[11px]" : "text-xs sm:text-sm"}`}>{language === "es" ? "Valoración" : "Average Rating"}</span>
+                <span className={`font-semibold leading-none text-foreground ${isSpanish ? "text-[18px] sm:text-[22px] lg:text-[20px] xl:text-[38px]" : "text-[20px] sm:text-[24px] lg:text-[22px] xl:text-[41px]"}`}>4.8</span>
+                <span className={`mt-2 font-medium text-muted-foreground ${isSpanish ? "text-[10px] sm:text-[11px] lg:text-[9px]" : "text-xs sm:text-sm lg:text-[10px] xl:text-sm"}`}>{language === "es" ? "Valoración" : "Average Rating"}</span>
               </div>
             </motion.div>
           </motion.div>
 
           {/* Right visual panel */}
-          <div className="relative mx-auto h-80 w-full self-start sm:h-[420px] md:h-[520px] lg:h-[700px] xl:h-[700px] xl:self-end">
+          <div className="relative mx-auto h-80 w-full self-start sm:h-[420px] md:h-[520px] lg:h-[700px] xl:h-[760px] 2xl:h-[700px] xl:self-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}

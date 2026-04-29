@@ -26,12 +26,12 @@ export default function AboutPage() {
                             : "DreMarr was inspired by real life, where doing hair helped a daughter stay in competitive cheer, and electrical work was traded to meet everyday needs. We built this platform so anyone can turn their skills into real value."}
                     </p>
                     <div className="flex gap-3 flex-wrap">
-                        <Button className="bg-[#3d5a4c] hover:bg-[#2e4439] text-white rounded-full px-6 py-2 text-sm font-semibold">
+                        <Button className="bg-[#738C88] hover:bg-[#738C88] text-white rounded-full px-6 py-2 text-sm font-semibold">
                             {isSpanish ? "Unete a la comunidad" : "Join The Community"}
                         </Button>
                         <Button
                             variant="outline"
-                            className="border-[#3d5a4c] text-[#3d5a4c] dark:text-[#9cc3b6] dark:border-[#9cc3b6] hover:bg-[#3d5a4c] hover:text-white rounded-full px-6 py-2 text-sm font-semibold"
+                            className="border-[#3d5a4c] text-[#3d5a4c] dark:text-[#9cc3b6] dark:border-[#9cc3b6]  rounded-full px-6 py-2 text-sm font-semibold"
                         >
                             {isSpanish ? "Comienza a intercambiar habilidades" : "Start Trading Skills"}
                         </Button>
@@ -113,7 +113,7 @@ export default function AboutPage() {
 
                 {/* Right — founder photo */}
                 <div className="flex flex-col items-center mt-0 md:mt-14">
-                    <div className="rounded-2xl overflow-hidden shadow-md w-full max-w-xs border-2 border-muted-foreground">
+                    <div className="rounded-2xl overflow-hidden shadow-md w-full max-w-xs border-2 border-[#738C88]">
                         <Image
                             src="/about.png"
                             alt="Andrew and Tamara"

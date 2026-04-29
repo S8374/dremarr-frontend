@@ -7,7 +7,7 @@ export default function EditProfilePage() {
   const data = profileData;
 
   return (
-    <div className="min-h-[calc(100vh-80px)] bg-[#fcfdfe] dark:bg-background">
+    <div className="min-h-[calc(100vh-80px)] bg-background">
       <div className="container py-8 md:py-16">
         <EditProfileForm data={data} />
       </div>

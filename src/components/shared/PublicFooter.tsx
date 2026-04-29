@@ -13,15 +13,15 @@ export default function Footer() {
     if (pathname === "/messages") return null;
 
     const quickLinks = [
-        { href: "/#", label: isSpanish ? "Mercado" : "Marketplace" },
+        { href: "/marketplace", label: isSpanish ? "Mercado" : "Marketplace" },
         // marketplace
-        { href: "/#", label: isSpanish ? "Membresia" : "Membership" },
+        { href: "/membership", label: isSpanish ? "Membresia" : "Membership" },
         // membership
-        { href: "/#", label: isSpanish ? "Mensajes" : "Message" },
+        { href: "/messages", label: isSpanish ? "Mensajes" : "Message" },
         // messages
-        { href: "/#", label: isSpanish ? "Nuestra historia" : "Our story" },
+        { href: "/about-us", label: isSpanish ? "Nuestra historia" : "Our story" },
         // about
-        { href: "/#", label: isSpanish ? "Soporte" : "Support" },
+        { href: "/support", label: isSpanish ? "Soporte" : "Support" },
         // support
     ];
 
@@ -40,7 +40,7 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold text-white">{isSpanish ? "Enlaces" : "Quick Links"}</h3>
                         <ul className="mt-5 grid justify-center gap-3 text-[#c8d0d5] md:block md:space-y-3">
                             {quickLinks.map((item) => (
-                                <li key={item.href}>
+                                <li key={item.label}>
                                     <Link href={item.href} className="inline-block min-w-[150px] text-center transition-colors hover:text-white md:min-w-0 md:text-left">
                                         {item.label}
                                     </Link>
@@ -90,6 +90,7 @@ export default function Footer() {
                                 type="email"
                                 placeholder={isSpanish ? "Tu correo" : "Your email"}
                                 className="h-full flex-1 bg-transparent px-5 text-[14px] text-white placeholder:text-[#c4cbd0] focus:outline-none"
+                                suppressHydrationWarning
                             />
                             <button
                                 type="button"
@@ -109,16 +110,16 @@ export default function Footer() {
                             <span>hello@dremmarr.com</span>
                         </div>
                         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 lg:justify-end">
-                            {/* terms */}
-                            <Link href="/#" className="transition-colors hover:text-white">
+                            {/* terms-conditions */}
+                            <Link href="/terms-conditions" className="transition-colors hover:text-white">
                                 {isSpanish ? "Terminos y condiciones" : "Terms & conditions"}
                             </Link>
-                            {/* privacy */}
-                            <Link href="/#" className="transition-colors hover:text-white">
+                            {/* privacy-policy */}
+                            <Link href="/privacy-policy" className="transition-colors hover:text-white">
                                 {isSpanish ? "Politica de privacidad" : "Privacy Policy"}
                             </Link>
                             {/* about */}
-                            <Link href="/#" className="transition-colors hover:text-white">
+                            <Link href="/about-us" className="transition-colors hover:text-white">
                                 {isSpanish ? "Sobre nosotros" : "About Us"}
                             </Link>
                         </div>

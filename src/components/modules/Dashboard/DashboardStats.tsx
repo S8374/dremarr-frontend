@@ -1,3 +1,6 @@
+"use client";
+
+import { useLanguage } from "@/components/shared/language-provider";
 import { dashboardStats } from "./dashboard-data";
 import { Eye, MessageCircle, ShoppingBag, Star } from "lucide-react";
 
@@ -16,22 +19,38 @@ const bgMap: Record<string, string> = {
 };
 
 export default function DashboardStats() {
+  const { language } = useLanguage();
+  const isSpanish = language === "es";
+
+  const getStatLabel = (label: string) => {
+    if (isSpanish) {
+      switch (label) {
+        case "Total Views": return "Vistas Totales";
+        case "Responses": return "Respuestas";
+        case "Rating": return "Calificación";
+        case "Active Listings": return "Anuncios Activos";
+        default: return label;
+      }
+    }
+    return label;
+  };
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {dashboardStats.map((stat) => (
         <div
           key={stat.id}
-          className="flex items-center justify-between rounded-2xl border border-slate-100 bg-white px-6 py-6 shadow-sm hover:shadow-md transition-all"
+          className="flex items-center justify-between rounded-2xl border border-border bg-card px-6 py-7 shadow-sm hover:shadow-md transition-all duration-300"
         >
           <div className="flex flex-col gap-1">
-            <span className="text-[12px] font-bold text-slate-400 capitalize">
-              {stat.label}
+            <span className="text-[12px] font-bold text-muted-foreground uppercase tracking-wider">
+              {getStatLabel(stat.label)}
             </span>
-            <span className="text-[28px] font-bold text-slate-800 tracking-tight heading">
+            <span className="text-[28px] font-bold text-foreground tracking-tight">
               {stat.value}
             </span>
           </div>
-          <div className={`h-11 w-11 flex items-center justify-center rounded-full shadow-sm ${bgMap[stat.icon]}`}>
+          <div className={`h-12 w-12 flex items-center justify-center rounded-full shadow-sm ${bgMap[stat.icon]}`}>
             {iconMap[stat.icon]}
           </div>
         </div>

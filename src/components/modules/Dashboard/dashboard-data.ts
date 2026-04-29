@@ -40,7 +40,7 @@ export const orderHistory = [
     id: 2,
     title: "I will fix plumbing issues and install pipes professionally",
     status: "Completed",
-    date: "01-01-2025",
+    date: "01-01-2026",
     image:
       "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=400",
   },
@@ -48,8 +48,8 @@ export const orderHistory = [
 
 export const quickActions = [
   { id: 1, label: "Create new listing", icon: "list-plus", href: "/create-listing", badge: null },
-  { id: 2, label: "View messages", icon: "mail", href: "/messages", badge: 3 },
-  { id: 3, label: "Check Orders", icon: "shopping-bag", href: "/orders", badge: 2 },
+  { id: 2, label: "View messages", icon: "mail", href: "/messages", badge: 2 },
+  { id: 3, label: "Check Orders", icon: "shopping-bag", href: "/orders", badge: 1 },
   { id: 4, label: "Edit Profile", icon: "user-pen", href: "/edit-profile", badge: null },
 ];
 
@@ -58,7 +58,7 @@ export const notifications = [
     id: 1,
     user: "Killian James",
     avatar: "https://i.pravatar.cc/150?u=killan",
-    message: "You have received a delivery request from Ahmad Medi.",
+    message: "You have received a delivery request from Ahmed Medi.",
     time: "10 mins ago",
     actions: ["Decline", "Accept"],
   },

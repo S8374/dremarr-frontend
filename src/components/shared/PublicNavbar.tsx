@@ -16,14 +16,21 @@ import logo from "@/assets/logo/logo.png";
 import { useLanguage } from "./language-provider";
 
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const PublicNavbar = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const [mounted, setMounted] = useState(false);
   const { theme, resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const { language, setLanguage } = useLanguage();
   const isSpanish = language === "es";
-  const modeLabel = theme ? theme.charAt(0).toUpperCase() + theme.slice(1) : "Theme";
+  const modeLabel = mounted && theme ? theme.charAt(0).toUpperCase() + theme.slice(1) : "Theme";
   const languageLabel = isSpanish ? "Español" : "English";
 
   const navItems = [

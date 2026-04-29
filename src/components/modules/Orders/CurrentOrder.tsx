@@ -55,61 +55,61 @@ export default function CurrentOrder() {
     <div className="flex flex-col gap-10 pb-16">
       {/* Header */}
       <div>
-        <h1 className="text-[30px] font-bold text-slate-900 dark:text-white tracking-tight heading">
+        <h1 className="text-[30px] font-bold text-foreground tracking-tight">
           {labels.title}
         </h1>
-        <p className="text-[15px] font-bold text-slate-400 mt-1">
+        <p className="text-[15px]  text-muted-foreground mt-1">
           {labels.subtitle}
         </p>
       </div>
 
       {/* Primary Card - Order Details */}
-      <div className="rounded-[24px] bg-[#f2f4f5] dark:bg-card/50 p-10 flex flex-col gap-8">
+      <div className="rounded-[24px] bg-muted/30 p-10 flex flex-col gap-8 border border-border">
         <div>
-           <h2 className="text-[17px] font-bold text-slate-800 dark:text-white mb-6">
+           <h2 className="text-[17px] font-bold text-foreground mb-6">
              {labels.orderDetails}
            </h2>
-           <div className="bg-white dark:bg-card h-[60px] flex items-center px-6 rounded-xl border border-slate-100 dark:border-border/40 shadow-sm w-fit gap-2">
-              <span className="text-[14px] font-bold text-slate-900 dark:text-white">{labels.you}</span>
-              <span className="text-[14px] font-bold text-slate-400">{labels.exchangeWith}</span>
+           <div className="bg-card h-[60px] flex items-center px-6 rounded-xl border border-border shadow-sm w-fit gap-2">
+              <span className="text-[14px] font-bold text-foreground">{labels.you}</span>
+              <span className="text-[14px]  text-muted-foreground">{labels.exchangeWith}</span>
               <div className="flex items-center gap-3">
                  <Avatar className="h-8 w-8">
                     <AvatarImage src="https://i.pravatar.cc/150?u=killan" alt="Killan" />
                     <AvatarFallback>KJ</AvatarFallback>
                  </Avatar>
-                 <span className="text-[14px] font-bold text-slate-800 dark:text-white">Killan James</span>
+                 <span className="text-[14px] font-bold text-foreground">Killan James</span>
               </div>
            </div>
         </div>
 
         <div>
-            <h2 className="text-[17px] font-bold text-slate-800 dark:text-white mb-6">
+            <h2 className="text-[17px] font-bold text-foreground mb-6">
                 {labels.exchangeSummary}
             </h2>
             <div className="flex flex-col gap-6">
                 <div className="flex flex-wrap gap-4">
-                    <div className="bg-white dark:bg-card h-[46px] flex items-center px-8 rounded-xl border border-slate-100 dark:border-border/40 shadow-sm min-w-[200px]">
-                        <span className="text-[14px] font-bold text-slate-500">{isSpanish ? "En 3 días" : "Within 3 Days"}</span>
+                    <div className="bg-card h-[46px] flex items-center px-8 rounded-xl border border-border shadow-sm min-w-[200px]">
+                        <span className="text-[14px]  text-muted-foreground">{isSpanish ? "En 3 días" : "Within 3 Days"}</span>
                     </div>
-                    <div className="bg-white dark:bg-card h-[46px] flex items-center px-8 rounded-xl border border-slate-100 dark:border-border/40 shadow-sm min-w-[200px]">
-                        <span className="text-[14px] font-bold text-slate-500">Miami, FL</span>
+                    <div className="bg-card h-[46px] flex items-center px-8 rounded-xl border border-border shadow-sm min-w-[200px]">
+                        <span className="text-[14px]  text-muted-foreground">Miami, FL</span>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-white dark:bg-card p-10 rounded-[20px] border border-slate-100 dark:border-border/40 shadow-sm flex flex-col gap-6 min-h-[400px]">
-                        <h4 className="text-[18px] font-bold text-slate-800 dark:text-white pb-6 border-b border-slate-50 dark:border-border/20">
+                    <div className="bg-card p-10 rounded-[20px] border border-border shadow-sm flex flex-col gap-6 min-h-[400px]">
+                        <h4 className="text-[18px] font-bold text-foreground pb-6 border-b border-border/50">
                             {labels.whatYouBring}
                         </h4>
-                        <p className="text-[14px] font-bold text-slate-400 leading-relaxed">
+                        <p className="text-[14px]  text-muted-foreground leading-relaxed">
                             {labels.bringDesc}
                         </p>
                     </div>
-                    <div className="bg-white dark:bg-card p-10 rounded-[20px] border border-slate-100 dark:border-border/40 shadow-sm flex flex-col gap-6 min-h-[400px]">
-                        <h4 className="text-[18px] font-bold text-slate-800 dark:text-white pb-6 border-b border-slate-50 dark:border-border/20">
+                    <div className="bg-card p-10 rounded-[20px] border border-border shadow-sm flex flex-col gap-6 min-h-[400px]">
+                        <h4 className="text-[18px] font-bold text-foreground pb-6 border-b border-border/50">
                             {labels.whatYouGet}
                         </h4>
-                        <p className="text-[14px] font-bold text-slate-400 leading-relaxed">
+                        <p className="text-[14px]  text-muted-foreground leading-relaxed">
                             {labels.returnDesc}
                         </p>
                     </div>
@@ -119,12 +119,12 @@ export default function CurrentOrder() {
       </div>
 
       {/* Proof Section */}
-      <div className="rounded-[24px] bg-[#f2f4f5] dark:bg-card/50 p-10 flex flex-col gap-8">
-         <h2 className="text-[17px] font-bold text-slate-800 dark:text-white">
+      <div className="rounded-[24px] bg-muted/30 p-10 flex flex-col gap-8 border border-border">
+         <h2 className="text-[17px] font-bold text-foreground">
             {labels.uploadProof}
          </h2>
          <div className="flex flex-col gap-6">
-            <div className="bg-white dark:bg-card p-4 rounded-[18px] border border-slate-100 dark:border-border/40 shadow-sm flex items-center gap-6">
+            <div className="bg-card p-4 rounded-[18px] border border-border shadow-sm flex items-center gap-6">
                 <div className="relative h-[110px] w-[150px] shrink-0 rounded-[14px] overflow-hidden">
                     <Image
                         src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=400"
@@ -133,7 +133,7 @@ export default function CurrentOrder() {
                         className="object-cover"
                     />
                 </div>
-                <p className="text-[17px] font-bold text-slate-800 dark:text-white">
+                <p className="text-[17px] font-bold text-foreground">
                     I will fix plumbing issues and install pipes professionally
                 </p>
             </div>
@@ -145,8 +145,8 @@ export default function CurrentOrder() {
                 onClick={() => fileInputRef.current?.click()}
                 className={`relative flex flex-col items-center justify-center w-full min-h-[260px] rounded-[24px] border-2 border-dashed transition-all cursor-pointer ${
                 dragging
-                    ? "border-[#728e85] bg-[#728e85]/5"
-                    : "border-slate-300 bg-white dark:bg-card dark:border-border/60"
+                    ? "border-brand bg-brand/5"
+                    : "border-border bg-card hover:border-brand/50"
                 }`}
             >
                 <input
@@ -155,18 +155,18 @@ export default function CurrentOrder() {
                     className="hidden"
                     onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
                 />
-                <div className="p-4 bg-slate-50 dark:bg-muted/10 rounded-full mb-6">
-                     <UploadCloud className="h-14 w-14 text-slate-400" />
+                <div className="p-4 bg-muted rounded-full mb-6">
+                     <UploadCloud className="h-14 w-14 text-muted-foreground" />
                 </div>
                 {file ? (
-                <p className="text-[15px] font-bold text-[#728e85]">{file.name}</p>
+                <p className="text-[15px] font-bold text-brand">{file.name}</p>
                 ) : (
                 <div className="text-center">
-                    <p className="text-[17px] font-bold text-slate-400">
+                    <p className="text-[17px]  text-muted-foreground">
                         {labels.dragDrop}
                     </p>
-                    <p className="text-[17px] font-bold text-slate-400">
-                        {isSpanish ? "o " : "or "}<span className="text-[#728e85]">{labels.browse}</span>
+                    <p className="text-[17px]  text-muted-foreground">
+                        {isSpanish ? "o " : "or "}<span className="text-brand">{labels.browse}</span>
                     </p>
                 </div>
                 )}
@@ -175,7 +175,7 @@ export default function CurrentOrder() {
             <div className="flex justify-end pt-4">
                 <Button
                     onClick={handleDeliver}
-                    className="h-12 px-8 rounded-full bg-[#728e85] hover:bg-[#5f7e75] text-white font-bold text-[15px] shadow-sm transition-all"
+                    className="h-12 px-8 rounded-full bg-brand hover:bg-brand/90 text-white font-bold text-[15px] shadow-sm transition-all"
                 >
                     {labels.deliver}
                 </Button>
